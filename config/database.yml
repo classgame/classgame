@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   host: localhost
   username: <%= ENV["USER_DATABASE"] %>
-  password: 'rogalabs'
+  password: 'learning'
   pool: 5
 
 development:
