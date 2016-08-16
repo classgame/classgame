@@ -4,5 +4,10 @@
 * 2.2.1
 ## Rails Version ##
 * 4.2.3
+-------------
 
-If you are working in a new local, configure your database.yml. Change the password column for the same password of your MySql Database.
+## Configuration ##
+
+*database.yml
+
+  If you are working in a new local, configure your database.yml. Change the password column for the same password of your MySql Database.
