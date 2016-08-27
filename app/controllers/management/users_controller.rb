@@ -1,5 +1,6 @@
-class UsersController < ApplicationController
+class Management::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -57,6 +58,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :telephone, :cpf, :birthday)
+      params.require(:user).permit(:name, :username, :email, :telephone, :cpf)
     end
 end
