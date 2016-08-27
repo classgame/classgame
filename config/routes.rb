@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  namespace:management do
+  namespace :management do
     resources :users
   end
 

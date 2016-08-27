@@ -1,6 +1,6 @@
 class Management::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -14,6 +14,7 @@ class Management::UsersController < ApplicationController
   end
 
   def edit
+    require 'pry'; binding.pry
   end
 
   def create
