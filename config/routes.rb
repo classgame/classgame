@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
+  root 'management/users#index'
+
   devise_for :users
 
-  namespace :management do
-    resources :users
-  end
+
+    namespace :management do
+      resources :users
+    end
 
 
-  root 'management/users#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
