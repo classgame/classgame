@@ -3,8 +3,6 @@ class AddDeviseToUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name, null: false, default: ""
       t.string :username, null: false, default:""
-      t.string :cpf, null: false, default: ""
-      t.string :telephone, null: false, default: ""
       t.timestamps null:false
     end
 

@@ -1,57 +1,13 @@
-<%= simple_form_for(@user, url: url, html: { method: html_method }) do |f| %>
-  <%= modal_errors(@user) %>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
 
-  <div class="form-group">
-    <%= f.label :name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:name) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :username, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :username, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:username) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :email, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :email, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:email) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :telephone, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :telephone, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:telephone) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :cpf, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :cpf, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:cpf) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :password,
-                       :class => 'form-control'
-                        %>
-    </div>
-    <%=f.error_span(:password) %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :username %>
   </div>
 
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                management_users_path, :class => 'btn btn-default' %>
-    </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
-
 <% end %>

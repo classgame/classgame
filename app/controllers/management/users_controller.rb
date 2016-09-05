@@ -40,9 +40,7 @@ class Management::UsersController < Management::ManagementBaseController
     def user_params
       params.require(:user).permit(:name,
                                    :username,
-                                   :email,
-                                   :telephone,
-                                   :cpf
+                                   :email
       )
     end
 end
