@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'management/users#index'
+  root 'users#index'
 
   devise_for :users
 
-
-    namespace :management do
-      resources :users
-    end
+  resources :users
 
 
   # Example of regular route:
