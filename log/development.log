@@ -2814,3 +2814,121 @@ ActionController::RoutingError (No route matches [POST] "/"):
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
   [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+
+
+Started GET "/users/sign_in" for 192.168.33.1 at 2016-09-23 13:26:26 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.6) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.6) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:59:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.6) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:9:in `require'
+  bin/rails:9:in `<main>'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.9ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.9ms)
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (5.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddDeviseToUsers (20160827193034)
+  [1m[35m (1.7ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL, `cpf` varchar(255) DEFAULT '' NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (2.6ms)[0m  [1mALTER TABLE `users` ADD `email` varchar(255) DEFAULT '' NOT NULL[0m
+  [1m[35m (2.1ms)[0m  ALTER TABLE `users` ADD `encrypted_password` varchar(255) DEFAULT '' NOT NULL
+  [1m[36m (2.4ms)[0m  [1mALTER TABLE `users` ADD `reset_password_token` varchar(255)[0m
+  [1m[35m (3.7ms)[0m  ALTER TABLE `users` ADD `reset_password_sent_at` datetime
+  [1m[36m (2.4ms)[0m  [1mALTER TABLE `users` ADD `remember_created_at` datetime[0m
+  [1m[35m (2.3ms)[0m  ALTER TABLE `users` ADD `sign_in_count` int(11) DEFAULT 0 NOT NULL
+  [1m[36m (3.2ms)[0m  [1mALTER TABLE `users` ADD `current_sign_in_at` datetime[0m
+  [1m[35m (2.9ms)[0m  ALTER TABLE `users` ADD `last_sign_in_at` datetime
+  [1m[36m (3.2ms)[0m  [1mALTER TABLE `users` ADD `current_sign_in_ip` varchar(255)[0m
+  [1m[35m (3.0ms)[0m  ALTER TABLE `users` ADD `last_sign_in_ip` varchar(255)
+  [1m[36m (5.3ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (23.6ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) 
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160827193034')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'learning_games_dev'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/users/sign_in" for 192.168.33.1 at 2016-09-23 13:27:23 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (93.7ms)
+Completed 200 OK in 1988ms (Views: 1949.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_up" for 192.168.33.1 at 2016-09-23 13:27:28 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 167ms (Views: 165.7ms | ActiveRecord: 0.0ms)
