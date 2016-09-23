@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :registries
+  resources :courses
   root 'users#index'
 
   devise_for :users
