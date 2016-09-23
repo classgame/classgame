@@ -2,10 +2,12 @@ class AddAssociationUserCourseThroughRegistry < ActiveRecord::Migration
   def change
     create_table :courses do |t|
       t.string :title
+      t.string :description
       t.string :nivel
       t.integer :workload 
       t.boolean :active
       t.boolean :completed_edition
+      t.belongs_to :category, index: true
       t.timestamps
     end
   

@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :course do
     title "MyString"
+    description "MyString"
     nivel "MyString"
     workload 1
     active false

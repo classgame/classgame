@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Description</th>
       <th>Nivel</th>
       <th>Workload</th>
       <th>Active</th>
@@ -18,6 +19,7 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.title %></td>
+        <td><%= course.description %></td>
         <td><%= course.nivel %></td>
         <td><%= course.workload %></td>
         <td><%= course.active %></td>
