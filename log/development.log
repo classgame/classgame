@@ -4762,3 +4762,260 @@ Processing by CoursesController#index as HTML
   [1m[36mCourse Load (0.3ms)[0m  [1mSELECT `courses`.* FROM `courses`[0m
   Rendered courses/index.html.erb within layouts/application (2.0ms)
 Completed 200 OK in 166ms (Views: 163.9ms | ActiveRecord: 0.5ms)
+  [1m[36m (28.9ms)[0m  [1mCREATE DATABASE `learning_games_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+  [1m[36m (173.7ms)[0m  [1mDROP DATABASE IF EXISTS `learning_games_dev`[0m
+  [1m[35m (4.1ms)[0m  DROP DATABASE IF EXISTS `learning_games_test`
+  [1m[36m (0.3ms)[0m  [1mCREATE DATABASE `learning_games_dev` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+  [1m[35m (0.3ms)[0m  CREATE DATABASE `learning_games_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (28.8ms)[0m  [1mCREATE TABLE `categories` (`id` int(11) auto_increment PRIMARY KEY, `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (14.3ms)[0m  CREATE TABLE `courses` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `description` varchar(255), `nivel` varchar(255), `workload` int(11), `active` tinyint(1), `completed_edition` tinyint(1), `category_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (9.5ms)[0m  [1mCREATE  INDEX `index_courses_on_category_id` USING btree ON `courses` (`category_id`) [0m
+  [1m[35m (15.0ms)[0m  CREATE TABLE `registries` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `course_id` int(11), `active` tinyint(1), `finished_course` tinyint(1), `limit_date` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (8.7ms)[0m  [1mCREATE  INDEX `index_registries_on_course_id` USING btree ON `registries` (`course_id`) [0m
+  [1m[35m (9.6ms)[0m  CREATE  INDEX `index_registries_on_user_id` USING btree ON `registries` (`user_id`) 
+  [1m[36m (14.2ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL, `cpf` varchar(255) DEFAULT '' NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (12.4ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` USING btree ON `users` (`email`) 
+  [1m[36m (8.8ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_reset_password_token` USING btree ON `users` (`reset_password_token`) [0m
+  [1m[35m (17.8ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (22.6ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (4.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160923194704')[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160923135503')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160827193034')[0m
+  [1m[35m (14.5ms)[0m  CREATE TABLE `categories` (`id` int(11) auto_increment PRIMARY KEY, `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (33.9ms)[0m  [1mCREATE TABLE `courses` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `description` varchar(255), `nivel` varchar(255), `workload` int(11), `active` tinyint(1), `completed_edition` tinyint(1), `category_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (12.2ms)[0m  CREATE  INDEX `index_courses_on_category_id` USING btree ON `courses` (`category_id`) 
+  [1m[36m (18.7ms)[0m  [1mCREATE TABLE `registries` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `course_id` int(11), `active` tinyint(1), `finished_course` tinyint(1), `limit_date` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (15.2ms)[0m  CREATE  INDEX `index_registries_on_course_id` USING btree ON `registries` (`course_id`) 
+  [1m[36m (11.3ms)[0m  [1mCREATE  INDEX `index_registries_on_user_id` USING btree ON `registries` (`user_id`) [0m
+  [1m[35m (16.0ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL, `cpf` varchar(255) DEFAULT '' NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255)) ENGINE=InnoDB
+  [1m[36m (8.2ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email` USING btree ON `users` (`email`) [0m
+  [1m[35m (10.0ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token` USING btree ON `users` (`reset_password_token`) 
+  [1m[36m (14.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (19.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (2.7ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160923194704')
+  [1m[36m (2.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160923135503')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160827193034')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.3ms)[0m  SELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1
+  [1m[36mRegistry Load (0.4ms)[0m  [1mSELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.4ms)[0m  SELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at 2016-09-23 20:53:11 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 53ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-09-23 20:53:11 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.1.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (96.5ms)
+Completed 200 OK in 1192ms (Views: 1175.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/images/favicon.ico" for 127.0.0.1 at 2016-09-23 20:53:13 -0300
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.6) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:9:in `require'
+  bin/rails:9:in `<main>'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (71.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-09-23 20:53:15 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/2.1.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 41ms (Views: 39.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-09-23 20:53:25 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bss3D1NsAXWRpej84A6K1JMQuDAIn2E8HqMUFyP1bXjsRYdo+QigG1ow6mHHIAJ/xLPknUJDHUJ45B1lQEJmbA==", "user"=>{"email"=>"valterinside@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (18.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'valterinside@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('valterinside@gmail.com', '$2a$11$HPGOa8Ce/7wveghEL4MVFereM50yJkzYJX/lvjRJ5OuCnP6szBQk.', '2016-09-23 23:53:26', '2016-09-23 23:53:26')
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-09-23 23:53:26', `current_sign_in_at` = '2016-09-23 23:53:26', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2016-09-23 23:53:26' WHERE `users`.`id` = 1[0m
+  [1m[35m (2.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 408ms (ActiveRecord: 25.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-09-23 20:53:26 -0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2016-09-23 20:53:34 -0300
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT `courses`.* FROM `courses`
+  Rendered courses/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 38ms (Views: 32.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2016-09-23 20:53:35 -0300
+Processing by CoursesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered courses/_form.html.erb (134.8ms)
+  Rendered courses/new.html.erb within layouts/application (136.1ms)
+Completed 200 OK in 171ms (Views: 157.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2016-09-23 20:54:35 -0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q250lFUutyziZbywfSlaXODfDRreZJlWXeTCZWp6W8sp4MTz/0oWQinwvi1aB9L3t3xRt5S45Sg7o8sXCc1Q3w==", "course"=>{"title"=>"Rails on Ruby", "description"=>"The best course to Rails on Ruby", "nivel"=>"Hard", "workload"=>"24", "active"=>"1", "completed_edition"=>"1"}, "commit"=>"Create Course"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `courses` (`title`, `description`, `nivel`, `workload`, `active`, `completed_edition`, `created_at`, `updated_at`) VALUES ('Rails on Ruby', 'The best course to Rails on Ruby', 'Hard', 24, 1, 1, '2016-09-23 23:54:35', '2016-09-23 23:54:35')
+  [1m[36m (17.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 27ms (ActiveRecord: 18.4ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2016-09-23 20:54:35 -0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendered courses/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 52ms (Views: 22.0ms | ActiveRecord: 0.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`, `created_at`, `updated_at`) VALUES (1, 0, '30/09/2016', 1, 1, '2016-09-23 23:59:21', '2016-09-23 23:59:21')
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mRegistry Load (0.4ms)[0m  SELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1
+  [1m[36mRegistry Load (0.4ms)[0m  [1mSELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRegistry Load (0.4ms)[0m  [1mSELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRegistry Load (0.4ms)[0m  [1mSELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRegistry Load (0.4ms)[0m  [1mSELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRegistry Load (0.4ms)[0m  [1mSELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1
+
+
+Started GET "/registries" for 127.0.0.1 at 2016-09-23 21:01:07 -0300
+Processing by RegistriesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mRegistry Load (0.1ms)[0m  [1mSELECT `registries`.* FROM `registries`[0m
+  Rendered registries/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 27ms (Views: 21.3ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `categories` (`category`, `created_at`, `updated_at`) VALUES ('Tech', '2016-09-24 00:01:30', '2016-09-24 00:01:30')
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `courses` (`category_id`, `created_at`, `updated_at`) VALUES (1, '2016-09-24 00:09:37', '2016-09-24 00:09:37')[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT `categories`.* FROM `categories`[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1[0m
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE `courses` SET `category_id` = 1, `updated_at` = '2016-09-24 00:20:37' WHERE `courses`.`id` = 1
+  [1m[36m (18.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  `categories`.* FROM `categories`  ORDER BY `categories`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses`  ORDER BY `courses`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
