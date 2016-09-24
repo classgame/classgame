@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Active</th>
-      <th>Finished course</th>
+      <th>Name Course</th>
       <th>Limit date</th>
       <th colspan="3"></th>
     </tr>
@@ -15,8 +14,7 @@
   <tbody>
     <% @registries.each do |registry| %>
       <tr>
-        <td><%= registry.active %></td>
-        <td><%= registry.finished_course %></td>
+        <td><%= registry.course.title%></td>
         <td><%= registry.limit_date %></td>
         <td><%= link_to 'Show', registry %></td>
         <td><%= link_to 'Edit', edit_registry_path(registry) %></td>

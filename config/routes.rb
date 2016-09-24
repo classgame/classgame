@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :users
 
+  #integrations user course through registry
+  get '/all:id', to: 'registries#reg_user_course', as:'reg_user_course'   
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

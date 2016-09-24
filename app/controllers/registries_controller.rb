@@ -1,10 +1,23 @@
 class RegistriesController < ApplicationController
   before_action :set_registry, only: [:show, :edit, :update, :destroy]
 
+  #Registry user course
+  def reg_user_course
+    @course = Course.find(params[:id])
+    @user = User.find(current_user.id) 
+    @registry = Registry.create(active:true,finished_course:false,limit_date:"30/09/2017",user:@user,course:@course)
+    #flash[:notice] = "Cadastrado com Sucesso sqn"
+    respond_to do |format|
+      format.html { redirect_to registries_url, notice: "Inscrição feita com sucesso!" }
+      format.json { head :no_content }
+    end
+  end
+
   # GET /registries
   # GET /registries.json
   def index
-    @registries = Registry.all
+    #@registries = Registry.all
+    @registries = Registry.where(user_id: current_user.id) #Filter registration in course through users
   end
 
   # GET /registries/1
@@ -69,6 +82,6 @@ class RegistriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def registry_params
-      params.require(:registry).permit(:active, :finished_course, :limit_date)
+      params.require(:registry).permit(:active, :finished_course, :limit_date, :course_id)
     end
 end

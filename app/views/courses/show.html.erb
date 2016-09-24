@@ -29,6 +29,6 @@
   <strong>Completed edition:</strong>
   <%= @course.completed_edition %>
 </p>
-
+<%= link_to 'Cadastrar-se', reg_user_course_path(@course) %> <!--TODO Redirect to controller action create from registry--!>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
