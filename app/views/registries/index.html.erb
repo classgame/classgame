@@ -13,6 +13,7 @@
   <tbody>
     <% @registries.each do |registry| %>
       <tr>
+        <td><%= link_to registry.course.title, registry.course %></td>
         <td><%= registry.limit_date %></td>
         <td><%= link_to 'Show', registry %></td>
         <td><%= link_to 'Edit', edit_registry_path(registry) %></td>
