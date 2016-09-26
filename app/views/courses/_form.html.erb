@@ -15,6 +15,9 @@
 
     <%= f.input :completed_edition %>
 
+    <div class="field">  
+      <%= f.collection_select :category_id, @category, :id ,:category%> <!--select list all categories for courses--> 
+    </div>
   </div>
 
   <div class="form-actions">

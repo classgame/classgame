@@ -11,6 +11,7 @@
       <th>Workload</th>
       <th>Active</th>
       <th>Completed edition</th>
+      <th>Category</th>  
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
         <td><%= course.workload %></td>
         <td><%= course.active %></td>
         <td><%= course.completed_edition %></td>
+        <td><%= link_to course.category.category,course.category %></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>

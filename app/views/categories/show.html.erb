@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @category.category %>
+  <strong>Cursos:</strong>
+  <% @category.courses.each do |course|%> <!--Necessary interate because one category have many courses-->
+    <%= link_to course.title, course%>
+  <%end%>  
 </p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
