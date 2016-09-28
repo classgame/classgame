@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160923194704) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "image",             limit: 255
+    t.string   "trailer",           limit: 255
     t.string   "title",             limit: 255
     t.string   "description",       limit: 255
     t.string   "nivel",             limit: 255

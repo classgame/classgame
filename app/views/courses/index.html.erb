@@ -25,7 +25,7 @@
         <td><%= course.workload %></td>
         <td><%= course.active %></td>
         <td><%= course.completed_edition %></td>
-        <td><%= link_to course.category.category,course.category %></td>
+        <td><%= link_to course.category.title,course.category %></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>

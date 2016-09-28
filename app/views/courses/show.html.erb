@@ -1,40 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @course.title %>
+  <%= link_to @course.category.title, @course.category %>
 </p>
 
+<h1 class="course_banner_title"><%= @course.title %></h1>
+
 <p>
-  <strong>Description:</strong>
   <%= @course.description %>
 </p>
 
-<p>
-  <strong>Nivel:</strong>
-  <%= @course.nivel %>
-</p>
-
-<p>
-  <strong>Workload:</strong>
-  <%= @course.workload %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @course.active %>
-</p>
-
-<p>
-  <strong>Completed edition:</strong>
-  <%= @course.completed_edition %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= link_to @course.category.category, @course.category %>
-</p>
-
-<%= link_to 'Cadastrar-se', reg_user_course_path(@course) %> <!--TODO Redirect to controller action create from registry--!>
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<iframe width="560" height="315" src="<%=@course.trailer%>" frameborder="0" allowfullscreen></iframe>
+<br>
+<%= link_to 'Cadastrar-se', reg_user_course_path(@course), class:"courses" %> <!--TODO Redirect to controller action create from registry--!>
+<!--<%= link_to 'Edit', edit_course_path(@course) %> -->
+<!--<%= link_to 'Back', courses_path %>-->

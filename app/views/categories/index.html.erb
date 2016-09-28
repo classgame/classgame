@@ -1,23 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Categories</h1>
-
-<table>
-  <tbody>
+<h1>Categorias de Cursos</h1>
+<p>Escolha entre as categorias para ver nossos cursos</p>
+  <div class="row">
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.title %></td>
-        <td><%= category.description %> </td>
-        <td><%= image_tag category.image %></td>
-        <td><%= link_to 'Learn more', category %></td>
+      <div class="col-xs-4">
+        <%= image_tag category.image %> <br>
+        <h2> <%= category.title %> </h2>
+        <p><%= category.description %></p> 
+        <p><%= link_to 'Learn more', category, class: "courses" %></p>
         <!--<td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         -->
-      </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  </div>  
+  <br>
 
 <!--<%= link_to 'New Category', new_category_path %>-->

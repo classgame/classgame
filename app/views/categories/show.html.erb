@@ -1,11 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Cursos:</strong>
-  <% @category.courses.each do |course|%> <!--Necessary interate because one category have many courses-->
-    <%= link_to course.title, course%>
-  <%end%>  
-</p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<h1><%=@category.title%></h1>
+  <p>Escolha entre nossos cursos de <%=@category.title%></p>
+  <div class="row">
+  <% @category.courses.each do |course|%> <!--Necessary interate because one category have many courses-->
+    <div class="col-xs-4">
+      <%= image_tag course.image%>
+      <h2><%= course.title%></h2>
+      <p><%= course.description%></p>
+      <p><%= link_to "See more", course, class:"courses"%></p>
+    </div>
+  <%end%>  
+  </div>
+
+
+<!--<%= link_to 'Edit', edit_category_path(@category) %>-->
+<p><%= link_to 'Back', categories_path %></p>
