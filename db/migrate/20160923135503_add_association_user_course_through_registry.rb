@@ -1,6 +1,7 @@
 class AddAssociationUserCourseThroughRegistry < ActiveRecord::Migration
   def change
     create_table :courses do |t|
+      t.string :image
       t.string :title
       t.string :description
       t.string :nivel
@@ -8,6 +9,7 @@ class AddAssociationUserCourseThroughRegistry < ActiveRecord::Migration
       t.boolean :active
       t.boolean :completed_edition
       t.belongs_to :category, index: true
+      
       t.timestamps
     end
      
@@ -17,6 +19,7 @@ class AddAssociationUserCourseThroughRegistry < ActiveRecord::Migration
       t.boolean :active
       t.boolean :finished_course
       t.string :limit_date
+      
       t.timestamps
     end
   end

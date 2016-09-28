@@ -14,12 +14,15 @@
 ActiveRecord::Schema.define(version: 20160923194704) do
 
   create_table "categories", force: :cascade do |t|
-    t.string   "category",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title",       limit: 255
+    t.string   "image",       limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "courses", force: :cascade do |t|
+    t.string   "image",             limit: 255
     t.string   "title",             limit: 255
     t.string   "description",       limit: 255
     t.string   "nivel",             limit: 255
