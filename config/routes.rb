@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   resources :categories
   resources :courses
   resources :registries
-  root 'users#index'
-
   devise_for :users
 
   resources :users
+  root to: 'categories#index'
 
   #integrations user course through registry
-  get '/all:id', to: 'registries#reg_user_course', as:'reg_user_course'   
+  get '/all:id', to: 'registries#reg_user_course', as:'reg_user_course'
+  get '/account', to: 'users#edit'
 
 
   # Example of regular route:
