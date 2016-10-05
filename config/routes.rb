@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :alternatives
+  resources :questions
+  resources :exercises
+  resources :chapters
   root 'users#index'
 
   devise_for :users
