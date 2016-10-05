@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
+    User.create(name: "Jones", email: "jones@gmail.com", password: "123123123", cpf: "08880420332")
     Chapter.create(title: "Best Practices with ruby on rails", description: "what do you know about routes?", experience: "40")
     Content.create(chapter_id: 1)
     Exercise.create(title: "Resolva a questao a seguir", nivel: "hard", experience: "50", content_id: 1)

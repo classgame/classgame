@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Position content</th>
       <th>Description</th>
       <th>Experience</th>
       <th colspan="3"></th>
@@ -17,7 +16,6 @@
     <% @chapters.each do |chapter| %>
       <tr>
         <td><%= chapter.title %></td>
-        <td><%= chapter.position_content %></td>
         <td><%= chapter.description %></td>
         <td><%= chapter.experience %></td>
         <td><%= link_to 'Show', chapter %></td>
