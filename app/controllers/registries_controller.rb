@@ -3,13 +3,19 @@ class RegistriesController < ApplicationController
 
   #Registry user course
   def reg_user_course
-    @course = Course.find(params[:id])
-    @user = User.find(current_user.id) 
-    @registry = Registry.create(active:true,finished_course:false,limit_date:"30/09/2017",user:@user,course:@course)
-    #flash[:notice] = "Cadastrado com Sucesso sqn"
+    time = Time.new #initializing date
+    @course = Course.find(params[:id]) #find for course with params[:id]
+    @user = User.find(current_user.id) #find for user with id of devise
+    
     respond_to do |format|
-      format.html { redirect_to registries_url, notice: "Inscrição feita com sucesso!" }
-      format.json { head :no_content }
+      if Registry.where(user:@user, course:@course) == [] #valid if user already subscribe in course
+          @registry = Registry.create(active:true,finished_course:false,limit_date:time+600_000,user:@user,course:@course)  
+          format.html { redirect_to registries_path, notice: "Inscrição feita com sucesso!" }
+          format.json { render :show, status: :created, location: @registry }
+      else
+          format.html { redirect_to registries_path, notice: "Usuario ja cadastrado no curso!" }
+          format.format.json { render :show, status: :created, location: @registry }
+      end
     end
   end
 

@@ -12,6 +12,6 @@
 
 <iframe width="560" height="315" src="<%=@course.trailer%>" frameborder="0" allowfullscreen></iframe>
 <br>
-<%= link_to 'Cadastrar-se', reg_user_course_path(@course), class:"courses" %> <!--TODO Redirect to controller action create from registry--!>
+<%= link_to 'Cadastrar-se', registrations_path(@course), class:"courses" %> <!--TODO Redirect to controller action create from registry-->
 <!--<%= link_to 'Edit', edit_course_path(@course) %> -->
 <!--<%= link_to 'Back', courses_path %>-->

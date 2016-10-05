@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'categories#index'
 
   #integrations user course through registry
-  get '/all:id', to: 'registries#reg_user_course', as:'reg_user_course'
+  get 'registrations/:id', to: 'registries#reg_user_course', as: 'registrations' #Mudar para post post 'Registry'
   get '/account', to: 'users#edit'
 
 
