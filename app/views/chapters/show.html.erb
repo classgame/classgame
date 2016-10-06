@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Chapter -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @chapter.title %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @chapter.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @chapter.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:experience) %>:</strong></dt>
+  <dd><%= @chapter.experience %></dd>
+</dl>
 
-<p>
-  <strong>Description:</strong>
-  <%= @chapter.description %>
-</p>
-
-<p>
-  <strong>Experience:</strong>
-  <%= @chapter.experience %>
-</p>
-
-<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
-<%= link_to 'Back', chapters_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              chapters_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_chapter_path(@chapter), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              chapter_path(@chapter),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
