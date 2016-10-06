@@ -14,7 +14,7 @@ class RegistriesController < ApplicationController
           format.json { render :show, status: :created, location: @registry }
       else
           format.html { redirect_to registries_path, notice: "Usuario ja cadastrado no curso!" }
-          format.format.json { render :show, status: :created, location: @registry }
+          format.json { render :show, status: :created, location: @registry }
       end
     end
   end
