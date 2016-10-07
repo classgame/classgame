@@ -4,7 +4,7 @@
 <h1><%=@category.title%></h1>
   <p>Escolha entre nossos cursos de <%=@category.title%></p>
   <div class="row">
-  <% @category.courses.each do |course|%> <!--Necessary interate because one category have many courses-->
+  <% @category.courses.each do |course|%> 
     <div class="col-xs-4">
       <%= image_tag course.image%>
       <h2><%= course.title%></h2>
@@ -14,6 +14,4 @@
   <%end%>  
   </div>
 
-
-<!--<%= link_to 'Edit', edit_category_path(@category) %>-->
 <p><%= link_to 'Back', categories_path %></p>
