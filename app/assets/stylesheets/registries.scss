@@ -1,6 +1,11 @@
 // Place all the styles related to the registries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.progress{
-  width:50%;
+.progress {
+  width:100%;
+  border-radius:40px;
 }
+.progress-bar{
+  border-radius:40px;
+}
+
