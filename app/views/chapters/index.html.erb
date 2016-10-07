@@ -20,19 +20,14 @@
         <td><%= chapter.description %></td>
         <td><%= chapter.experience %></td>
         <td>
-          <%= link_to t('edit', :default => t("helpers.links.edit")),
-                      edit_chapter_path(chapter), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      chapter_path(chapter),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
+          <%= link_to 'Editar', edit_chapter_path(chapter), :class => 'btn btn-default btn-xs' %>
+          <%= link_to 'Deletar', chapter_path(chapter), :method => :delete,
+                                                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                                                        :class => 'btn btn-xs btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_chapter_path,
-            :class => 'btn btn-primary' %>
+<%= link_to 'Novo', new_chapter_path, :class => 'btn btn-primary' %>

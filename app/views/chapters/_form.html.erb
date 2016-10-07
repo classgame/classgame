@@ -1,10 +1,10 @@
-<%= simple_form_for @chapter, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :title %>
-  <%= error_span(@chapter[:title]) %>
-  <%= f.input :description %>
-  <%= error_span(@chapter[:description]) %>
-  <%= f.input :experience %>
-  <%= error_span(@chapter[:experience]) %>
+<%= simple_form_for(@chapter) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :experience %>
+  </div>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
