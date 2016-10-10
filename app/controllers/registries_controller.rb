@@ -9,18 +9,18 @@ class RegistriesController < ApplicationController
     time = Time.new 
     course = Course.find(params[:id]) 
     respond_to do |format|
-      if !current_user.courses.find_by_id(course.id)
-          @registry = Registry.new(active:true,finished_course:false,limit_date:time+600_000,user:current_user,course:course)  
-          if @registry.save
-            format.html { redirect_to registries_path, notice: "Inscrição feita com sucesso!" }
-            format.json { render :show, status: :created, location: @registry }
-          else
-            format.html { render :index }
-            format.json { render json: @registry.errors, status: :unprocessable_entity }  
-          end
+      if current_user.courses.find_by_id(course.id)
+        format.html { redirect_to registries_path, notice: "Usuario ja cadastrado no curso!" }
+        format.json { render :show, status: :created, location: @registry }          
       else
-          format.html { redirect_to registries_path, notice: "Usuario ja cadastrado no curso!" }
+        @registry = Registry.new(active:true,finished_course:false,limit_date:time+600_000,user:current_user,course:course)  
+        if @registry.save
+          format.html { redirect_to registries_path, notice: "Inscrição feita com sucesso!" }
           format.json { render :show, status: :created, location: @registry }
+        else
+          format.html { render :index }
+          format.json { render json: @registry.errors, status: :unprocessable_entity }  
+        end
       end
     end
   end
