@@ -1,0 +1,27 @@
+<img id="cover" src="http://www.blogeducadoresinovadores.com.br/wp-content/uploads/2015/03/Twitter_education_w11_1.png">
+<div class="container">
+<br>
+<br>
+<div class="row" id="categories_welcome">
+	<h1>Categorias de Cursos</h1>
+	<p>Nossos cursos são dividos em categorias escolha uma e comece a aprender</p>
+	<%@categories.each do |c|%>
+		<div class="col-xs-4 list">
+		<%=image_tag c.image%>
+		<h2><%=link_to c.title, c%></h2>
+		<p><%=c.description %></p>
+		</div>
+	<%end%>
+</div>
+<br>
+<br>
+<div class="row">
+	<h1>Nosso Time</h1>	
+	<%@user.each do |u|%>
+		<div class="col-xs-4">
+		<%=image_tag u.image, id:"adm"%> <br>
+		<p id="name_adm"><%=u.name%></p>
+		</div>
+	<%end%>
+</div>
+</div>

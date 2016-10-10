@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'welcome' => "welcomes#index"
+
   resources :categories
   resources :courses
   resources :registries

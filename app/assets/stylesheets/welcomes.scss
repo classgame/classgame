@@ -1,0 +1,25 @@
+// Place all the styles related to the Welcomes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#adm{
+	/*border-radius:50%;*/
+	width:250px;
+	height:200px;
+}
+#name_adm{
+	font-weight:bold;
+	font-size:20px;
+}
+#cover{
+	width:100%;
+	height:600px;
+	object-fit: cover;
+    object-position: center;
+}
+#categories_welcome{
+	background-color:#F8F8F8;
+}
+.list{
+	background-color:white;
+	border-radius:2%;
+}
