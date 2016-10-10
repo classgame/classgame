@@ -9,7 +9,7 @@ class RegistriesController < ApplicationController
     time = Time.new 
     course = Course.find(params[:id]) 
     respond_to do |format|
-      unless current_user.courses.find_by_id(course.id)
+      if !current_user.courses.find_by_id(course.id)
           @registry = Registry.new(active:true,finished_course:false,limit_date:time+600_000,user:current_user,course:course)  
           if @registry.save
             format.html { redirect_to registries_path, notice: "Inscrição feita com sucesso!" }
