@@ -30,19 +30,21 @@ ActiveRecord::Schema.define(version: 20161007191623) do
     t.integer  "workload",          limit: 4
     t.boolean  "active"
     t.boolean  "completed_edition"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "category_id",       limit: 4
   end
 
   add_index "courses", ["category_id"], name: "index_courses_on_category_id", using: :btree
 
   create_table "registries", force: :cascade do |t|
-    t.boolean "active"
-    t.boolean "finished_course"
-    t.string  "limit_date",      limit: 255
-    t.integer "course_id",       limit: 4
-    t.integer "user_id",         limit: 4
+    t.boolean  "active"
+    t.boolean  "finished_course"
+    t.string   "limit_date",      limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "course_id",       limit: 4
+    t.integer  "user_id",         limit: 4
   end
 
   add_index "registries", ["course_id"], name: "index_registries_on_course_id", using: :btree

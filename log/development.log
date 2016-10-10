@@ -12980,3 +12980,865 @@ Processing by RegistriesController#index as HTML
   [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 4 LIMIT 1[0m
   Rendered registries/index.html.erb within layouts/application (8.3ms)
 Completed 200 OK in 170ms (Views: 166.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 192.168.33.1 at 2016-10-10 13:57:52 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT `categories`.* FROM `categories`[0m
+  Rendered categories/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 6246ms (Views: 6161.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories/2" for 192.168.33.1 at 2016-10-10 13:58:11 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT `courses`.* FROM `courses` WHERE `courses`.`category_id` = 2
+  Rendered categories/show.html.erb within layouts/application (140.9ms)
+Completed 200 OK in 304ms (Views: 273.9ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/courses/3" for 192.168.33.1 at 2016-10-10 13:58:12 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  Rendered courses/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 194ms (Views: 188.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/3" for 192.168.33.1 at 2016-10-10 13:58:14 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#reg_user_course as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 0.2ms)
+
+ActionView::MissingTemplate (Missing template registries/registries, application/registries with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/vagrant/class-game/app/views"
+  * "/home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/twitter-bootstrap-rails-3.2.2/app/views"
+  * "/home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/views"
+):
+  app/controllers/registries_controller.rb:9:in `reg_user_course'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (24.6ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.4ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (65.5ms)
+
+
+Started GET "/registrations/3" for 192.168.33.1 at 2016-10-10 13:58:46 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#reg_user_course as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered registries/index.html.erb within layouts/application (20.2ms)
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 2.0ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    2: <p id="notice"><%= notice %></p>
+    3: <div class="row">
+    4:   <h1>Listing Registries</h1>
+    5:   <% @registries.each do |registry| %>
+    6:     <%course = registry.course%>
+    7:     <%value = r.rand(0..100)%>
+    8:       <div class="col-xs-2">
+  app/views/registries/index.html.erb:5:in `_app_views_registries_index_html_erb___101123933645354773_70051266429320'
+  app/controllers/registries_controller.rb:9:in `reg_user_course'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.8ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.7ms)
+
+
+Started GET "/courses/3" for 192.168.33.1 at 2016-10-10 13:58:57 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1
+  Rendered courses/show.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 233ms (Views: 181.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/registrations/3" for 192.168.33.1 at 2016-10-10 14:03:20 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#reg_user_course as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (1.2ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1
+  [1m[36mCourse Load (18.2ms)[0m  [1mSELECT  `courses`.* FROM `courses` INNER JOIN `registries` ON `courses`.`id` = `registries`.`course_id` WHERE `registries`.`user_id` = 1 AND `courses`.`id` = 3 LIMIT 1[0m
+Redirected to 
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 23.6ms)
+
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  app/controllers/registries_controller.rb:22:in `block (2 levels) in reg_user_course'
+  app/controllers/registries_controller.rb:11:in `reg_user_course'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.3ms)
+
+
+Started GET "/registrations/3" for 192.168.33.1 at 2016-10-10 14:03:39 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#reg_user_course as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  `courses`.* FROM `courses` INNER JOIN `registries` ON `courses`.`id` = `registries`.`course_id` WHERE `registries`.`user_id` = 1 AND `courses`.`id` = 3 LIMIT 1
+Redirected to 
+Completed 500 Internal Server Error in 111ms (ActiveRecord: 3.5ms)
+
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  app/controllers/registries_controller.rb:22:in `block (2 levels) in reg_user_course'
+  app/controllers/registries_controller.rb:11:in `reg_user_course'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.0ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.3ms)
+
+
+Started GET "/courses" for 192.168.33.1 at 2016-10-10 14:03:51 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT `courses`.* FROM `courses`
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 3 LIMIT 1
+  Rendered courses/index.html.erb within layouts/application (38.3ms)
+Completed 200 OK in 207ms (Views: 200.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/courses" for 192.168.33.1 at 2016-10-10 14:03:52 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT `courses`.* FROM `courses`
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 3 LIMIT 1
+  Rendered courses/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 171ms (Views: 168.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registries" for 192.168.33.1 at 2016-10-10 14:03:55 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.1ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.7ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1[0m
+  Rendered registries/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 192ms (Views: 187.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories" for 192.168.33.1 at 2016-10-10 14:03:56 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT `categories`.* FROM `categories`[0m
+  Rendered categories/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 201ms (Views: 196.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/2" for 192.168.33.1 at 2016-10-10 14:03:57 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT `courses`.* FROM `courses` WHERE `courses`.`category_id` = 2
+  Rendered categories/show.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 176ms (Views: 172.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/3" for 192.168.33.1 at 2016-10-10 14:03:58 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  Rendered courses/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 173ms (Views: 167.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/3" for 192.168.33.1 at 2016-10-10 14:04:00 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#reg_user_course as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  `courses`.* FROM `courses` INNER JOIN `registries` ON `courses`.`id` = `registries`.`course_id` WHERE `registries`.`user_id` = 1 AND `courses`.`id` = 3 LIMIT 1
+Redirected to 
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms)
+
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  app/controllers/registries_controller.rb:22:in `block (2 levels) in reg_user_course'
+  app/controllers/registries_controller.rb:11:in `reg_user_course'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.9ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.4ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (46.2ms)
+
+
+Started GET "/registrations/3" for 192.168.33.1 at 2016-10-10 14:04:14 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#reg_user_course as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  `courses`.* FROM `courses` INNER JOIN `registries` ON `courses`.`id` = `registries`.`course_id` WHERE `registries`.`user_id` = 1 AND `courses`.`id` = 3 LIMIT 1[0m
+Redirected to http://dev:3000/registries
+Completed 302 Found in 102ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/registries" for 192.168.33.1 at 2016-10-10 14:04:15 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mRegistry Load (0.3ms)[0m  [1mSELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1
+  Rendered registries/index.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 277ms (Views: 272.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/registries.json" for 192.168.33.1 at 2016-10-10 14:10:42 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.2ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  Rendered registries/_registry.json.jbuilder (18.9ms)
+  Rendered registries/index.json.jbuilder (46.2ms)
+Completed 500 Internal Server Error in 185ms (ActiveRecord: 3.7ms)
+
+ActionView::Template::Error (undefined method `created_at' for #<Registry:0x007f6c2c71ed88>):
+    1: json.extract! registry, :id, :active, :finished_course, :limit_date, :created_at, :updated_at
+    2: json.url registry_url(registry, format: :json)
+  app/views/registries/_registry.json.jbuilder:1:in `_app_views_registries__registry_json_jbuilder___1497238274168090195_70051227365540'
+  app/views/registries/index.json.jbuilder:1:in `_app_views_registries_index_json_jbuilder___2314395306617461841_70051289249860'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.9ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.1ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.6ms)
+
+
+Started GET "/registries/json" for 192.168.33.1 at 2016-10-10 14:10:47 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#show as HTML
+  Parameters: {"id"=>"json"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.3ms)[0m  SELECT  `registries`.* FROM `registries` WHERE `registries`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 5ms (ActiveRecord: 0.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Registry with 'id'=json):
+  app/controllers/registries_controller.rb:74:in `set_registry'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.5ms)
+
+
+Started GET "/users" for 192.168.33.1 at 2016-10-10 14:14:54 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 220ms (Views: 194.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users.json" for 192.168.33.1 at 2016-10-10 14:15:00 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/_user.json.jbuilder (1.6ms)
+  Rendered users/_user.json.jbuilder (1.2ms)
+  Rendered users/index.json.jbuilder (35.5ms)
+Completed 200 OK in 99ms (Views: 96.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registries.json" for 192.168.33.1 at 2016-10-10 14:15:05 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as JSON
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.2ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  Rendered registries/_registry.json.jbuilder (20.8ms)
+  Rendered registries/index.json.jbuilder (46.3ms)
+Completed 500 Internal Server Error in 136ms (ActiveRecord: 1.4ms)
+
+ActionView::Template::Error (undefined method `created_at' for #<Registry:0x007f6c2a805438>):
+    1: json.extract! registry, :id, :active, :finished_course, :limit_date, :created_at, :updated_at
+    2: json.url registry_url(registry, format: :json)
+  app/views/registries/_registry.json.jbuilder:1:in `_app_views_registries__registry_json_jbuilder___1497238274168090195_70051227365540'
+  app/views/registries/index.json.jbuilder:1:in `_app_views_registries_index_json_jbuilder___2314395306617461841_70051289249860'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.6ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.8ms)
+  [1m[36mRegistry Load (0.3ms)[0m  [1mSELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.1ms)[0m  SELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1
+  [1m[36mRegistry Load (0.1ms)[0m  [1mSELECT  `registries`.* FROM `registries`  ORDER BY `registries`.`id` ASC LIMIT 1[0m
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE `categories` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `image` varchar(255), `description` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE `courses` (`id` int(11) auto_increment PRIMARY KEY, `image` varchar(255), `trailer` varchar(255), `title` varchar(255), `description` varchar(255), `nivel` varchar(255), `workload` int(11), `active` tinyint(1), `completed_edition` tinyint(1), `created_at` datetime, `updated_at` datetime, `category_id` int(11)) ENGINE=InnoDB
+  [1m[36m (4.4ms)[0m  [1mCREATE  INDEX `index_courses_on_category_id` USING btree ON `courses` (`category_id`) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE `registries` (`id` int(11) auto_increment PRIMARY KEY, `active` tinyint(1), `finished_course` tinyint(1), `limit_date` varchar(255), `course_id` int(11), `user_id` int(11)) ENGINE=InnoDB
+  [1m[36m (5.3ms)[0m  [1mCREATE  INDEX `index_registries_on_course_id` USING btree ON `registries` (`course_id`) [0m
+  [1m[35m (5.2ms)[0m  CREATE  INDEX `index_registries_on_user_id` USING btree ON `registries` (`user_id`) 
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL, `cpf` varchar(255) DEFAULT '' NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (7.4ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` USING btree ON `users` (`email`) 
+  [1m[36m (5.6ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_reset_password_token` USING btree ON `users` (`reset_password_token`) [0m
+  [1m[35m (3.1ms)[0m  ALTER TABLE `courses` ADD CONSTRAINT `fk_rails_e072dca946`
+FOREIGN KEY (`category_id`)
+  REFERENCES `categories` (`id`)
+
+  [1m[36m (3.1ms)[0m  [1mALTER TABLE `registries` ADD CONSTRAINT `fk_rails_57a8c374ea`
+FOREIGN KEY (`course_id`)
+  REFERENCES `courses` (`id`)
+[0m
+  [1m[35m (3.6ms)[0m  ALTER TABLE `registries` ADD CONSTRAINT `fk_rails_067eb4a58f`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (4.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20161007191623')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160827193034')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160923135503')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160923194704')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20161007183059')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20161007191342')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20161007191613')
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE `categories` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `image` varchar(255), `description` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (30.5ms)[0m  CREATE TABLE `courses` (`id` int(11) auto_increment PRIMARY KEY, `image` varchar(255), `trailer` varchar(255), `title` varchar(255), `description` varchar(255), `nivel` varchar(255), `workload` int(11), `active` tinyint(1), `completed_edition` tinyint(1), `created_at` datetime, `updated_at` datetime, `category_id` int(11)) ENGINE=InnoDB
+  [1m[36m (5.5ms)[0m  [1mCREATE  INDEX `index_courses_on_category_id` USING btree ON `courses` (`category_id`) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE `registries` (`id` int(11) auto_increment PRIMARY KEY, `active` tinyint(1), `finished_course` tinyint(1), `limit_date` varchar(255), `course_id` int(11), `user_id` int(11)) ENGINE=InnoDB
+  [1m[36m (6.0ms)[0m  [1mCREATE  INDEX `index_registries_on_course_id` USING btree ON `registries` (`course_id`) [0m
+  [1m[35m (4.7ms)[0m  CREATE  INDEX `index_registries_on_user_id` USING btree ON `registries` (`user_id`) 
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL, `cpf` varchar(255) DEFAULT '' NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (6.6ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` USING btree ON `users` (`email`) 
+  [1m[36m (6.5ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_reset_password_token` USING btree ON `users` (`reset_password_token`) [0m
+  [1m[35m (3.8ms)[0m  ALTER TABLE `courses` ADD CONSTRAINT `fk_rails_e072dca946`
+FOREIGN KEY (`category_id`)
+  REFERENCES `categories` (`id`)
+
+  [1m[36m (2.5ms)[0m  [1mALTER TABLE `registries` ADD CONSTRAINT `fk_rails_57a8c374ea`
+FOREIGN KEY (`course_id`)
+  REFERENCES `courses` (`id`)
+[0m
+  [1m[35m (4.0ms)[0m  ALTER TABLE `registries` ADD CONSTRAINT `fk_rails_067eb4a58f`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (6.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20161007191623')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160827193034')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160923135503')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160923194704')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20161007183059')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20161007191342')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20161007191613')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'valter@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`name`, `cpf`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('Valter', '352456465', 'valter@gmail.com', '$2a$11$vrHUkhViZyZeCAYUzdqSf.vUlp.Ui7w9JfMrO3V2QcfFSYiFmjhiu', '2016-10-10 14:18:36', '2016-10-10 14:18:36')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rick@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`name`, `cpf`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('Rick Grimes', '65465465465', 'rick@gmail.com', '$2a$11$cerLteeuZygxUIU5cvSMZuXIgWc.j5WFA5Rk8qhuAvq0OXY4z1pZC', '2016-10-10 14:18:36', '2016-10-10 14:18:36')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `categories` (`title`, `description`, `image`, `created_at`, `updated_at`) VALUES ('Tecnologia', 'Tecnologia (do grego é um termo que envolve o conhecimento técnico e científico e a aplicação deste conhecimento através de sua transformação no uso de ferramentas', 'http://previews.123rf.com/images/butenkow/butenkow1303/butenkow130300310/18648878-Technology-logo-Stock-Photo.jpg', '2016-10-10 14:18:36', '2016-10-10 14:18:36')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`title`, `description`, `image`, `created_at`, `updated_at`) VALUES ('Bussiness', 'Em economia, negócio, é referido como um comércio ou empresa, que é administrado por pessoa(s) para captar recursos financeiros para gerar bens e serviços, e por consequência proporciona a circulação de capital de giro', 'http://www.teachurself.com/wp-content/uploads/2013/12/bussiness.jpg', '2016-10-10 14:18:36', '2016-10-10 14:18:36')
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `categories` (`title`, `description`, `image`, `created_at`, `updated_at`) VALUES ('Sobrevivência', 'As Técnicas de sobrevivência compõem um conjunto de práticas emergenciais que, compreendidas, treinadas e aplicadas em situações extremas, permitem ao indivíduo prolongar sua vida', 'http://cdn.wallpapersafari.com/38/64/HQe4W0.jpg', '2016-10-10 14:18:36', '2016-10-10 14:18:36')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `courses` (`title`, `image`, `trailer`, `description`, `nivel`, `workload`, `active`, `completed_edition`, `category_id`, `created_at`, `updated_at`) VALUES ('Redes', 'http://www.linkcomp.com.br/wp-content/uploads/2014/12/Redes-e-Internet1.jpg', 'https://www.youtube.com/embed/Ww9gJDzaf8g', 'Uma rede de computadores é formada por um conjunto de máquinas eletrônicas com processadores capazes de trocar informações e partilhar recursos, interligados por um sub-sistema de comunicação, ou seja, é quando há pelo menos dois ou mais computadores', 'Hard', 6, 1, 0, 1, '2016-10-10 14:18:36', '2016-10-10 14:18:36')
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `courses` (`title`, `image`, `trailer`, `description`, `nivel`, `workload`, `active`, `completed_edition`, `category_id`, `created_at`, `updated_at`) VALUES ('Ruby on Rails', 'https://pbs.twimg.com/profile_images/691206086955790336/CDMbA57p.png', 'https://www.youtube.com/embed/US_P3mGdIu8', 'Ruby on Rails é um framework livre que promete aumentar velocidade e facilidade no desenvolvimento de sites orientados a banco de dados (database-driven web sites), uma vez que é possível criar aplicações com base em estruturas pré-definidas.', 'Medium', 7, 1, 0, 1, '2016-10-10 14:18:36', '2016-10-10 14:18:36')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `courses` (`title`, `image`, `trailer`, `description`, `nivel`, `workload`, `active`, `completed_edition`, `category_id`, `created_at`, `updated_at`) VALUES ('Abrir uma empressa', 'https://s-media-cache-ak0.pinimg.com/564x/9a/98/61/9a986184bf2d68d2f5045c9a85fcb629.jpg', 'https://www.youtube.com/embed/HYQJTIkMMAg', 'é o processo de iniciativa de implementar novos negócios ou mudanças em empresas já existentes. É um termo muito usado no âmbito empresarial e muitas vezes está relacionado', 'Hard', 6, 1, 0, 2, '2016-10-10 14:18:36', '2016-10-10 14:18:36')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `courses` (`title`, `image`, `trailer`, `description`, `nivel`, `workload`, `active`, `completed_edition`, `category_id`, `created_at`, `updated_at`) VALUES ('Como fazer um machado caseiro', 'http://cdn.filtromag.com.br/imagens/filtro/ferramenta-sobrevivencia-survco.jpg ', 'https://www.youtube.com/embed/BN-34JfUrHY', 'A capacidade humana de construir coisas modernas é impressionante. Mas ver este cara criar um machado de pedra primitivo usando apenas tocos de pau, pedras e fogo é impressionante e estranhamente satisfatório', 'Hard', 10, 1, 0, 3, '2016-10-10 14:18:36', '2016-10-10 14:18:36')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`) VALUES (1, 0, '30/09/2016', 1, 2)
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`) VALUES (1, 0, '01/10/2016', 1, 1)[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`) VALUES (1, 0, '02/10/2016 ', 2, 3)
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`) VALUES (1, 0, '10/11/2016 ', 2, 2)[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`) VALUES (1, 0, '01/01/2017 ', 2, 4)
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/registries.json" for 192.168.33.1 at 2016-10-10 14:18:54 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by RegistriesController#index as JSON
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 65ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 192.168.33.1 at 2016-10-10 14:18:57 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.33.1 at 2016-10-10 14:18:57 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.0ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (83.4ms)
+Completed 200 OK in 797ms (Views: 790.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.33.1 at 2016-10-10 14:19:00 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Jd8nbPLXRxFR5t095hjkEVimapBWAB5lLL4CTSaJh+mNELuSnl+1PAYbviWBahyhxhCFGBIBJ7DieZRwj72Ipg==", "user"=>{"email"=>"valter@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'valter@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-10-10 14:19:00', `current_sign_in_at` = '2016-10-10 14:19:00', `last_sign_in_ip` = '192.168.33.1', `current_sign_in_ip` = '192.168.33.1', `sign_in_count` = 1, `updated_at` = '2016-10-10 14:19:00' WHERE `users`.`id` = 1[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://dev:3000/
+Completed 302 Found in 278ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 192.168.33.1 at 2016-10-10 14:19:00 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT `categories`.* FROM `categories`
+  Rendered categories/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 203ms (Views: 185.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/registries" for 192.168.33.1 at 2016-10-10 14:19:02 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.3ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1
+  Rendered registries/index.html.erb within layouts/application (92.7ms)
+Completed 200 OK in 387ms (Views: 318.5ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/registries.json" for 192.168.33.1 at 2016-10-10 14:19:05 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.1ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  Rendered registries/_registry.json.jbuilder (22.0ms)
+  Rendered registries/index.json.jbuilder (31.5ms)
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `created_at' for #<Registry:0x007fce4f1f68f8>):
+    1: json.extract! registry, :id, :active, :finished_course, :limit_date, :created_at, :updated_at
+    2: json.url registry_url(registry, format: :json)
+  app/views/registries/_registry.json.jbuilder:1:in `_app_views_registries__registry_json_jbuilder___4524433600756429691_70262034069600'
+  app/views/registries/index.json.jbuilder:1:in `_app_views_registries_index_json_jbuilder__2456228407306249829_70262033415520'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.7ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.1ms)
+
+
+Started GET "/registries.json" for 192.168.33.1 at 2016-10-10 14:19:06 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.2ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  Rendered registries/_registry.json.jbuilder (17.2ms)
+  Rendered registries/index.json.jbuilder (27.3ms)
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `created_at' for #<Registry:0x007fce50906598>):
+    1: json.extract! registry, :id, :active, :finished_course, :limit_date, :created_at, :updated_at
+    2: json.url registry_url(registry, format: :json)
+  app/views/registries/_registry.json.jbuilder:1:in `_app_views_registries__registry_json_jbuilder___4524433600756429691_70262034069600'
+  app/views/registries/index.json.jbuilder:1:in `_app_views_registries_index_json_jbuilder__2456228407306249829_70262033415520'
+
+
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.6ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.2ms)
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (4.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddDeviseToUsers (20160827193034)
+  [1m[35m (1.6ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL, `cpf` varchar(255) DEFAULT '' NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (23.9ms)[0m  [1mALTER TABLE `users` ADD `email` varchar(255) DEFAULT '' NOT NULL[0m
+  [1m[35m (2.3ms)[0m  ALTER TABLE `users` ADD `encrypted_password` varchar(255) DEFAULT '' NOT NULL
+  [1m[36m (2.1ms)[0m  [1mALTER TABLE `users` ADD `reset_password_token` varchar(255)[0m
+  [1m[35m (4.0ms)[0m  ALTER TABLE `users` ADD `reset_password_sent_at` datetime
+  [1m[36m (3.2ms)[0m  [1mALTER TABLE `users` ADD `remember_created_at` datetime[0m
+  [1m[35m (3.6ms)[0m  ALTER TABLE `users` ADD `sign_in_count` int(11) DEFAULT 0 NOT NULL
+  [1m[36m (2.8ms)[0m  [1mALTER TABLE `users` ADD `current_sign_in_at` datetime[0m
+  [1m[35m (2.5ms)[0m  ALTER TABLE `users` ADD `last_sign_in_at` datetime
+  [1m[36m (2.2ms)[0m  [1mALTER TABLE `users` ADD `current_sign_in_ip` varchar(255)[0m
+  [1m[35m (3.1ms)[0m  ALTER TABLE `users` ADD `last_sign_in_ip` varchar(255)
+  [1m[36m (6.1ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (6.0ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) 
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160827193034')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCourses (20160923135503)
+  [1m[35m (1.9ms)[0m  CREATE TABLE `courses` (`id` int(11) auto_increment PRIMARY KEY, `image` varchar(255), `trailer` varchar(255), `title` varchar(255), `description` varchar(255), `nivel` varchar(255), `workload` int(11), `active` tinyint(1), `completed_edition` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160923135503')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20160923194704)
+  [1m[35m (1.7ms)[0m  CREATE TABLE `categories` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `image` varchar(255), `description` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160923194704')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateRegistries (20161007183059)
+  [1m[35m (1.8ms)[0m  CREATE TABLE `registries` (`id` int(11) auto_increment PRIMARY KEY, `active` tinyint(1), `finished_course` tinyint(1), `limit_date` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161007183059')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddCategoryRefToCourse (20161007191342)
+  [1m[35m (4.4ms)[0m  ALTER TABLE `courses` ADD `category_id` int(11)
+  [1m[36m (5.0ms)[0m  [1mCREATE  INDEX `index_courses_on_category_id`  ON `courses` (`category_id`) [0m
+  [1m[35m (3.7ms)[0m  ALTER TABLE `courses` ADD CONSTRAINT `fk_rails_e072dca946`
+FOREIGN KEY (`category_id`)
+  REFERENCES `categories` (`id`)
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161007191342')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to AddCourseRefToRegistries (20161007191613)
+  [1m[35m (2.8ms)[0m  ALTER TABLE `registries` ADD `course_id` int(11)
+  [1m[36m (4.4ms)[0m  [1mCREATE  INDEX `index_registries_on_course_id`  ON `registries` (`course_id`) [0m
+  [1m[35m (4.0ms)[0m  ALTER TABLE `registries` ADD CONSTRAINT `fk_rails_57a8c374ea`
+FOREIGN KEY (`course_id`)
+  REFERENCES `courses` (`id`)
+
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161007191613')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddUserRefToRegistries (20161007191623)
+  [1m[35m (3.2ms)[0m  ALTER TABLE `registries` ADD `user_id` int(11)
+  [1m[36m (5.0ms)[0m  [1mCREATE  INDEX `index_registries_on_user_id`  ON `registries` (`user_id`) [0m
+  [1m[35m (2.3ms)[0m  ALTER TABLE `registries` ADD CONSTRAINT `fk_rails_067eb4a58f`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161007191623')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (8.5ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'class_game_dev'
+  AND fk.table_name = 'categories'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `categories`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'class_game_dev'
+  AND fk.table_name = 'courses'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `courses`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'class_game_dev'
+  AND fk.table_name = 'registries'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `registries`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'class_game_dev'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'valter@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `users` (`name`, `cpf`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('Valter', '352456465', 'valter@gmail.com', '$2a$11$SCgeo.mPlrmIZwPXRudtdOuWQW5WGYYSWSR6QdA4UMFpaapMVPRYK', '2016-10-10 14:20:47', '2016-10-10 14:20:47')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rick@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`name`, `cpf`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('Rick Grimes', '65465465465', 'rick@gmail.com', '$2a$11$U8s0Z4T2KP4vDFyhtZVk5uST0Tbp7pwyZghdn0wSbTP2tkPbUCMZ.', '2016-10-10 14:20:47', '2016-10-10 14:20:47')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `categories` (`title`, `description`, `image`, `created_at`, `updated_at`) VALUES ('Tecnologia', 'Tecnologia (do grego é um termo que envolve o conhecimento técnico e científico e a aplicação deste conhecimento através de sua transformação no uso de ferramentas', 'http://previews.123rf.com/images/butenkow/butenkow1303/butenkow130300310/18648878-Technology-logo-Stock-Photo.jpg', '2016-10-10 14:20:47', '2016-10-10 14:20:47')[0m
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `categories` (`title`, `description`, `image`, `created_at`, `updated_at`) VALUES ('Bussiness', 'Em economia, negócio, é referido como um comércio ou empresa, que é administrado por pessoa(s) para captar recursos financeiros para gerar bens e serviços, e por consequência proporciona a circulação de capital de giro', 'http://www.teachurself.com/wp-content/uploads/2013/12/bussiness.jpg', '2016-10-10 14:20:47', '2016-10-10 14:20:47')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `categories` (`title`, `description`, `image`, `created_at`, `updated_at`) VALUES ('Sobrevivência', 'As Técnicas de sobrevivência compõem um conjunto de práticas emergenciais que, compreendidas, treinadas e aplicadas em situações extremas, permitem ao indivíduo prolongar sua vida', 'http://cdn.wallpapersafari.com/38/64/HQe4W0.jpg', '2016-10-10 14:20:47', '2016-10-10 14:20:47')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `courses` (`title`, `image`, `trailer`, `description`, `nivel`, `workload`, `active`, `completed_edition`, `category_id`, `created_at`, `updated_at`) VALUES ('Redes', 'http://www.linkcomp.com.br/wp-content/uploads/2014/12/Redes-e-Internet1.jpg', 'https://www.youtube.com/embed/Ww9gJDzaf8g', 'Uma rede de computadores é formada por um conjunto de máquinas eletrônicas com processadores capazes de trocar informações e partilhar recursos, interligados por um sub-sistema de comunicação, ou seja, é quando há pelo menos dois ou mais computadores', 'Hard', 6, 1, 0, 1, '2016-10-10 14:20:47', '2016-10-10 14:20:47')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `courses` (`title`, `image`, `trailer`, `description`, `nivel`, `workload`, `active`, `completed_edition`, `category_id`, `created_at`, `updated_at`) VALUES ('Ruby on Rails', 'https://pbs.twimg.com/profile_images/691206086955790336/CDMbA57p.png', 'https://www.youtube.com/embed/US_P3mGdIu8', 'Ruby on Rails é um framework livre que promete aumentar velocidade e facilidade no desenvolvimento de sites orientados a banco de dados (database-driven web sites), uma vez que é possível criar aplicações com base em estruturas pré-definidas.', 'Medium', 7, 1, 0, 1, '2016-10-10 14:20:47', '2016-10-10 14:20:47')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `courses` (`title`, `image`, `trailer`, `description`, `nivel`, `workload`, `active`, `completed_edition`, `category_id`, `created_at`, `updated_at`) VALUES ('Abrir uma empressa', 'https://s-media-cache-ak0.pinimg.com/564x/9a/98/61/9a986184bf2d68d2f5045c9a85fcb629.jpg', 'https://www.youtube.com/embed/HYQJTIkMMAg', 'é o processo de iniciativa de implementar novos negócios ou mudanças em empresas já existentes. É um termo muito usado no âmbito empresarial e muitas vezes está relacionado', 'Hard', 6, 1, 0, 2, '2016-10-10 14:20:47', '2016-10-10 14:20:47')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `courses` (`title`, `image`, `trailer`, `description`, `nivel`, `workload`, `active`, `completed_edition`, `category_id`, `created_at`, `updated_at`) VALUES ('Como fazer um machado caseiro', 'http://cdn.filtromag.com.br/imagens/filtro/ferramenta-sobrevivencia-survco.jpg ', 'https://www.youtube.com/embed/BN-34JfUrHY', 'A capacidade humana de construir coisas modernas é impressionante. Mas ver este cara criar um machado de pedra primitivo usando apenas tocos de pau, pedras e fogo é impressionante e estranhamente satisfatório', 'Hard', 10, 1, 0, 3, '2016-10-10 14:20:47', '2016-10-10 14:20:47')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`, `created_at`, `updated_at`) VALUES (1, 0, '30/09/2016', 1, 2, '2016-10-10 14:20:47', '2016-10-10 14:20:47')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`, `created_at`, `updated_at`) VALUES (1, 0, '01/10/2016', 1, 1, '2016-10-10 14:20:47', '2016-10-10 14:20:47')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`, `created_at`, `updated_at`) VALUES (1, 0, '02/10/2016 ', 2, 3, '2016-10-10 14:20:47', '2016-10-10 14:20:47')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`, `created_at`, `updated_at`) VALUES (1, 0, '10/11/2016 ', 2, 2, '2016-10-10 14:20:47', '2016-10-10 14:20:47')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`, `created_at`, `updated_at`) VALUES (1, 0, '01/01/2017 ', 2, 4, '2016-10-10 14:20:47', '2016-10-10 14:20:47')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/registries.json" for 192.168.33.1 at 2016-10-10 14:20:54 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by RegistriesController#index as JSON
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 67ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 192.168.33.1 at 2016-10-10 14:21:00 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.33.1 at 2016-10-10 14:21:00 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.0ms)
+  Rendered /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (79.1ms)
+Completed 200 OK in 794ms (Views: 787.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.33.1 at 2016-10-10 14:21:02 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WRraF3gE7bR4xlHFp0TmyqYuBg85WYpKLBnF4KQBBd2zW6pARS83uu+QC3NA+l4PdTh/7V4ki8c4lWMQuSdC0A==", "user"=>{"email"=>"valter@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'valter@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-10-10 14:21:02', `current_sign_in_at` = '2016-10-10 14:21:02', `last_sign_in_ip` = '192.168.33.1', `current_sign_in_ip` = '192.168.33.1', `sign_in_count` = 1, `updated_at` = '2016-10-10 14:21:02' WHERE `users`.`id` = 1[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://dev:3000/
+Completed 302 Found in 272ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 192.168.33.1 at 2016-10-10 14:21:02 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT `categories`.* FROM `categories`
+  Rendered categories/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 187ms (Views: 168.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/registries" for 192.168.33.1 at 2016-10-10 14:21:04 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.3ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1
+  Rendered registries/index.html.erb within layouts/application (88.4ms)
+Completed 200 OK in 340ms (Views: 273.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/registries.json" for 192.168.33.1 at 2016-10-10 14:21:06 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.2ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  Rendered registries/_registry.json.jbuilder (1.7ms)
+  Rendered registries/_registry.json.jbuilder (0.8ms)
+  Rendered registries/index.json.jbuilder (33.6ms)
+Completed 200 OK in 96ms (Views: 90.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for 192.168.33.1 at 2016-10-10 14:22:32 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT `categories`.* FROM `categories`
+  Rendered categories/index.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 242ms (Views: 199.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/categories/3" for 192.168.33.1 at 2016-10-10 14:22:34 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 3 LIMIT 1
+  [1m[36mCourse Load (0.6ms)[0m  [1mSELECT `courses`.* FROM `courses` WHERE `courses`.`category_id` = 3[0m
+  Rendered categories/show.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 237ms (Views: 230.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/courses/4" for 192.168.33.1 at 2016-10-10 14:22:35 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 3 LIMIT 1
+  Rendered courses/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 193ms (Views: 188.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/4" for 192.168.33.1 at 2016-10-10 14:22:36 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#reg_user_course as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 4 LIMIT 1
+  [1m[36mCourse Load (0.9ms)[0m  [1mSELECT  `courses`.* FROM `courses` INNER JOIN `registries` ON `courses`.`id` = `registries`.`course_id` WHERE `registries`.`user_id` = 1 AND `courses`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `registries` (`active`, `finished_course`, `limit_date`, `user_id`, `course_id`, `created_at`, `updated_at`) VALUES (1, 0, '2016-10-17 13:02:36 +0000', 1, 4, '2016-10-10 14:22:36', '2016-10-10 14:22:36')[0m
+  [1m[35m (1.1ms)[0m  COMMIT
+Redirected to http://dev:3000/registries
+Completed 302 Found in 137ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/registries" for 192.168.33.1 at 2016-10-10 14:22:36 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.4ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 4 LIMIT 1[0m
+  Rendered registries/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 248ms (Views: 243.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/categories" for 192.168.33.1 at 2016-10-10 14:22:41 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT `categories`.* FROM `categories`[0m
+  Rendered categories/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 163ms (Views: 161.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories/1" for 192.168.33.1 at 2016-10-10 14:22:42 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT `courses`.* FROM `courses` WHERE `courses`.`category_id` = 1
+  Rendered categories/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 180ms (Views: 175.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1" for 192.168.33.1 at 2016-10-10 14:22:42 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  Rendered courses/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 162ms (Views: 158.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/1" for 192.168.33.1 at 2016-10-10 14:22:43 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#reg_user_course as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  `courses`.* FROM `courses` INNER JOIN `registries` ON `courses`.`id` = `registries`.`course_id` WHERE `registries`.`user_id` = 1 AND `courses`.`id` = 1 LIMIT 1
+Redirected to http://dev:3000/registries
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/registries" for 192.168.33.1 at 2016-10-10 14:22:44 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRegistry Load (0.2ms)[0m  SELECT `registries`.* FROM `registries` WHERE `registries`.`user_id` = 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 4 LIMIT 1[0m
+  Rendered registries/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 192ms (Views: 188.1ms | ActiveRecord: 0.8ms)

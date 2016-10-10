@@ -4,6 +4,8 @@ class CreateRegistries < ActiveRecord::Migration
       t.boolean :active
       t.boolean :finished_course
       t.string :limit_date
+    
+      t.timestamps null:false
     end
   end
 end

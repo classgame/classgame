@@ -10,7 +10,7 @@ class CreateCourses < ActiveRecord::Migration
       t.boolean :active
       t.boolean :completed_edition
       
-      t.timestamps
+      t.timestamps null:false
     end
   end
 end

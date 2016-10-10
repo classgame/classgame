@@ -8,15 +8,19 @@ class RegistriesController < ApplicationController
   def reg_user_course
     time = Time.new 
     course = Course.find(params[:id]) 
-    user = current_user 
     respond_to do |format|
       unless current_user.courses.find_by_id(course.id)
-          registry = Registry.create(active:true,finished_course:false,limit_date:time+600_000,user:user,course:course)  
-          format.html { redirect_to registries_path, notice: "Inscrição feita com sucesso!" }
-          format.json { render :show, status: :created, location: registry }
+          @registry = Registry.new(active:true,finished_course:false,limit_date:time+600_000,user:current_user,course:course)  
+          if @registry.save
+            format.html { redirect_to registries_path, notice: "Inscrição feita com sucesso!" }
+            format.json { render :show, status: :created, location: @registry }
+          else
+            format.html { render :index }
+            format.json { render json: @registry.errors, status: :unprocessable_entity }  
+          end
       else
           format.html { redirect_to registries_path, notice: "Usuario ja cadastrado no curso!" }
-          format.json { render :show, status: :created, location: registry }
+          format.json { render :show, status: :created, location: @registry }
       end
     end
   end
