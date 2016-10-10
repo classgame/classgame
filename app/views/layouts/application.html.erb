@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "LearningGames" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "ClassGames" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -45,12 +45,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">LearningGames</a>
+        <a class="navbar-brand" href="">ClassGames</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to "Account", "/account"  %></li>
+            <li><%= link_to "Categories", "/categories"  %></li>
+            <li><%= link_to "Dashboard","/registries" %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
             <% if user_signed_in?%>
               <li><%= current_user.email  %></li>
