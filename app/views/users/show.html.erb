@@ -10,6 +10,19 @@
   <dd><%= @user.email %></dd>
 </dl>
 
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @user.address.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
+  <dd><%= @user.address.number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:complement) %>:</strong></dt>
+  <dd><%= @user.address.complement %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:neighborhood) %>:</strong></dt>
+  <dd><%= @user.address.neighborhood %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zip_code) %>:</strong></dt>
+  <dd><%= @user.address.zip_code %></dd>
+</dl>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               users_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),

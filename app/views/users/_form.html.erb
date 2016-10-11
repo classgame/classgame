@@ -5,6 +5,14 @@
     <%= f.input :name %>
   </div>
 
+  <%= f.simple_fields_for :address do |ff| %>
+    <%= ff.input :address %>
+    <%= ff.input :number %>
+    <%= ff.input :complement %>
+    <%= ff.input :neighborhood %>
+    <%= ff.input :zip_code %>
+  <% end %>
+
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
