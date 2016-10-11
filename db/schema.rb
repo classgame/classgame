@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20160827193034) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255, default: "", null: false
-    t.string   "cpf",                    limit: 255, default: "", null: false
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "email",                  limit: 255, default: "", null: false
