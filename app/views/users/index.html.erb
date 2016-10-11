@@ -1,1 +1,35 @@
 <p id="notice"><%= notice %></p>
+
+<div class="col-lg-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Rank</h3>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Usuário</th>
+          <th>nível</th>
+          <th>XP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% i = 0 %>
+        <% @users.each do |user, a| %>
+          <% i = i + 1 %>
+          <tr>
+            <th scope="row"><%= i %></th>
+            <td>
+              <img class="img-circle" width="40px" height="40px" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/user.png" alt="" />
+              <%= user.name %>
+            </td>
+            <td><%= user.performace.nivel %></td>
+            <th><%= user.performace.total_experience %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
