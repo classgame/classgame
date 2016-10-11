@@ -1,6 +1,9 @@
 // Place all the styles related to the Welcomes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+	box-sizing:border-box;
+}
 #adm{
 	/*border-radius:50%;*/
 	width:250px;
@@ -18,8 +21,21 @@
 }
 #categories_welcome{
 	background-color:#F8F8F8;
+	width:100%;
 }
-.list{
-	background-color:white;
-	border-radius:2%;
+.image_category{
+	border-radius:50%;
+	margin:0;
+	padding:0;
+	width:140px;
+	height:140px;
+	object-fit: cover;
+    object-position: center;
+}
+#categories_welcome .col-lg-4{
+	text-align:center;
+}
+body{
+	line-height: 1.42857143;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }

@@ -17,10 +17,12 @@
   rick = User.create(name:"Rick Grimes",image:"http://vignette2.wikia.nocookie.net/walkingdead/images/d/d5/TWD_-_Rick_Grimes._LDOE.png/revision/latest?cb=20160505153116",
                     cpf:"65465465465",email:"rick@gmail.com",password:"123456")
   
-  tech   = Category.create(title:"Tecnologia",description:"Tecnologia (do grego é um termo que envolve o conhecimento técnico e científico e a aplicação deste conhecimento através de sua transformação no uso de ferramentas",image:"http://previews.123rf.com/images/butenkow/butenkow1303/butenkow130300310/18648878-Technology-logo-Stock-Photo.jpg")
-  buss   = Category.create(title:"Bussiness",description:"Em economia, negócio, é referido como um comércio ou empresa, que é administrado por pessoa(s) para captar recursos financeiros para gerar bens e serviços, e por consequência proporciona a circulação de capital de giro",image:"http://www.teachurself.com/wp-content/uploads/2013/12/bussiness.jpg")
+  tech   = Category.create(title:"Tecnologia",description:"Tecnologia (do grego é um termo que envolve o conhecimento técnico e científico e a aplicação deste conhecimento através de sua transformação no uso de ferramentas",
+                          image:"http://images.hngn.com/data/images/full/134342/mr-robot.jpg")
+  buss   = Category.create(title:"Bussiness",description:"Em economia, negócio, é referido como um comércio ou empresa, que é administrado por pessoa(s) para captar recursos financeiros para gerar bens e serviços, e por consequência proporciona a circulação de capital de giro", 
+                          image:"http://1.bp.blogspot.com/-fm6wll52rbs/VYyL03-LdII/AAAAAAAAM2I/62z80RPLkdE/s1600/Pense-Fora-da-Caixa-Canal-Gera%25C3%25A7%25C3%25A3o-de-Valor-600.jpg")
   sobre  = Category.create(title:"Sobrevivência",description:"As Técnicas de sobrevivência compõem um conjunto de práticas emergenciais que, compreendidas, treinadas e aplicadas em situações extremas, permitem ao indivíduo prolongar sua vida", 
-                           image:"http://cdn.wallpapersafari.com/38/64/HQe4W0.jpg")
+                           image:"https://s-media-cache-ak0.pinimg.com/236x/62/6c/a2/626ca29c1070775209885584f484e33a.jpg")
 
   redes  = Course.create(title:"Redes",image:"http://www.linkcomp.com.br/wp-content/uploads/2014/12/Redes-e-Internet1.jpg",
                          trailer:"https://www.youtube.com/embed/Ww9gJDzaf8g",

@@ -38,16 +38,23 @@
   </head>
   <body>
 
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/welcome">ClassGames</a>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ClassGame</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
+            <li><%= link_to "Home", "/welcome"  %></li>
             <li><%= link_to "Account", "/account"  %></li>
             <li><%= link_to "Categories", "/categories"  %></li>
             <li><%= link_to "Dashboard","/registries" %></li>
@@ -56,16 +63,17 @@
               <li><%= current_user.email  %></li>
             <%end%>
           </ul>
-        </div>
-      </div>
-    </div>
-    <%= bootstrap_flash %>
-    <%= yield %>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    
+    
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          
-          <!--<%= yield %>-->
+          <%= bootstrap_flash %>
+          <%= yield %>
         </div>
         <div class="col-lg-3">
           
