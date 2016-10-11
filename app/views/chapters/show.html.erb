@@ -3,10 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dd><%= @chapter.contents[0].exercise.title %></dd>
-  <dd><%= @chapter.description %></dd>
-  <dd><%= @chapter.experience %></dd>
-</dl>
+<%=  render "chapters/partials/exercises" %>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               chapters_path, :class => 'btn btn-default'  %>
