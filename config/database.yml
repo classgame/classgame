@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   host: localhost
-  username: <%= ENV["USER_DATABASE"] %>
-  password: 'rogalabs'
+  username: root
+  password: ''
 
   pool: 5
 
