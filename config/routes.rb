@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :performaces
   root 'users#index'
 
   devise_for :users

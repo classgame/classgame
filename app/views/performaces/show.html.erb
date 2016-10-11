@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nivel:</strong>
+  <%= @performace.nivel %>
+</p>
+
+<p>
+  <strong>Total experience:</strong>
+  <%= @performace.total_experience %>
+</p>
+
+<p>
+  <strong>Amount exercises:</strong>
+  <%= @performace.amount_exercises %>
+</p>
+
+<p>
+  <strong>Amount courses:</strong>
+  <%= @performace.amount_courses %>
+</p>
+
+<%= link_to 'Edit', edit_performace_path(@performace) %> |
+<%= link_to 'Back', performaces_path %>
