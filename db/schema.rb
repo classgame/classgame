@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003233958) do
+ActiveRecord::Schema.define(version: 20161011040747) do
 
   create_table "alternatives", force: :cascade do |t|
     t.string   "description", limit: 255
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20161003233958) do
 
   add_index "alternatives", ["question_id"], name: "index_alternatives_on_question_id", using: :btree
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "image",       limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "chapters", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.string   "description", limit: 255
@@ -31,11 +39,35 @@ ActiveRecord::Schema.define(version: 20161003233958) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "content_types", force: :cascade do |t|
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "contents", force: :cascade do |t|
-    t.integer "chapter_id", limit: 4
+    t.integer "chapter_id",      limit: 4
+    t.integer "content_type_id", limit: 4
   end
 
   add_index "contents", ["chapter_id"], name: "index_contents_on_chapter_id", using: :btree
+  add_index "contents", ["content_type_id"], name: "index_contents_on_content_type_id", using: :btree
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "image",             limit: 255
+    t.string   "trailer",           limit: 255
+    t.string   "title",             limit: 255
+    t.string   "description",       limit: 255
+    t.string   "nivel",             limit: 255
+    t.integer  "workload",          limit: 4
+    t.boolean  "active"
+    t.boolean  "completed_edition"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id",       limit: 4
+  end
+
+  add_index "courses", ["category_id"], name: "index_courses_on_category_id", using: :btree
 
   create_table "exercises", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -58,6 +90,17 @@ ActiveRecord::Schema.define(version: 20161003233958) do
 
   add_index "questions", ["exercise_id"], name: "index_questions_on_exercise_id", using: :btree
 
+  create_table "registries", force: :cascade do |t|
+    t.boolean "active"
+    t.boolean "finished_course"
+    t.string  "limit_date",      limit: 255
+    t.integer "course_id",       limit: 4
+    t.integer "user_id",         limit: 4
+  end
+
+  add_index "registries", ["course_id"], name: "index_registries_on_course_id", using: :btree
+  add_index "registries", ["user_id"], name: "index_registries_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255, default: "", null: false
     t.string   "cpf",                    limit: 255, default: "", null: false
@@ -78,4 +121,7 @@ ActiveRecord::Schema.define(version: 20161003233958) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "courses", "categories"
+  add_foreign_key "registries", "courses"
+  add_foreign_key "registries", "users"
 end

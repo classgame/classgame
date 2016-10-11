@@ -1,33 +1,26 @@
 <%- model_class = Chapter -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Módulos</h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:experience) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @chapters.each do |chapter| %>
-      <tr>
-        <td><%= link_to chapter.id, chapter_path(chapter) %></td>
-        <td><%= chapter.title %></td>
-        <td><%= chapter.description %></td>
-        <td><%= chapter.experience %></td>
-        <td>
-          <%= link_to 'Editar', edit_chapter_path(chapter), :class => 'btn btn-default btn-xs' %>
-          <%= link_to 'Deletar', chapter_path(chapter), :method => :delete,
-                                                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                                                        :class => 'btn btn-xs btn-danger' %>
+<tbody>
+  <% @chapters.each do |chapter| %>
+    <div class="panel panel-info">
+      <div class="panel-heading">Módulo <%= chapter.id %> - <%= chapter.title %></div>
+      <div class="panel-body">
+        <tr>
+          <td><%= chapter.description %></td>
+        </tr>
+        <tr>
+          <td>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+            <%= link_to 'iniciar', chapter_path(chapter), :class => 'btn btn-default btn-xs' %>
         </td>
-      </tr>
+         </tr>
+        </div>
+      </div>
     <% end %>
   </tbody>
-</table>
-
-<%= link_to 'Novo', new_chapter_path, :class => 'btn btn-primary' %>

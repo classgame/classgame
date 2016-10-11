@@ -3,17 +3,17 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong>Capítulo</strong></dt>
-  <dd><%= @chapter.title %></dd>
-  <dt><strong>Descrição</strong></dt>
+<dd><%= @chapter.contents[0].exercise.title %></dd>
   <dd><%= @chapter.description %></dd>
-  <dt><strong>Experiencia</strong></dt>
   <dd><%= @chapter.experience %></dd>
 </dl>
 
-<%= link_to 'Voltar', chapters_path, :class => 'btn btn-default' %>
-<%= link_to 'Editar', edit_chapter_path(@chapter), :class => 'btn btn-default' %>
-<%= link_to 'Deleta', chapter_path(@chapter), :method => 'delete',
-                                              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                                              :class => 'btn btn-danger' %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              chapters_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_chapter_path(@chapter), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              chapter_path(@chapter),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

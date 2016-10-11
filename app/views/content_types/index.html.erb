@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Content Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @content_types.each do |content_type| %>
+      <tr>
+        <td><%= content_type.description %></td>
+        <td><%= link_to 'Show', content_type %></td>
+        <td><%= link_to 'Edit', edit_content_type_path(content_type) %></td>
+        <td><%= link_to 'Destroy', content_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Content type', new_content_type_path %>
