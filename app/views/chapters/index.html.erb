@@ -4,23 +4,21 @@
 </div>
 <tbody>
   <% @chapters.each do |chapter| %>
-    <div class="panel panel-info">
-      <div class="panel-heading">Módulo <%= chapter.id %> - <%= chapter.title %></div>
-      <div class="panel-body">
-        <tr>
-          <td><%= chapter.description %></td>
-        </tr>
-        <tr>
-          <td>
+    <div class="bs-callout bs-callout-primary">
+      <h4>Módulo <%= chapter.id %> - <%= chapter.title %></h4>
+      <tr>
+        <td><%= chapter.description %></td>
+      </tr>
+      <tr>
+        <td>
           <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
               <span class="sr-only">60% Complete</span>
             </div>
           </div>
-            <%= link_to 'iniciar', chapter_path(chapter), :class => 'btn btn-default btn-xs' %>
+          <%= link_to 'iniciar', chapter_path(chapter), :class => 'btn btn-default btn-xs' %>
         </td>
-         </tr>
-        </div>
-      </div>
-    <% end %>
-  </tbody>
+      </tr>
+    </div>
+  <% end %>
+</tbody>
