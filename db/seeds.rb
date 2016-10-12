@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
   #Criatores
-  valter = User.create(name:"Valter", image: "https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/13232963_867235543399591_3714952430996557228_n.jpg?oh=6b81f021303b6d088eb0e725ce188fcd&oe=58A13888", 
+  valter = User.create(name:"Valter Barros", image: "https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/13232963_867235543399591_3714952430996557228_n.jpg?oh=6b81f021303b6d088eb0e725ce188fcd&oe=58A13888", 
                       cpf:"352456465", email:"valter@gmail.com", password:"123456")
-  henrich = User.create(name:"Henrich Jones",image:"https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/1391654_620729594635763_1445699836_n.jpg?oh=dfca4ac4aa2e2e583e241d23d9b9f003&oe=589E704A",
+  henrich = User.create(name:"Henrich Jones",image:"http://rogalabs.com/assets/img/team/team-06_jones.jpg",
                       cpf:"456465455",email:"henrich@gmail.com",password:"123456")
   paulo = User.create(name:"João Paulo",image:"https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/13900192_808402369296146_4162341773477618642_n.jpg?oh=a841a90c3d64c55fa9bc4666eaebcb08&oe=589C4E9E",
                       cpf:"456465455",email:"paulo@gmail.com",password:"123456")

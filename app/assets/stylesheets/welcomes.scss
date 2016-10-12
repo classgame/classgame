@@ -4,13 +4,21 @@
 *{
 	box-sizing:border-box;
 }
-#adm{
+.alert{
+	margin:0;
+} 
+#image-adm{
 	/*border-radius:50%;*/
-	width:250px;
-	height:200px;
+	width:273px;
+	height:303px;
+  object-fit: cover;
+    object-position: center;
+}
+.our_team {
+  text-align:center;
+  margin-top:100px;
 }
 #name_adm{
-	font-weight:bold;
 	font-size:20px;
 }
 #cover{
@@ -18,10 +26,24 @@
 	height:600px;
 	object-fit: cover;
     object-position: center;
+    position:relative;
+    top:-50px;
 }
 #categories_welcome{
-	background-color:#F8F8F8;
 	width:100%;
+}
+#categories_welcome p{
+  font-size:16px;
+  line-height:26px;
+}
+#categories_welcome h2{
+  font-weight:bold;
+  text-transform:uppercase;
+}
+h1{
+  font-weight:bold;
+  text-transform:uppercase;
+  line-height:1.1;
 }
 .image_category{
 	border-radius:50%;

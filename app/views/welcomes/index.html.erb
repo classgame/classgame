@@ -1,4 +1,4 @@
-<img id="cover" src="http://www.blogeducadoresinovadores.com.br/wp-content/uploads/2015/03/Twitter_education_w11_1.png">
+<img id="cover" src="http://cdn.wallpapersafari.com/66/37/Wvlqgw.jpg">
 <div class="container">
 <div class="row" id="categories_welcome">
 	<h1>Categorias de Cursos</h1>
@@ -12,11 +12,11 @@
 		</div>
 	<%end%>
 </div>
-<div class="row">
+<div class="row our_team" id="our_team">
 	<h1>Nosso Time</h1>	
 	<%@user.each do |u|%>
-		<div class="col-xs-4">
-		<%=image_tag u.image, id:"adm"%> <br>
+		<div class="col-lg-4">
+		<%=image_tag u.image, id:"image-adm"%> <br>
 		<p id="name_adm"><%=u.name%></p>
 		</div>
 	<%end%>

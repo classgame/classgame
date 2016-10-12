@@ -37,47 +37,40 @@
     <![endif]-->
   </head>
   <body>
-
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">ClassGame</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
+    <%= bootstrap_flash %>
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/welcome">ClassGames</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <%if user_signed_in?%>  
           <ul class="nav navbar-nav">
-            <li><%= link_to "Home", "/welcome"  %></li>
-            <li><%= link_to "Account", "/account"  %></li>
-            <li><%= link_to "Categories", "/categories"  %></li>
+            <li><%= link_to "Conta", "/account" %></li>
+            <li><%= link_to "Categorias", "/categories"  %></li>
             <li><%= link_to "Dashboard","/registries" %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-            <% if user_signed_in?%>
-              <li><%= current_user.email  %></li>
-            <%end%>
+            <li><%= current_user.email  %></li>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    
+          <%else%>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Log in", "/users/sign_in"  %></li>
+              <li><%= link_to "Sign up","/users/sign_up" %></li>
+            </ul>  
+          <%end%>
+        
+        </div>
+      </div>
+    </div>
     
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <div class="col-lg-3">
-          
-        </div><!--/span-->
       </div><!--/row-->
 
       <footer>
