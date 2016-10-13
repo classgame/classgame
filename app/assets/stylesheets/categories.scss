@@ -14,24 +14,4 @@ h1+p{
   text-align:center;
 }
 
-//Estilizing link_to courses
-.courses {
-  background-color:#00217f;
-  padding:10px;
-  margin-top:10px;
-  color:#fff;
-  text-decoration:none;
-  display:inline-block;
-  &:hover{
-    background-color:#00217f;
-    text-decoration:none;
-  }
-  &:visited{
-    color:#fff;
-  }
-  &:active{
-    text-decoration:none;
-  }
-}
-
 
