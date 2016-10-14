@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @registry.active %>
+</p>
+
+<p>
+  <strong>Finished course:</strong>
+  <%= @registry.finished_course %>
+</p>
+
+<p>
+  <strong>Limit date:</strong>
+  <%= @registry.limit_date %>
+</p>
+
+<%= link_to 'Edit', edit_registry_path(@registry) %> |
+<%= link_to 'Back', registries_path %>

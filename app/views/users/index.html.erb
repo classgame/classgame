@@ -1,35 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<div class="col-lg-4">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Rank</h3>
-    </div>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Usuário</th>
-          <th>nível</th>
-          <th>XP</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% i = 0 %>
-        <% @users.each do |user, a| %>
-          <% i = i + 1 %>
-          <tr>
-            <th scope="row"><%= i %></th>
-            <td>
-              <img class="img-circle" width="40px" height="40px" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/user.png" alt="" />
-              <%= user.name %>
-            </td>
-            <td><%= user.performace.nivel %></td>
-            <th><%= user.performace.total_experience %></th>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<h1>Listing users</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cpf</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.cpf %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

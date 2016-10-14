@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categorias de Cursos</h1>
+<p>Escolha entre as categorias para ver nossos cursos</p>
+  <div class="row">
+    <% @categories.each do |category| %>
+      <div class="col-xs-4">
+        <%= image_tag category.image %> <br>
+          <h2> <%= category.title %> </h2>
+          <p><%= category.description %></p> 
+          <p><%= link_to 'Learn more', category, class: "courses" %></p>
+      </div>
+        <% end %>
+  </div>  
+  <br>

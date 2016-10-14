@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
   resources :performaces
-  root 'users#index'
-
+  resources :categories
+  resources :courses
+  resources :registries
   devise_for :users
 
   resources :users
+  root to: 'categories#index'
+
+  #integrations user course through registry
+  get 'registrations/:id', to: 'registries#reg_user_course', as: 'registrations' #Mudar para post post 'Registry'
+  get '/account', to: 'users#edit'
 
 
   # Example of regular route:

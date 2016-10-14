@@ -1,0 +1,57 @@
+<%r = Random.new%>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <h1>Listing Registries</h1>
+  <% @registries.each do |registry| %>
+    <%course = registry.course%>
+    <%value = r.rand(0..100)%>
+      <div class="col-xs-2">
+        <%= image_tag course.image,class:"center-block"%>
+      </div>
+      <div class="col-xs-10">
+        <%=link_to "Continue",course, class:"btn btn-success pull-right"%>
+        <h2 class="text-left"><%= course.title%></h2>
+        <div class="progress center-block">
+          <div class="progress-bar progress-bar active" role="progressbar"
+            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:<%=value%>%">
+            <%=value%>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<div class="col-lg-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Rank</h3>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Usuário</th>
+          <th>nível</th>
+          <th>XP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% i = 0 %>
+        <% @users.each do |user, a| %>
+          <% i = i + 1 %>
+          <tr>
+            <th scope="row"><%= i %></th>
+            <td>
+              <img class="img-circle" width="40px" height="40px" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/user.png" alt="" />
+              <%= user.name %>
+            </td>
+            <td><%= user.performace.nivel %></td>
+            <th><%= user.performace.total_experience %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
