@@ -1,0 +1,25 @@
+<%= simple_form_for(@course) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.input :title %>
+
+    <%= f.input :description %>
+
+    <%= f.input :nivel %>
+
+    <%= f.input :workload %>
+
+    <%= f.input :active %>
+
+    <%= f.input :completed_edition %>
+
+    <div class="field">  
+      <%= f.collection_select :category_id, @category, :id ,:title%> 
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

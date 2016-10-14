@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= link_to @course.category.title, @course.category %>
+</p>
+
+<h1 class="course_banner_title"><%= @course.title %></h1>
+
+<p>
+  <%= @course.description %>
+</p>
+
+<iframe width="560" height="315" src="<%=@course.trailer%>" frameborder="0" allowfullscreen></iframe>
+<br>
+<%= link_to 'Cadastrar-se', registrations_path(@course), class:"courses" %> 
