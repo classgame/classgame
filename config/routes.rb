@@ -1,16 +1,28 @@
 Rails.application.routes.draw do
 
-  resources :texts
-  resources :videos
-  root 'users#index'
+  root to: 'welcomes#index'
 
   devise_for :users
 
+  resources :texts
+  resources :videos
   resources :users
   resources :alternatives
   resources :questions
   resources :exercises
   resources :chapters
+  resources :categories
+  resources :courses
+  resources :registries
+  resources :users
+  
+  devise_for :users
+
+
+  get 'welcome' => "welcomes#index"
+  #integrations user course through registry
+  get 'registrations/:id', to: 'registries#reg_user_course', as: 'registrations' #Mudar para post post 'Registry'
+  get '/account/:id', to: 'users#edit', as: :account
 
 
   # Example of regular route:
