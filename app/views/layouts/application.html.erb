@@ -52,13 +52,9 @@
               <li><%= link_to "Conta", account_path(current_user) %></li>
               <li><%= link_to "Categorias", categories_path  %></li>
               <li><%= link_to "Dashboard", registries_path %></li>
-              <% if user_signed_in?%>
-                <li>
-                  <%= link_to "Nível: #{current_user.performace.nivel} | XP: #{current_user.performace.total_experience}", performace_path(current_user) %>
-                </li>
-                <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-                <li><%= current_user.email  %></li>
-              <%end%>
+              <li><%= link_to "Nível: #{current_user.performace.nivel} | XP: #{current_user.performace.total_experience}", performace_path(current_user) %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+              <li><%= current_user.email  %></li>
             </ul>
           <%else%>
             <ul class="nav navbar-nav">
@@ -66,7 +62,6 @@
               <li><%= link_to "Sign up",destroy_user_session_path %></li>
             </ul>  
           <%end%>
-          
         </div>
       </div>
     </div>
