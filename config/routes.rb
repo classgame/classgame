@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   #integrations user course through registry
   get 'registrations/:id', to: 'registries#reg_user_course', as: 'registrations' #Mudar para post post 'Registry'
-  get '/account', to: 'users#edit'
+  get '/account/:id', to: 'users#edit', as: :account
 
 
   # Example of regular route:

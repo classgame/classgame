@@ -49,38 +49,28 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <%if user_signed_in?%>  
           <ul class="nav navbar-nav">
-            <li><%= link_to "Conta", "/account" %></li>
-            <li><%= link_to "Categorias", "/categories"  %></li>
-            <li><%= link_to "Dashboard","/registries" %></li>
+            <li><%= link_to "Conta", account_path(current_user) %></li>
+            <li><%= link_to "Categorias", categories_path  %></li>
+            <li><%= link_to "Dashboard", registries_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
             <li><%= current_user.email  %></li>
           </ul>
           <%else%>
             <ul class="nav navbar-nav">
-              <li><%= link_to "Log in", "/users/sign_in"  %></li>
-              <li><%= link_to "Sign up","/users/sign_up" %></li>
+              <li><%= link_to "Log in", user_session_path  %></li>
+              <li><%= link_to "Sign up",destroy_user_session_path %></li>
             </ul>  
           <%end%>
         
         </div>
       </div>
     </div>
-          <%= yield %>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-        </div>
-        <div class="col-lg-3">
-          
-        </div><!--/span-->
-      </div><!--/row-->
+    <%= yield %>
+    <footer>
+      <p>&copy; Company Gamification 2016</p>
+    </footer>
 
-      <footer>
-        <p>&copy; Company Gamification 2016</p>
-      </footer>
+  </div> <!-- /container -->
 
-    </div> <!-- /container -->
-
-  </body>
+</body>
 </html>
