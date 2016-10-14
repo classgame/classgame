@@ -5,13 +5,24 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-  valter = User.create(name:"Valter", cpf:"352456465", email:"valter@gmail.com", password:"123456")
-  rick = User.create(name:"Rick Grimes",cpf:"65465465465",email:"rick@gmail.com",password:"123456")
+  #Criatores
+  valter = User.create(name:"Valter Barros", image: "https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/13232963_867235543399591_3714952430996557228_n.jpg?oh=6b81f021303b6d088eb0e725ce188fcd&oe=58A13888", 
+                      cpf:"352456465", email:"valter@gmail.com", password:"123456")
+  henrich = User.create(name:"Henrich Jones",image:"http://rogalabs.com/assets/img/team/team-06_jones.jpg",
+                      cpf:"456465455",email:"henrich@gmail.com",password:"123456")
+  paulo = User.create(name:"João Paulo",image:"https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/13900192_808402369296146_4162341773477618642_n.jpg?oh=a841a90c3d64c55fa9bc4666eaebcb08&oe=589C4E9E",
+                      cpf:"456465455",email:"paulo@gmail.com",password:"123456")
   
-  tech   = Category.create(title:"Tecnologia",description:"Tecnologia (do grego é um termo que envolve o conhecimento técnico e científico e a aplicação deste conhecimento através de sua transformação no uso de ferramentas",image:"http://previews.123rf.com/images/butenkow/butenkow1303/butenkow130300310/18648878-Technology-logo-Stock-Photo.jpg")
-  buss   = Category.create(title:"Bussiness",description:"Em economia, negócio, é referido como um comércio ou empresa, que é administrado por pessoa(s) para captar recursos financeiros para gerar bens e serviços, e por consequência proporciona a circulação de capital de giro",image:"http://www.teachurself.com/wp-content/uploads/2013/12/bussiness.jpg")
+  #TWD
+  rick = User.create(name:"Rick Grimes",image:"http://vignette2.wikia.nocookie.net/walkingdead/images/d/d5/TWD_-_Rick_Grimes._LDOE.png/revision/latest?cb=20160505153116",
+                    cpf:"65465465465",email:"rick@gmail.com",password:"123456")
+  
+  tech   = Category.create(title:"Tecnologia",description:"Tecnologia (do grego é um termo que envolve o conhecimento técnico e científico e a aplicação deste conhecimento através de sua transformação no uso de ferramentas",
+                          image:"http://images.hngn.com/data/images/full/134342/mr-robot.jpg")
+  buss   = Category.create(title:"Bussiness",description:"Em economia, negócio, é referido como um comércio ou empresa, que é administrado por pessoa(s) para captar recursos financeiros para gerar bens e serviços, e por consequência proporciona a circulação de capital de giro", 
+                          image:"http://1.bp.blogspot.com/-fm6wll52rbs/VYyL03-LdII/AAAAAAAAM2I/62z80RPLkdE/s1600/Pense-Fora-da-Caixa-Canal-Gera%25C3%25A7%25C3%25A3o-de-Valor-600.jpg")
   sobre  = Category.create(title:"Sobrevivência",description:"As Técnicas de sobrevivência compõem um conjunto de práticas emergenciais que, compreendidas, treinadas e aplicadas em situações extremas, permitem ao indivíduo prolongar sua vida", 
-                           image:"http://cdn.wallpapersafari.com/38/64/HQe4W0.jpg")
+                           image:"https://s-media-cache-ak0.pinimg.com/236x/62/6c/a2/626ca29c1070775209885584f484e33a.jpg")
 
   redes  = Course.create(title:"Redes",image:"http://www.linkcomp.com.br/wp-content/uploads/2014/12/Redes-e-Internet1.jpg",
                          trailer:"https://www.youtube.com/embed/Ww9gJDzaf8g",
@@ -33,9 +44,12 @@
                          description:"A capacidade humana de construir coisas modernas é impressionante. Mas ver este cara criar um machado de pedra primitivo usando apenas tocos de pau, pedras e fogo é impressionante e estranhamente satisfatório", 
                          nivel:"Hard",workload:10,active:true, completed_edition:false,category:sobre)
   
-  registries = Registry.create(active: true, finished_course:false, limit_date:"30/09/2016",user:valter, course:rails)
-  registries = Registry.create(active: true, finished_course:false, limit_date:"01/10/2016",user:valter, course:redes)
+  registries = Registry.create(active: true, finished_course:false, limit_date:"30/12/2016",user:valter, course:rails)
+  registries = Registry.create(active: true, finished_course:false, limit_date:"01/12/2016",user:valter, course:redes)
 
-  registries = Registry.create(active:true, finished_course:false, limit_date:"02/10/2016 ",user:rick, course:empreen)
+  registries = Registry.create(active:true, finished_course:false, limit_date:"02/11/2016 ",user:rick, course:empreen)
   registries = Registry.create(active:true, finished_course:false, limit_date:"10/11/2016 ",user:rick, course:rails)
   registries = Registry.create(active:true,finished_course:false, limit_date:"01/01/2017 ",user:rick, course:zombie)
+
+  registries = Registry.create(active: true, finished_course:false, limit_date:"30/11/2016",user:paulo, course:rails)
+  registries = Registry.create(active: true, finished_course:false, limit_date:"30/11/2016",user:paulo, course:redes)
