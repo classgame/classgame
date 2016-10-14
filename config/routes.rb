@@ -4,14 +4,15 @@ Rails.application.routes.draw do
   resources :categories
   resources :courses
   resources :registries
-  devise_for :users
 
+  devise_for :users
   resources :users
-  root to: 'categories#index'
+  root to: 'welcomes#index'
+  get 'welcome' => "welcomes#index"
 
   #integrations user course through registry
   get 'registrations/:id', to: 'registries#reg_user_course', as: 'registrations' #Mudar para post post 'Registry'
-  get '/account', to: 'users#edit'
+  get '/account/:id', to: 'users#edit', as: :account
 
 
   # Example of regular route:

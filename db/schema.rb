@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20161011063642) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255, default: "", null: false
+    t.string   "image",                  limit: 255, default: "", null: false
     t.string   "cpf",                    limit: 255, default: "", null: false
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false

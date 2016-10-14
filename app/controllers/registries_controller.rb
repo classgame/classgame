@@ -3,6 +3,7 @@ class RegistriesController < ApplicationController
 
   def index
     @registries = current_user.registries
+    @users = User.includes(:performace).order("performaces.nivel desc").limit(10)
   end
   
   def reg_user_course
