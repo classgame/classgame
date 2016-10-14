@@ -1,5 +1,9 @@
 class Content < ActiveRecord::Base
+
+  belongs_to :content_type
   belongs_to :chapter
   has_one :exercise
-  belongs_to :content_type
+  has_one :video
+  has_one :text
+
 end

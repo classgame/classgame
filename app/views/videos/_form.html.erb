@@ -1,8 +1,11 @@
-<%= simple_form_for(@content_type) do |f| %>
+<%= simple_form_for(@video) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :link %>
+    <%= f.input :title %>
     <%= f.input :description %>
+    <%= f.input :experience %>
   </div>
 
   <div class="form-actions">

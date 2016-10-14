@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :content_types
+  resources :texts
+  resources :videos
   root 'users#index'
 
   devise_for :users
