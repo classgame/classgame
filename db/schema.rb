@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011055124) do
+ActiveRecord::Schema.define(version: 20161011063642) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address",      limit: 255
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 20161011055124) do
 
   add_index "courses", ["category_id"], name: "index_courses_on_category_id", using: :btree
 
+  create_table "performaces", force: :cascade do |t|
+    t.integer  "nivel",            limit: 4
+    t.integer  "total_experience", limit: 4
+    t.integer  "amount_exercises", limit: 4
+    t.integer  "amount_courses",   limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "registries", force: :cascade do |t|
     t.boolean  "active"
     t.boolean  "finished_course"
@@ -76,14 +85,17 @@ ActiveRecord::Schema.define(version: 20161011055124) do
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
     t.integer  "address_id",             limit: 4
+    t.integer  "performace_id",          limit: 4
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["performace_id"], name: "index_users_on_performace_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "courses", "categories"
   add_foreign_key "registries", "courses"
   add_foreign_key "registries", "users"
   add_foreign_key "users", "addresses"
+  add_foreign_key "users", "performaces"
 end

@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
   resources :addresses
+  resources :performaces
   resources :categories
   resources :courses
   resources :registries
-  devise_for :users
 
+  devise_for :users
   resources :users
   root to: 'welcomes#index'
   get 'welcome' => "welcomes#index"
