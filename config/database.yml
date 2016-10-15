@@ -51,5 +51,3 @@ production:
   database: class_game_prod
   username: learning_games
   password: <%= ENV['CLASS_GAME_DATABASE_PASSWORD']%>
-
->>>>>>> develop

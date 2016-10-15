@@ -15,9 +15,8 @@ Rails.application.routes.draw do
   resources :courses
   resources :registries
   resources :users
-  
-  devise_for :users
-
+  resources :addresses
+  resources :performaces
 
   get 'welcome' => "welcomes#index"
   #integrations user course through registry
