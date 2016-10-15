@@ -13,6 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20161011063642) do
 
+  create_table "addresses", force: :cascade do |t|
+    t.string   "address",      limit: 255
+    t.integer  "number",       limit: 4
+    t.string   "complement",   limit: 255
+    t.string   "neighborhood", limit: 255
+    t.string   "zip_code",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.string   "image",       limit: 255
@@ -62,7 +72,6 @@ ActiveRecord::Schema.define(version: 20161011063642) do
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255, default: "", null: false
     t.string   "image",                  limit: 255, default: "", null: false
-    t.string   "cpf",                    limit: 255, default: "", null: false
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "email",                  limit: 255, default: "", null: false
@@ -75,9 +84,11 @@ ActiveRecord::Schema.define(version: 20161011063642) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+    t.integer  "address_id",             limit: 4
     t.integer  "performace_id",          limit: 4
   end
 
+  add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["performace_id"], name: "index_users_on_performace_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -85,5 +96,6 @@ ActiveRecord::Schema.define(version: 20161011063642) do
   add_foreign_key "courses", "categories"
   add_foreign_key "registries", "courses"
   add_foreign_key "registries", "users"
+  add_foreign_key "users", "addresses"
   add_foreign_key "users", "performaces"
 end
