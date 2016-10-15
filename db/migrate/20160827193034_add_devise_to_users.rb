@@ -1,7 +1,8 @@
-  class AddDeviseToUsers < ActiveRecord::Migration
+class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
       t.string :name, null: false, default: ""
+      t.string :image, null: false, default:""
       t.timestamps null:false
     end
 
