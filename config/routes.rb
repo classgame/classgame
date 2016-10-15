@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'welcome' => "welcomes#index"
-  
+  resources :addresses
   resources :categories
   resources :courses
   resources :registries
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :users
   root to: 'welcomes#index'
+  get 'welcome' => "welcomes#index"
 
   #integrations user course through registry
   get 'registrations/:id', to: 'registries#reg_user_course', as: 'registrations' #Mudar para post post 'Registry'

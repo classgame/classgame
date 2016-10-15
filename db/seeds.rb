@@ -5,17 +5,52 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+valter_address = Address.create(
+  address: "Rua A",
+  number: 12,
+  complement: "Em Frente ao Supermercado X",
+  neighborhood: "Bairro Z",
+  zip_code: "57001001"
+)
+
+henrich_address = Address.create(
+  address: "Rua B",
+  number: 12,
+  complement: "Em Frente ao Supermercado X",
+  neighborhood: "Bairro Z",
+  zip_code: "57001001"
+)
+
+paulo_address = Address.create(
+  address: "Rua C",
+  number: 12,
+  complement: "Em Frente ao Supermercado X",
+  neighborhood: "Bairro Z",
+  zip_code: "57001001"
+)
+
+rich_address = Address.create(
+  address: "Rua D",
+  number: 12,
+  complement: "Em Frente ao Supermercado X",
+  neighborhood: "Bairro Z",
+  zip_code: "57001001"
+)
+
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
   #Criatores
   valter = User.create(name:"Valter Barros", image: "https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/13232963_867235543399591_3714952430996557228_n.jpg?oh=6b81f021303b6d088eb0e725ce188fcd&oe=58A13888", 
-                      cpf:"352456465", email:"valter@gmail.com", password:"123456")
+                      email:"valter@gmail.com", password:"123456", address: valter_address)
   henrich = User.create(name:"Henrich Jones",image:"http://rogalabs.com/assets/img/team/team-06_jones.jpg",
-                      cpf:"456465455",email:"henrich@gmail.com",password:"123456")
+                      email:"henrich@gmail.com",password:"123456", address: henrich_address)
   paulo = User.create(name:"João Paulo",image:"https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/13900192_808402369296146_4162341773477618642_n.jpg?oh=a841a90c3d64c55fa9bc4666eaebcb08&oe=589C4E9E",
-                      cpf:"456465455",email:"paulo@gmail.com",password:"123456")
+                      email:"paulo@gmail.com",password:"123456", address: paulo_address)
   
   #TWD
   rick = User.create(name:"Rick Grimes",image:"http://vignette2.wikia.nocookie.net/walkingdead/images/d/d5/TWD_-_Rick_Grimes._LDOE.png/revision/latest?cb=20160505153116",
-                    cpf:"65465465465",email:"rick@gmail.com",password:"123456")
+                    email:"rick@gmail.com",password:"123456", address: rich_address)
   
   tech   = Category.create(title:"Tecnologia",description:"Tecnologia (do grego é um termo que envolve o conhecimento técnico e científico e a aplicação deste conhecimento através de sua transformação no uso de ferramentas",
                           image:"http://images.hngn.com/data/images/full/134342/mr-robot.jpg")

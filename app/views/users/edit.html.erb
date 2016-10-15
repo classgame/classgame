@@ -1,3 +1,8 @@
-<h1>Editing User</h1>
+<h1>Meus Dados</h1>
 
 <%= render 'form' %>
+
+<br />
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              users_path, :class => 'btn btn-default'  %>
