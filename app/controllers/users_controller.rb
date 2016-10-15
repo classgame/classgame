@@ -64,7 +64,7 @@ class UsersController < ApplicationController
                                      :number,
                                      :complement,
                                      :neighborhood,
-                                     :zip_code,
+                                     :zip_code
                                    ])
     end
 end
