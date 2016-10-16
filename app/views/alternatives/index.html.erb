@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Alternatives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Correct</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alternatives.each do |alternative| %>
+      <tr>
+        <td><%= alternative.description %></td>
+        <td><%= alternative.correct %></td>
+        <td><%= link_to 'Show', alternative %></td>
+        <td><%= link_to 'Edit', edit_alternative_path(alternative) %></td>
+        <td><%= link_to 'Destroy', alternative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Alternative', new_alternative_path %>

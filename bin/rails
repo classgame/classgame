@@ -1,5 +1,4 @@
-#!/usr/bin/env ruby
-begin
+#!/us/bin/env rubybegin
   load File.expand_path('../spring', __FILE__)
 rescue LoadError => e
   raise unless e.message.include?('spring')

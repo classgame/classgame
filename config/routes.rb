@@ -1,16 +1,24 @@
 Rails.application.routes.draw do
 
-  resources :addresses
-  resources :performaces
+  root to: 'welcomes#index'
+
+  devise_for :users
+
+  resources :texts
+  resources :videos
+  resources :users
+  resources :alternatives
+  resources :questions
+  resources :exercises
+  resources :chapters
   resources :categories
   resources :courses
   resources :registries
-
-  devise_for :users
   resources :users
-  root to: 'welcomes#index'
-  get 'welcome' => "welcomes#index"
+  resources :addresses
+  resources :performaces
 
+  get 'welcome' => "welcomes#index"
   #integrations user course through registry
   get 'registrations/:id', to: 'registries#reg_user_course', as: 'registrations' #Mudar para post post 'Registry'
   get '/account/:id', to: 'users#edit', as: :account

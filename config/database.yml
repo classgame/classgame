@@ -1,5 +1,4 @@
-# MySQL.  Versions 5.0+ are recommended.
-#
+#MySQL.  Versions 5.0+ are recommended.#
 # Install the MYSQL driver
 #   gem install mysql2
 #
@@ -52,4 +51,3 @@ production:
   database: class_game_prod
   username: learning_games
   password: <%= ENV['CLASS_GAME_DATABASE_PASSWORD']%>
-
