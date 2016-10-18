@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :registries
   has_many :courses, through: :registries
 
+  has_many :attempts
+
   before_save :normalize_name, on: [:create, :update]
 
   belongs_to :address

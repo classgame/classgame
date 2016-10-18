@@ -6,63 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Chapter.create(
-  title: "Best Practices with ruby on rails",
-  description: "what do you know about routes?",
-  experience: "40"
-)
-
-Content.create(
-  chapter_id: 1
-)
-
-Content.create(
-  chapter_id: 1
-)
-
-Content.create(
-  chapter_id: 1
-)
-
-Video.create(
-  link: "link de um video",
-  title: "First steps with ruby",
-  description: "Do you know about the facilities when you program with ruby?",
-  content_id: 2
-)
-
-Text.create(
-  title: "Introduction in Ruby on Rails",
-  text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
-  experience: "30",
-  content_id: 2
-)
-
-Exercise.create(
-  title: "Resolva a questao a seguir",
-  nivel: "hard",
-  experience: "50",
-  content_id: 3
-)
-
-Question.create(
-  description: "What is your course? ADS?",
-  experience: "50",
-  exercise_id: 1
-)
-
-Alternative.create(
-  description: "Yes,i'm the best",
-  correct: true,
-  question_id: 1
-)
-
-Alternative.create(
-  description: "No, i'm a shit",
-  correct: false,
-  question_id: 1
-)
-
 #Criatores
 valter_address = Address.create(
   address: "Rua A",
@@ -284,4 +227,95 @@ registries = Registry.create!(
   limit_date:"30/11/2016",
   user:paulo, 
   course:redes
+)
+
+# chapter, content, video, text, question, alternative
+
+Chapter.create(
+  title: "Best Practices with ruby on rails",
+  description: "what do you know about routes?",
+  experience: "40"
+)
+
+Content.create(
+  chapter_id: 1
+)
+
+Content.create(
+  chapter_id: 1
+)
+
+Content.create(
+  chapter_id: 1
+)
+
+Video.create(
+  link: "link de um video",
+  title: "First steps with ruby",
+  description: "Do you know about the facilities when you program with ruby?",
+  content_id: 2
+)
+
+Text.create(
+  title: "Introduction in Ruby on Rails",
+  text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
+  experience: "30",
+  content_id: 2
+)
+
+ex1 = Exercise.create(
+  title: "Questionario de Java",
+  nivel: "hard",
+  experience: "50",
+  content_id: 2
+)
+
+ex2 = Exercise.create(
+  title: "Questionario de Ruby",
+  nivel: "hard",
+  experience: "50",
+  content_id: 3
+)
+
+Question.create(
+  description: "What is your course? ADS?",
+  experience: "50",
+  exercise: ex1
+)
+
+Alternative.create(
+  description: "Yes,i'm the best",
+  correct: true,
+  question_id: 1
+)
+
+Alternative.create(
+  description: "No, i'm a shit",
+  correct: false,
+  question_id: 1
+)
+
+Question.create(
+  description: "What is command to print information on ruby?",
+  experience: "50",
+  exercise: ex2
+)
+
+Alternative.create(
+  description: "print, puts",
+  correct: true,
+  question_id: 2
+)
+
+Alternative.create(
+  description: "each",
+  correct: false,
+  question_id: 2
+)
+
+Attempt.create(
+  experience:50, 
+  ending_time:"17/10/2016", 
+  approved:true, 
+  user:paulo
 )

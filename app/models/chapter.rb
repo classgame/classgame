@@ -5,4 +5,6 @@ class Chapter < ActiveRecord::Base
   has_many :texts,     through: :contents
   has_many :contents
 
+  accepts_nested_attributes_for :exercises
+
 end

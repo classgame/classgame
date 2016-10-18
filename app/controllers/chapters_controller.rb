@@ -30,6 +30,7 @@ class ChaptersController < ApplicationController
   end
 
   def update
+    debugger
     respond_to do |format|
       if @chapter.update(chapter_params)
         format.html { redirect_to @chapter, notice: 'Chapter was successfully updated.' }
