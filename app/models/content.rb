@@ -6,4 +6,5 @@ class Content < ActiveRecord::Base
   has_one :video
   has_one :text
 
+  
 end

@@ -5,6 +5,7 @@ class CreateVideos < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.integer :experience
+      t.integer :position
 
       t.timestamps null: false
     end

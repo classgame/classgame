@@ -253,27 +253,24 @@ content3 = Content.create(
 video1 = Video.create(
   link: "https://www.youtube.com/embed/tduWe7LNQVs",
   title: "First steps with ruby",
+  position: 1,
+  experience: "30",
   description: "Do you know about the facilities when you program with ruby?",
-  content_id: 2
+  content: content2
 )
 
 text1 = Text.create(
   title: "Introduction in Ruby on Rails",
   text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
+  position: 3,
   experience: "30",
   content: content2
-)
-
-ex1 = Exercise.create(
-  title: "Questionario de Java",
-  nivel: "hard",
-  experience: "50",
-  content:content2
 )
 
 ex2 = Exercise.create(
   title: "Questionario de Ruby",
   nivel: "hard",
+  position: 2,
   experience: "50",
   content: content3
 )
@@ -281,7 +278,7 @@ ex2 = Exercise.create(
 q1 = Question.create(
   description: "What is your course? ADS?",
   experience: "50",
-  exercise: ex1
+  exercise: ex2
 )
 
 Alternative.create(

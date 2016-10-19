@@ -14,7 +14,12 @@ class AttemptsController < ApplicationController
 
   # GET /attempts/new
   def new
-    @chapter = Chapter.find(params[:id])
+    $partial ||= 'exercises'
+    @chapter   = Chapter.find(params[:id])
+    @@chapter  = @chapter
+    @exercises = @chapter.exercises
+    @texts     = @chapter.texts
+    @videos    = @chapter.videos 
   end
 
   # GET /attempts/1/edit
@@ -24,35 +29,37 @@ class AttemptsController < ApplicationController
   # POST /attempts
   # POST /attempts.json
   def create
-    points = 0
-    approved = false
-    alternatives = Alternative.where(id: attempt_params)
-    alternatives.each do |alternative| 
-      if alternative.correct
-        points += alternative.question.experience
-        approved = true
-      else 
-        approved = false
+    if params[:question][:alternative_attributes]
+      points       = 0
+      approved     = false
+      alternatives = Alternative.where(id: attempt_params)
+      alternatives.each do |alternative| 
+        if alternative.correct
+          points  +=  alternative.question.experience
+          approved = true
+        else 
+          approved = false
+        end
       end
-    end
 
-    performace = current_user.performace
-    experience_final = performace.total_experience + points
-    amount_exercises_final = performace.amount_exercises + 1
-    performace.update_attributes(total_experience: experience_final, amount_exercises: amount_exercises_final)
-    
-    @attempt = Attempt.new(experience:points, ending_time:Time.now, approved:approved)
-    @attempt.user = current_user
-    
-    respond_to do |format|
-      if @attempt.save
-        format.html { redirect_to text_path(1), notice: 'Attempt was successfully created.' }
-        format.json { render :show, status: :created, location: courses_path }
-      else
-        format.html { render :new }
-        format.json { render json: @attempt.errors, status: :unprocessable_entity }
+      performace             = current_user.performace
+      experience_final       = performace.total_experience + points
+      amount_exercises_final = performace.amount_exercises + 1
+      performace.update_attributes(total_experience: experience_final, amount_exercises: amount_exercises_final)
+      
+      @attempt = Attempt.new(experience:points, ending_time:Time.now, approved:approved)
+      @attempt.user = current_user
+      
+      respond_to do |format|
+        if @attempt.save
+          format.html { redirect_to new_attempt_path(@@chapter), notice: 'Attempt was successfully created.' }
+          format.json { render :show, status: :created, location: courses_path }
+        else
+          format.html { render :new }
+          format.json { render json: @attempt.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    end  
   end
 
   # PATCH/PUT /attempts/1
@@ -87,7 +94,7 @@ class AttemptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attempt_params
-      params[:question][:alternative_attributes] = params[:question][:alternative_attributes].map {|attrs| attrs.last } 
+      params[:question][:alternative_attributes] = params[:question][:alternative_attributes].map {|attrs| fisrt.last } 
       #params.require(:attempt).permit(:experience, :ending_time, :approved, :done)
       #params.require(:question)
     end

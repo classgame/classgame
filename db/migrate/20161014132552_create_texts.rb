@@ -5,6 +5,7 @@ class CreateTexts < ActiveRecord::Migration
       t.string :text
       t.string :description
       t.integer :experience
+      t.integer :position
 
       t.timestamps null: false
     end

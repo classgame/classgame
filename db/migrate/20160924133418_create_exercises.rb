@@ -4,6 +4,7 @@ class CreateExercises < ActiveRecord::Migration
       t.string :title
       t.string :nivel
       t.integer :experience
+      t.integer :position
 
       t.timestamps null: false
     end

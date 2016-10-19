@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20161018185224) do
     t.string   "title",      limit: 255
     t.string   "nivel",      limit: 255
     t.integer  "experience", limit: 4
+    t.integer  "position",   limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "content_id", limit: 4
@@ -133,6 +134,7 @@ ActiveRecord::Schema.define(version: 20161018185224) do
     t.string   "text",        limit: 255
     t.string   "description", limit: 255
     t.integer  "experience",  limit: 4
+    t.integer  "position",    limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "content_id",  limit: 4
@@ -169,6 +171,7 @@ ActiveRecord::Schema.define(version: 20161018185224) do
     t.string   "title",       limit: 255
     t.string   "description", limit: 255
     t.integer  "experience",  limit: 4
+    t.integer  "position",    limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "content_id",  limit: 4

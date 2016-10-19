@@ -7,6 +7,7 @@ class Chapter < ActiveRecord::Base
 
   belongs_to :course
 
-  accepts_nested_attributes_for :exercises
-
+  def all_contents
+  	return {exercises: self.exercises, texts:self.texts, videos: self.videos}
+  end
 end
