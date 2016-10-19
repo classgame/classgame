@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017222632) do
+ActiveRecord::Schema.define(version: 20161018185224) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address",      limit: 255
@@ -55,10 +55,13 @@ ActiveRecord::Schema.define(version: 20161017222632) do
   create_table "chapters", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.string   "description", limit: 255
-    t.string   "experience",  limit: 255
+    t.integer  "experience",  limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "course_id",   limit: 4
   end
+
+  add_index "chapters", ["course_id"], name: "index_chapters_on_course_id", using: :btree
 
   create_table "contents", force: :cascade do |t|
     t.integer "chapter_id", limit: 4
@@ -85,7 +88,7 @@ ActiveRecord::Schema.define(version: 20161017222632) do
   create_table "exercises", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.string   "nivel",      limit: 255
-    t.string   "experience", limit: 255
+    t.integer  "experience", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "content_id", limit: 4
@@ -104,7 +107,7 @@ ActiveRecord::Schema.define(version: 20161017222632) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "description", limit: 255
-    t.string   "experience",  limit: 255
+    t.integer  "experience",  limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "exercise_id", limit: 4
@@ -129,7 +132,7 @@ ActiveRecord::Schema.define(version: 20161017222632) do
     t.string   "title",       limit: 255
     t.string   "text",        limit: 255
     t.string   "description", limit: 255
-    t.string   "experience",  limit: 255
+    t.integer  "experience",  limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "content_id",  limit: 4
@@ -165,7 +168,7 @@ ActiveRecord::Schema.define(version: 20161017222632) do
     t.string   "link",        limit: 255
     t.string   "title",       limit: 255
     t.string   "description", limit: 255
-    t.string   "experience",  limit: 255
+    t.integer  "experience",  limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "content_id",  limit: 4

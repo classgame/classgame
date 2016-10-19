@@ -1,0 +1,5 @@
+<% @chapter.videos.each do |video|%>
+	<iframe width="560" height="315" src="<%=video.link%>" frameborder="0" allowfullscreen></iframe>
+<%end%><br>
+
+<%= link_to "Próximo", courses_path, class:"btn btn-success"%>

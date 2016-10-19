@@ -56,9 +56,9 @@ henrich_performace = Performace.create!(
 
 paulo_performace = Performace.create!(
   nivel: 9,
-  total_experience: 6082,
-  amount_courses: 2,
-  amount_exercises: 110
+  total_experience: 0,
+  amount_courses: 0,
+  amount_exercises: 0
 )
 
 rick_performace = Performace.create!(
@@ -231,53 +231,54 @@ registries = Registry.create!(
 
 # chapter, content, video, text, question, alternative
 
-Chapter.create(
+chapter1 = Chapter.create(
   title: "Best Practices with ruby on rails",
   description: "what do you know about routes?",
-  experience: "40"
+  experience: "40",
+  course:rails
 )
 
-Content.create(
-  chapter_id: 1
+content1 = Content.create(
+  chapter:chapter1
 )
 
-Content.create(
-  chapter_id: 1
+content2 = Content.create(
+  chapter:chapter1
 )
 
-Content.create(
-  chapter_id: 1
+content3 = Content.create(
+  chapter:chapter1
 )
 
-Video.create(
-  link: "link de um video",
+video1 = Video.create(
+  link: "https://www.youtube.com/embed/tduWe7LNQVs",
   title: "First steps with ruby",
   description: "Do you know about the facilities when you program with ruby?",
   content_id: 2
 )
 
-Text.create(
+text1 = Text.create(
   title: "Introduction in Ruby on Rails",
   text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
   experience: "30",
-  content_id: 2
+  content: content2
 )
 
 ex1 = Exercise.create(
   title: "Questionario de Java",
   nivel: "hard",
   experience: "50",
-  content_id: 2
+  content:content2
 )
 
 ex2 = Exercise.create(
   title: "Questionario de Ruby",
   nivel: "hard",
   experience: "50",
-  content_id: 3
+  content: content3
 )
 
-Question.create(
+q1 = Question.create(
   description: "What is your course? ADS?",
   experience: "50",
   exercise: ex1
@@ -286,16 +287,16 @@ Question.create(
 Alternative.create(
   description: "Yes,i'm the best",
   correct: true,
-  question_id: 1
+  question: q1
 )
 
 Alternative.create(
   description: "No, i'm a shit",
   correct: false,
-  question_id: 1
+  question: q1
 )
 
-Question.create(
+q2 = Question.create(
   description: "What is command to print information on ruby?",
   experience: "50",
   exercise: ex2
@@ -304,13 +305,13 @@ Question.create(
 Alternative.create(
   description: "print, puts",
   correct: true,
-  question_id: 2
+  question: q2 
 )
 
 Alternative.create(
   description: "each",
   correct: false,
-  question_id: 2
+  question: q2 
 )
 
 Attempt.create(

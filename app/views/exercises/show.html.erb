@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @exercise.title %>
-</p>
-
-<p>
-  <strong>Nivel:</strong>
-  <%= @exercise.nivel %>
-</p>
-
-<p>
-  <strong>Experience:</strong>
-  <%= @exercise.experience %>
-</p>
-
-<%= link_to 'Edit', edit_exercise_path(@exercise) %> |
-<%= link_to 'Back', exercises_path %>
+<h2 class="chapter-title">
+  <%= @chapter.title %>
+</h2>
+<%= simple_form_for @chapter, url:attempts_create_path, action:"create", method:"POST" do |chapter| %>
+  <%= chapter.simple_fields_for :exercises do |exercise| %>
+    <ol class="questions">
+      <%= exercise.simple_fields_for :questions do |question| %>
+        <li>
+          <% question = question.object %>
+          <p class="question"> <%= question.description %></p>
+          <ul>
+          <%= collection_radio_buttons 'question[alternative_attributes]', question.id, question.alternatives, :id, :description do |b|%>
+            <li class="radio">
+              <%= b.label { b.radio_button + b.text }  %>
+            </li>
+          <% end %>
+          </ul>
+        </li>
+      <% end %>
+    <% end %>
+  </ol>
+  <%= chapter.submit "Próximo", class:"btn btn-success" %>
+<% end %>

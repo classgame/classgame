@@ -14,8 +14,7 @@ class AttemptsController < ApplicationController
 
   # GET /attempts/new
   def new
-    @chapter = Chapter.first
-    @attempt = Attempt.first
+    @chapter = Chapter.find(params[:id])
   end
 
   # GET /attempts/1/edit
@@ -25,17 +24,30 @@ class AttemptsController < ApplicationController
   # POST /attempts
   # POST /attempts.json
   def create
-    debugger
-    #@attempt = Attempt.new(attempt_params)
+    points = 0
+    approved = false
+    alternatives = Alternative.where(id: attempt_params)
+    alternatives.each do |alternative| 
+      if alternative.correct
+        points += alternative.question.experience
+        approved = true
+      else 
+        approved = false
+      end
+    end
+
+    performace = current_user.performace
+    experience_final = performace.total_experience + points
+    amount_exercises_final = performace.amount_exercises + 1
+    performace.update_attributes(total_experience: experience_final, amount_exercises: amount_exercises_final)
+    
+    @attempt = Attempt.new(experience:points, ending_time:Time.now, approved:approved)
     @attempt.user = current_user
-    iscorrect = attempt_params.map{|a| Question.find(a[:question_id]).alternatives.find(a[:alternative_id]).correct}
-
-    debugger
-
+    
     respond_to do |format|
       if @attempt.save
-        format.html { redirect_to @attempt, notice: 'Attempt was successfully created.' }
-        format.json { render :show, status: :created, location: @attempt }
+        format.html { redirect_to text_path(1), notice: 'Attempt was successfully created.' }
+        format.json { render :show, status: :created, location: courses_path }
       else
         format.html { render :new }
         format.json { render json: @attempt.errors, status: :unprocessable_entity }
@@ -75,8 +87,8 @@ class AttemptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attempt_params
-      params[:question][:alternative_attributes] = params[:question][:alternative_attributes].map {|attrs| { question_id: attrs.first, alternative_id: attrs.last } } 
+      params[:question][:alternative_attributes] = params[:question][:alternative_attributes].map {|attrs| attrs.last } 
       #params.require(:attempt).permit(:experience, :ending_time, :approved, :done)
-      params.require(:question)
+      #params.require(:question)
     end
 end

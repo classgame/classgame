@@ -3,7 +3,7 @@ class CreateExercises < ActiveRecord::Migration
     create_table :exercises do |t|
       t.string :title
       t.string :nivel
-      t.string :experience
+      t.integer :experience
 
       t.timestamps null: false
     end

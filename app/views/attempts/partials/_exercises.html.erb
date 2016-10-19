@@ -1,7 +1,7 @@
 <h2 class="survey-title">
   <%= @chapter.title %>
 </h2>
-<%= simple_form_for @chapter, url:'/attempts/', action:"create", method:"POST" do |chapter| %>
+<%= simple_form_for @chapter, url:attempts_create_path, action:"create", method:"POST" do |chapter| %>
   <%= chapter.simple_fields_for :exercises do |exercise| %>
     <ol class="questions">
       <%= exercise.simple_fields_for :questions do |question| %>
@@ -21,3 +21,4 @@
   </ol>
   <%= chapter.submit "Próximo", class:"btn btn-success" %>
 <% end %>
+

@@ -12,4 +12,8 @@
 
 <iframe width="560" height="315" src="<%=@course.trailer%>" frameborder="0" allowfullscreen></iframe>
 <br>
-<%= link_to 'Cadastrar-se', registrations_path(@course), class:"btn btn-success" %> 
+<%if user_registered(@course)%>
+	<%= link_to 'Continue', chapters_path(@course), class:"btn btn-success" %> 
+<%else%>
+	<%= link_to 'Cadastre-se', registrations_path(@course), class:"btn btn-success" %>
+<%end%>

@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :attempts
   root to: 'welcomes#index'
 
   devise_for :users
 
+  #resources :attempts
   resources :texts
   resources :videos
   resources :users
   resources :alternatives
   resources :questions
   resources :exercises
-  resources :chapters
+  #resources :chapters
   resources :categories
   resources :courses
   resources :registries
@@ -24,6 +24,11 @@ Rails.application.routes.draw do
   get 'registrations/:id', to: 'registries#reg_user_course', as: 'registrations' #Mudar para post post 'Registry'
   get '/account/:id', to: 'users#edit', as: :account
 
+  get '/chapters/:id', to: 'chapters#index', as: :chapters
+
+  get '/attempts/:id', to: 'attempts#new', as: :new_attempt
+  post '/attempts_create/', to: 'attempts#create', as: :attempts_create
+  get '/attempts/:id', to: 'attempts#show', as: :attempts
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

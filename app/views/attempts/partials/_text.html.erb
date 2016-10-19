@@ -1,0 +1,6 @@
+<%@chapter.texts.each do |text|%>
+	<p><%= text.title %></p>
+	<p><%= text.text %></p>
+<%end%>
+
+<%=link_to "Proximo", course_path, class: "btn btn-success"%>
