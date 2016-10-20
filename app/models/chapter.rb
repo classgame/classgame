@@ -8,6 +8,14 @@ class Chapter < ActiveRecord::Base
   belongs_to :course
 
   def all_contents
-  	return {exercises: self.exercises, texts:self.texts, videos: self.videos}
+  	contents = [self.exercises, self.texts, self.videos]
+  	contents.sort do |x,y|
+		x[0].position <=> y[0].position
+  	end
+  end
+
+  def set_description(description)
+  	update_attribute(:description, description)
   end
 end
+

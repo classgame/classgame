@@ -1,8 +1,7 @@
 <h2 class="survey-title">
-  <%= @exercises[0].title %>
+  <%= @exercise.title %>
 </h2>
-<%= simple_form_for @exercises[0], url:attempts_create_path, action:"create", method:"POST" do |exercise| %>
-  <%$partial="text"%>
+<%= simple_form_for @exercise, url:attempts_create_path, action:"create", method:"POST" do |exercise| %>
   <ol class="questions">
     <% exercise.object.questions.each do |question| %>
       <li>

@@ -14,12 +14,22 @@ class AttemptsController < ApplicationController
 
   # GET /attempts/new
   def new
-    $partial ||= 'exercises'
-    @chapter   = Chapter.find(params[:id])
-    @@chapter  = @chapter
-    @exercises = @chapter.exercises
-    @texts     = @chapter.texts
-    @videos    = @chapter.videos 
+    @chapter     = Chapter.find(params[:id])
+    @@chapter    = @chapter
+    
+    @@contents ||= @chapter.all_contents
+    @partial   ||= @@contents[0][0].class.table_name
+    
+    if @@contents[0][0].class.table_name == 'exercises'
+      @exercise = @@contents[0][0] 
+    elsif @@contents[0][0].class.table_name == 'texts'
+      @text = @@contents[0][0] 
+    else
+      @video = @@contents[0][0]
+    end
+  
+    @@contents.delete_at(0)
+    #debugger
   end
 
   # GET /attempts/1/edit
@@ -94,7 +104,7 @@ class AttemptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attempt_params
-      params[:question][:alternative_attributes] = params[:question][:alternative_attributes].map {|attrs| fisrt.last } 
+      params[:question][:alternative_attributes] = params[:question][:alternative_attributes].map {|attrs| attrs.last } 
       #params.require(:attempt).permit(:experience, :ending_time, :approved, :done)
       #params.require(:question)
     end

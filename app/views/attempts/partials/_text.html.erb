@@ -1,8 +1,0 @@
-<h1><%=@texts[0].title%></h1>
-<%$partial = 'video'%>
-<%@texts.each do |text|%>
-	<p><%= text.title %></p>
-	<p><%= text.text %></p>
-<%end%>
-
-<%=link_to "Proximo", new_attempt_path(@chapter), class: "btn btn-success"%>
