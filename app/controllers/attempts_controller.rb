@@ -33,7 +33,7 @@ class AttemptsController < ApplicationController
 
     if @@contents.shift.nil?
       @@contents = nil
-      redirect_to course_path(@chapter.course), notice: "Parabéns você terminou o curso #{@chapter.course.title}!"
+      redirect_to course_path(@chapter.course), notice: "Parabéns você terminou o chapter #{@chapter.title}!"
     end
   
   end
@@ -46,67 +46,40 @@ class AttemptsController < ApplicationController
   # POST /attempts.json
   def create
     if params[:question]
-      points       = 0
-      approved     = false
-      alternatives = Alternative.where(id: attempt_params)
-      alternatives.each do |alternative| 
-        if alternative.correct
-          points  +=  alternative.question.experience
-          approved = true
-        else 
-          approved = false
-        end
-      end
+      @attempt = Attempt.new()
+      @attempt.final_experience_question(Alternative.where(id: attempt_params),current_user)
 
-      performace             = current_user.performace
-      experience_final       = performace.total_experience + points
-      amount_exercises_final = performace.amount_exercises + 1
-      performace.update_attributes(total_experience: experience_final, amount_exercises: amount_exercises_final)
-      
-      @attempt = Attempt.new(experience:points, ending_time:Time.now, approved:approved)
-      @attempt.user = current_user
-      
       respond_to do |format|
         if @attempt.save
-          format.html { redirect_to new_attempt_path(@@chapter), notice: 'Attempt was successfully created.' }
+          format.html { redirect_to new_attempt_path(@@chapter), notice: "Parabéns você ganhou #{@attempt.experience}xp" }
           format.json { render :show, status: :created, location: courses_path }
         else
           format.html { render :new }
           format.json { render json: @attempt.errors, status: :unprocessable_entity }
         end
       end 
+    
     elsif params[:text]
-      text = Text.find(params[:text][:id])
-      points = text.experience
-      performace = current_user.performace
-      experience_final = performace.total_experience + points
-      performace.update_attributes(total_experience: experience_final)
-
-      @attempt = Attempt.new(experience:points, ending_time:Time.now, approved:approved)
-      @attempt.user = current_user
+      @attempt = Attempt.new()
+      @attempt.final_experience_text(Text.find(params[:text][:id]), current_user)
       
       respond_to do |format|
         if @attempt.save
-          format.html { redirect_to new_attempt_path(@@chapter), notice: 'Attempt was successfully created.' }
+          format.html { redirect_to new_attempt_path(@@chapter), notice: "Parabéns você ganhou #{@attempt.experience}xp" }
           format.json { render :show, status: :created, location: courses_path }
         else
           format.html { render :new }
           format.json { render json: @attempt.errors, status: :unprocessable_entity }
         end
       end
+    
     else
-      video = Video.find(params[:video][:id])
-      points = video.experience
-      performace = current_user.performace 
-      experience_final = performace.total_experience + points
-      performace.update_attributes(total_experience: experience_final) 
+      @attempt = Attempt.new()
+      @attempt.final_experience_video(Video.find(params[:video][:id]), current_user)
 
-      @attempt = Attempt.new(experience:points, ending_time:Time.now, approved:approved)
-      @attempt.user = current_user
-      
       respond_to do |format|
         if @attempt.save
-          format.html { redirect_to new_attempt_path(@@chapter), notice: 'Attempt was successfully created.' }
+          format.html { redirect_to new_attempt_path(@@chapter), notice: "Parabéns você ganhou #{@attempt.experience}xp" }
           format.json { render :show, status: :created, location: courses_path }
         else
           format.html { render :new }

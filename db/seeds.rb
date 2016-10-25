@@ -322,13 +322,6 @@ Alternative.create(
   question: q2 
 )
 
-Attempt.create(
-  experience:50, 
-  ending_time:"17/10/2016", 
-  approved:true, 
-  user:paulo
-)
-
 content2 = Content.create(
   chapter:chapter2
 )

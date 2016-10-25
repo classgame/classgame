@@ -34,12 +34,11 @@ ActiveRecord::Schema.define(version: 20161018185224) do
   add_index "alternatives", ["question_id"], name: "index_alternatives_on_question_id", using: :btree
 
   create_table "attempts", force: :cascade do |t|
-    t.integer  "experience",  limit: 4
-    t.string   "ending_time", limit: 255
+    t.integer  "experience", limit: 4
     t.boolean  "approved"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "user_id",    limit: 4
   end
 
   add_index "attempts", ["user_id"], name: "index_attempts_on_user_id", using: :btree
