@@ -11,4 +11,6 @@ class Question < ActiveRecord::Base
   def incorrect_alternatives
     return alternatives.incorrect
   end
+
+#retornar pontos feitos apenas isso para attempt
 end

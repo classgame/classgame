@@ -2,9 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .course_banner_title {
-  text-align:left;
   padding:0;   
   margin:0;
+  position:absolute;
+  top:10%;
+  left:4%;
+}
+.relative{
+	position:relative;
+	color:white !important;
+	width:100%;
+	height:300px;
+	background: #2980b9; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #2980b9 , #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #2980b9 , #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .link_category{
@@ -12,3 +23,42 @@
   margin:0;
 }
 
+.image_cover_course{
+	width:inherit;
+	object-fit:cover;
+	height:300px;
+	margin:0;
+	padding:0;
+}
+
+.description_course{
+	position:absolute;
+  	top:30%;
+  	left:4%;
+  	width:300px;
+}
+
+.trailer_course{
+	position:absolute;
+	right:0;
+	top:0;
+	margin:10px !important;
+}
+
+.btn_course{
+	position:absolute;
+	bottom:10%;
+	left:12%;
+	background-color:white !important;
+	color:black !important;
+	border:0 !important;
+}
+
+.btn_course:hover{
+	position:absolute;
+	bottom:10%;
+	left:12%;
+	color:#0072ff !important;
+	border:0 !important;
+	transition: all 1s;
+}

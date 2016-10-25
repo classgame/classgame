@@ -1,19 +1,38 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%=notice%></p>
+<p> <%= link_to @course.category.title, @course.category %> </p>
 
-<p>
-  <%= link_to @course.category.title, @course.category %>
-</p>
+<div class="relative">
+	<h1 class="course_banner_title"><%= @course.title %></h1>
+	<p class="description_course"> <%= @course.description%> </p>
+	<%if user_registered(@course)%>
+		<%= link_to 'Continue', chapters_path(@course), class:"btn btn-success btn_course" %> 
+	<%else%>
+		<%= link_to 'Cadastre-se', registrations_path(@course), class:"btn btn-success btn_course" %>
+	<%end%>
+	<iframe class="trailer_course" width="500" height="280" src="<%=@course.trailer%>" frameborder="0" allowfullscreen></iframe>
+</div>
 
-<h1 class="course_banner_title"><%= @course.title %></h1>
+<%- model_class = Chapter -%>
+<div class="page-header">
+  <h1>Visão Geral</h1>
+</div>
+<tbody>
+  <% @chapters.each do |chapter| %>
+    <div class="bs-callout bs-callout-primary">
+      <h4>Módulo <%= chapter.id %> - <%= chapter.title %></h4>
+      <tr>
+        <td><%= chapter.description %></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </div>
+  <% end %>
+</tbody>
 
-<p>
-  <%= @course.description %>
-</p>
-
-<iframe width="560" height="315" src="<%=@course.trailer%>" frameborder="0" allowfullscreen></iframe>
-<br>
-<%if user_registered(@course)%>
-	<%= link_to 'Continue', chapters_path(@course), class:"btn btn-success" %> 
-<%else%>
-	<%= link_to 'Cadastre-se', registrations_path(@course), class:"btn btn-success" %>
-<%end%>

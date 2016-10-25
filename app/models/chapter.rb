@@ -8,9 +8,9 @@ class Chapter < ActiveRecord::Base
   belongs_to :course
 
   def all_contents
-  	contents = [self.exercises, self.texts, self.videos]
+  	contents = self.exercises + self.texts + self.videos
   	contents.sort do |x,y|
-		x[0].position <=> y[0].position
+		x.position <=> y.position
   	end
   end
 

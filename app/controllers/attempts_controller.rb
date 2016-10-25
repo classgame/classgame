@@ -16,20 +16,26 @@ class AttemptsController < ApplicationController
   def new
     @chapter     = Chapter.find(params[:id])
     @@chapter    = @chapter
-    
     @@contents ||= @chapter.all_contents
-    @partial   ||= @@contents[0][0].class.table_name
+    @contents_t  = @chapter.all_contents
     
-    if @@contents[0][0].class.table_name == 'exercises'
-      @exercise = @@contents[0][0] 
-    elsif @@contents[0][0].class.table_name == 'texts'
-      @text = @@contents[0][0] 
-    else
-      @video = @@contents[0][0]
+    if @@contents.first
+      @partial ||= @@contents.first.class.table_name
+      
+      if @@contents.first.class.table_name == 'exercises'
+        @exercise = @@contents.first
+      elsif @@contents.first.class.table_name == 'texts'
+        @text = @@contents.first
+      else
+        @video = @@contents.first
+      end
+    end
+
+    if @@contents.shift.nil?
+      @@contents = nil
+      redirect_to course_path(@chapter.course), notice: "Parabéns você terminou o curso #{@chapter.course.title}!"
     end
   
-    @@contents.delete_at(0)
-    #debugger
   end
 
   # GET /attempts/1/edit
@@ -39,7 +45,7 @@ class AttemptsController < ApplicationController
   # POST /attempts
   # POST /attempts.json
   def create
-    if params[:question][:alternative_attributes]
+    if params[:question]
       points       = 0
       approved     = false
       alternatives = Alternative.where(id: attempt_params)
@@ -68,7 +74,45 @@ class AttemptsController < ApplicationController
           format.html { render :new }
           format.json { render json: @attempt.errors, status: :unprocessable_entity }
         end
+      end 
+    elsif params[:text]
+      text = Text.find(params[:text][:id])
+      points = text.experience
+      performace = current_user.performace
+      experience_final = performace.total_experience + points
+      performace.update_attributes(total_experience: experience_final)
+
+      @attempt = Attempt.new(experience:points, ending_time:Time.now, approved:approved)
+      @attempt.user = current_user
+      
+      respond_to do |format|
+        if @attempt.save
+          format.html { redirect_to new_attempt_path(@@chapter), notice: 'Attempt was successfully created.' }
+          format.json { render :show, status: :created, location: courses_path }
+        else
+          format.html { render :new }
+          format.json { render json: @attempt.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      video = Video.find(params[:video][:id])
+      points = video.experience
+      performace = current_user.performace 
+      experience_final = performace.total_experience + points
+      performace.update_attributes(total_experience: experience_final) 
+
+      @attempt = Attempt.new(experience:points, ending_time:Time.now, approved:approved)
+      @attempt.user = current_user
+      
+      respond_to do |format|
+        if @attempt.save
+          format.html { redirect_to new_attempt_path(@@chapter), notice: 'Attempt was successfully created.' }
+          format.json { render :show, status: :created, location: courses_path }
+        else
+          format.html { render :new }
+          format.json { render json: @attempt.errors, status: :unprocessable_entity }
+        end
+      end  
     end  
   end
 
@@ -104,7 +148,9 @@ class AttemptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attempt_params
-      params[:question][:alternative_attributes] = params[:question][:alternative_attributes].map {|attrs| attrs.last } 
+      if params[:question]
+        params[:question][:alternative_attributes] = params[:question][:alternative_attributes].map {|attrs| attrs.last } 
+      end
       #params.require(:attempt).permit(:experience, :ending_time, :approved, :done)
       #params.require(:question)
     end

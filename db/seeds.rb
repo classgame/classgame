@@ -130,6 +130,7 @@ sobre = Category.create!(
 redes = Course.create!(
   title:"Redes",
   image:"http://www.linkcomp.com.br/wp-content/uploads/2014/12/Redes-e-Internet1.jpg",
+  image_cover:"http://www.brunapaineis.com.br/wp-content/uploads/2014/06/fundo_slide_vermelho.png",
   trailer:"https://www.youtube.com/embed/Ww9gJDzaf8g",
   description:"Uma rede de computadores é formada por um conjunto de máquinas eletrônicas com processadores capazes de trocar informações e partilhar recursos, interligados por um sub-sistema de comunicação, ou seja, é quando há pelo menos dois ou mais computadores" ,
   nivel:"Hard",
@@ -142,6 +143,7 @@ redes = Course.create!(
 rails = Course.create!(
   title:"Ruby on Rails",
   image:"https://pbs.twimg.com/profile_images/691206086955790336/CDMbA57p.png",
+  image_cover:"http://www.brunapaineis.com.br/wp-content/uploads/2014/06/fundo_slide_vermelho.png",
   trailer:"https://www.youtube.com/embed/US_P3mGdIu8",
     description:"Ruby on Rails é um framework livre que promete aumentar velocidade e facilidade no desenvolvimento de sites orientados a banco de dados (database-driven web sites), uma vez que é possível criar aplicações com base em estruturas pré-definidas." ,
   nivel:"Medium",
@@ -154,6 +156,7 @@ rails = Course.create!(
 empreen = Course.create!(
   title:"Abrir uma empressa", 
   image:"https://s-media-cache-ak0.pinimg.com/564x/9a/98/61/9a986184bf2d68d2f5045c9a85fcb629.jpg" ,
+  image_cover:"http://www.brunapaineis.com.br/wp-content/uploads/2014/06/fundo_slide_vermelho.png",
   trailer:"https://www.youtube.com/embed/HYQJTIkMMAg" , 
   description:"é o processo de iniciativa de implementar novos negócios ou mudanças em empresas já existentes. É um termo muito usado no âmbito empresarial e muitas vezes está relacionado",
   nivel:"Hard",
@@ -166,6 +169,7 @@ empreen = Course.create!(
 zombie = Course.create!(
   title:"Como fazer um machado caseiro", 
   image:"http://cdn.filtromag.com.br/imagens/filtro/ferramenta-sobrevivencia-survco.jpg ", 
+  image_cover:"http://www.brunapaineis.com.br/wp-content/uploads/2014/06/fundo_slide_vermelho.png",
   trailer:"https://www.youtube.com/embed/BN-34JfUrHY", 
   description:"A capacidade humana de construir coisas modernas é impressionante. Mas ver este cara criar um machado de pedra primitivo usando apenas tocos de pau, pedras e fogo é impressionante e estranhamente satisfatório", 
   nivel:"Hard",
@@ -238,49 +242,48 @@ chapter1 = Chapter.create(
   course:rails
 )
 
+chapter2 = Chapter.create(
+  title: "Models Taste Like Chicken",
+  description: "We'll learn about ActiveRecord models, validations, and relationships.",
+  experience: "40",
+  course:rails
+)
+
 content1 = Content.create(
-  chapter:chapter1
-)
-
-content2 = Content.create(
-  chapter:chapter1
-)
-
-content3 = Content.create(
   chapter:chapter1
 )
 
 video1 = Video.create(
   link: "https://www.youtube.com/embed/tduWe7LNQVs",
   title: "First steps with ruby",
-  position: 4,
+  position: 1,
   experience: "30",
   description: "Do you know about the facilities when you program with ruby?",
-  content: content2
+  content: content1
 )
 
 text1 = Text.create(
   title: "Introduction in Ruby on Rails",
   text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
-  position: 3,
+  position: 4,
   experience: "30",
-  content: content2
+  content: content1
 )
 
 text2 = Text.create(
-  title: "Introduction in Ruby on Rails",
-  text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
-  position: 2,
+  title: "Imagine what you could build if you learned Ruby on Rails…",
+  text: "You’ve probably already used many of the applications that were built with Ruby on Rails: Basecamp, GitHub, Shopify, Airbnb, Twitch, SoundCloud, Hulu, Zendesk, Square, Highrise. Those are just some of the big names, but there are literally hundreds.",
+  position: 3,
   experience: "30",
-  content: content2
+  content: content1
 )
 
 ex2 = Exercise.create(
   title: "Questionario de Ruby",
   nivel: "hard",
-  position: 1,
+  position: 2,
   experience: "50",
-  content: content3
+  content: content1
 )
 
 q1 = Question.create(
@@ -324,4 +327,77 @@ Attempt.create(
   ending_time:"17/10/2016", 
   approved:true, 
   user:paulo
+)
+
+content2 = Content.create(
+  chapter:chapter2
+)
+
+video1 = Video.create(
+  link: "https://www.youtube.com/embed/EzDDOW_DuAc",
+  title: "Understanding Model in Ruby on Rails",
+  position: 1,
+  experience: "70",
+  description: "Models in ruby on rails?",
+  content: content2
+)
+
+text1 = Text.create(
+  title: "Object Relational Mapping",
+  text: "Object Relational Mapping, commonly referred to as its abbreviation ORM, is a technique that connects the rich objects of an application to tables in a relational database management system. Using ORM",
+  position: 3,
+  experience: "35",
+  content: content2
+)
+
+text2 = Text.create(
+  title: "What is Active Record?",
+  text: "Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database.",
+  position: 4,
+  experience: "30",
+  content: content2
+)
+
+ex2 = Exercise.create(
+  title: "Models",
+  nivel: "hard",
+  position: 2,
+  experience: "50",
+  content: content2
+)
+
+q1 = Question.create(
+  description: "What is Active Record?",
+  experience: "50",
+  exercise: ex2
+)
+
+Alternative.create(
+  description: "Active Record is the M in MVC",
+  correct: true,
+  question: q1
+)
+
+Alternative.create(
+  description: "Active Record is the controller of application",
+  correct: false,
+  question: q1
+)
+
+q2 = Question.create(
+  description: "How can validate data in rails models",
+  experience: "50",
+  exercise: ex2
+)
+
+Alternative.create(
+  description: "validates :name, presence: true",
+  correct: true,
+  question: q2 
+)
+
+Alternative.create(
+  description: "validates if name, presence: true",
+  correct: false,
+  question: q2 
 )

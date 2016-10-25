@@ -1,4 +1,7 @@
-<h1><%=@text.title%></h1>
-	<p><%= @text.text %></p>
+<h3><%=@text.title%></h3>
 <br>
-<%=link_to "Proximo", new_attempt_path(@chapter), class: "btn btn-success"%>
+<%= simple_form_for @text, url:attempts_create_path, action:"create", method:"POST" do |text|%>
+	<input type="hidden" name="text[id]" value="<%=@text.id%>">
+	<p><%= text.object.text %></p>
+	<%= text.submit "Próximo", class: "btn btn-success"%>
+<%end%>
