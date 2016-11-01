@@ -15,16 +15,6 @@ class Attempt < ActiveRecord::Base
 		update_performance(user, points, exercise)
 	end
 
-	def final_experience_text(text, user)
-		update_attempt(text.experience, user, true)
-		update_performance(user, text.experience)
-	end
-
-	def final_experience_video(video, user)
-		update_attempt(video.experience, user, true)
-		update_performance(user, video.experience)
-	end
-
 	private
 		def update_performance(user, points, exercise = 0)
 			performace = user.performace

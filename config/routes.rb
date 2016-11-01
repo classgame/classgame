@@ -27,11 +27,8 @@ Rails.application.routes.draw do
   get '/chapters/:id', to: 'chapters#index', as: :chapters
 
   get '/attempts/:id', to: 'attempts#new', as: :new_attempt
-  get '/attempts/', to: 'attempts#new', as: :new_create_attempt
   
   post '/attempts_create/', to: 'attempts#create', as: :attempts_create
-  get '/attempts/:id', to: 'attempts#show', as: :attempts
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

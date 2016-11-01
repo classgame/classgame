@@ -1,15 +1,2 @@
 <p id="notice"><%=notice%></p>
-<%if @contents.first.class.table_name == 'exercises'%>
-	<%@exercise = @contents.first%>
-	<%= render 'attempts/partials/exercises'%>
-<% end %>
 
-<%if @contents.first.class.table_name == 'texts'%>
-	<%@text = @contents.first%>
-	<%= render 'attempts/partials/texts'%>
-<%end%>
-
-<%if @contents.first.class.table_name == 'videos'%>	
-	<%@video = @contents.first%>
-	<%= render 'attempts/partials/videos'%>
-<%end%>

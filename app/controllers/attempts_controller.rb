@@ -12,21 +12,25 @@ class AttemptsController < ApplicationController
     if params[:id]
       @@chapter  = Chapter.find(params[:id])
       @@contents = @@chapter.all_contents
+      render_content
     end
-    @contents  = @@contents 
   end
 
   def edit
   end
 
   def create
+    #binding.pry
     @attempt = Attempt.new()
+    performace = current_user.performace
     if params[:question]
-      @attempt.final_experience_question(Alternative.where(id: attempt_params), current_user)
+      @attempt.final_experience_question( Alternative.where(id: attempt_params), current_user )
     elsif params[:text]
-      @attempt.final_experience_text(Text.find(params[:text][:id]), current_user)
+      text = Text.find(params[:text][:id])
+      performace.update_attributes( total_experience: performace.total_experience + text.experience )
     else
-      @attempt.final_experience_video(Video.find(params[:video][:id]), current_user)
+      video = Video.find(params[:video][:id])
+      performace.update_attributes( total_experience: performace.total_experience + video.experience )
     end  
 
     if @attempt.save
@@ -35,13 +39,11 @@ class AttemptsController < ApplicationController
         @@contents = nil
         redirect_to course_path(@@chapter.course), notice: "Parabéns você terminou o chapter #{@@chapter.title}!"
       else
-        respond_to do |format|
-          format.html {redirect_to new_create_attempt_path, notice: "Parabéns você ganhou #{@attempt.experience}xp"}
-        end 
+        render_content
       end
     end
   end
-    
+
   def update
     respond_to do |format|
       if @attempt.update(attempt_params)
@@ -74,4 +76,20 @@ class AttemptsController < ApplicationController
       #params.require(:attempt).permit(:experience, :ending_time, :approved, :done)
       #params.require(:question)
     end
+
+    def render_content
+      type_content = @@contents.first.class.table_name
+      respond_to do |format|
+        if type_content == 'exercises'
+          @exercise = @@contents.first
+          format.html {render file: "attempts/partials/_exercise.html.erb"}
+        elsif type_content == 'texts'
+          @text = @@contents.first
+          format.html {render file:'attempts/partials/_text.html.erb'}
+        else
+          @video = @@contents.first
+          format.html {render file:'attempts/partials/_video.html.erb'}
+        end 
+      end
+    end  
 end
