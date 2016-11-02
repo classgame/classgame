@@ -13,15 +13,23 @@ Rails.application.routes.draw do
   resources :exercises
   #resources :chapters
   resources :categories
-  resources :courses
-  resources :registries
+  resources :courses do
+    member do
+      get 'registration'
+      get 'chapters'
+    end
+  end
+  
+  scope 'user' do
+    resources :registries
+  end
+  
   resources :users
   resources :addresses
   resources :performaces
 
   get 'welcome' => "welcomes#index"
-  #integrations user course through registry
-  get 'registrations/:id', to: 'registries#reg_user_course', as: 'registrations' #Mudar para post post 'Registry'
+  
   get '/account/:id', to: 'users#edit', as: :account
 
   get '/chapters/:id', to: 'chapters#index', as: :chapters

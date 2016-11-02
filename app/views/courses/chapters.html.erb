@@ -1,0 +1,23 @@
+<%- model_class = Chapter -%>
+<div class="page-header">
+  <h1>Módulos</h1>
+</div>
+<tbody>
+  <% @chapters.each do |chapter| %>
+    <div class="bs-callout bs-callout-primary">
+      <h4>Módulo <%= chapter.id %> - <%= chapter.title %></h4>
+      <tr>
+        <td><%= chapter.description %></td>
+      </tr>
+      <tr>
+        <td><%= link_to chapter.texts[0].title, chapter.texts[0]%></td>
+        <td><%= link_to chapter.exercises[0].title, chapter.exercises[0]%></td>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to 'iniciar', new_attempt_path(chapter), class: 'btn btn-default btn-xs' %>
+        </td>
+      </tr>
+    </div>
+  <% end %>
+</tbody>
