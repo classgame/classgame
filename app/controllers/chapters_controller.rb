@@ -16,6 +16,8 @@ class ChaptersController < ApplicationController
   def edit
   end
 
+  
+
   def create
     @chapter = Chapter.new(chapter_params)
 
@@ -56,6 +58,6 @@ class ChaptersController < ApplicationController
     end
 
     def chapter_params
-      params.require(:chapter).permit(:title, :description, :experience, :course_id)
+      params.require(:chapter).permit(:title, :description, :experience, :course_id, :text_id)
     end
 end

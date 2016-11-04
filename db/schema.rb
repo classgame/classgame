@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018185224) do
+ActiveRecord::Schema.define(version: 20161103161537) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address",      limit: 255
@@ -62,12 +62,6 @@ ActiveRecord::Schema.define(version: 20161018185224) do
 
   add_index "chapters", ["course_id"], name: "index_chapters_on_course_id", using: :btree
 
-  create_table "contents", force: :cascade do |t|
-    t.integer "chapter_id", limit: 4
-  end
-
-  add_index "contents", ["chapter_id"], name: "index_contents_on_chapter_id", using: :btree
-
   create_table "courses", force: :cascade do |t|
     t.string   "image",             limit: 255
     t.string   "image_cover",       limit: 255
@@ -92,10 +86,10 @@ ActiveRecord::Schema.define(version: 20161018185224) do
     t.integer  "position",   limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "content_id", limit: 4
+    t.integer  "chapter_id", limit: 4
   end
 
-  add_index "exercises", ["content_id"], name: "index_exercises_on_content_id", using: :btree
+  add_index "exercises", ["chapter_id"], name: "index_exercises_on_chapter_id", using: :btree
 
   create_table "performaces", force: :cascade do |t|
     t.integer  "nivel",            limit: 4
@@ -137,10 +131,10 @@ ActiveRecord::Schema.define(version: 20161018185224) do
     t.integer  "position",    limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.integer  "content_id",  limit: 4
+    t.integer  "chapter_id",  limit: 4
   end
 
-  add_index "texts", ["content_id"], name: "index_texts_on_content_id", using: :btree
+  add_index "texts", ["chapter_id"], name: "index_texts_on_chapter_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255, default: "", null: false
@@ -174,10 +168,10 @@ ActiveRecord::Schema.define(version: 20161018185224) do
     t.integer  "position",    limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.integer  "content_id",  limit: 4
+    t.integer  "chapter_id",  limit: 4
   end
 
-  add_index "videos", ["content_id"], name: "index_videos_on_content_id", using: :btree
+  add_index "videos", ["chapter_id"], name: "index_videos_on_chapter_id", using: :btree
 
   add_foreign_key "courses", "categories"
   add_foreign_key "registries", "courses"

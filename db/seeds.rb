@@ -249,17 +249,13 @@ chapter2 = Chapter.create(
   course:rails
 )
 
-content1 = Content.create(
-  chapter:chapter1
-)
-
 video1 = Video.create(
   link: "https://www.youtube.com/embed/tduWe7LNQVs",
   title: "First steps with ruby",
   position: 1,
   experience: "30",
   description: "Do you know about the facilities when you program with ruby?",
-  content: content1
+  chapter: chapter1
 )
 
 text1 = Text.create(
@@ -267,7 +263,7 @@ text1 = Text.create(
   text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
   position: 4,
   experience: "30",
-  content: content1
+  chapter: chapter1
 )
 
 text2 = Text.create(
@@ -275,7 +271,15 @@ text2 = Text.create(
   text: "You’ve probably already used many of the applications that were built with Ruby on Rails: Basecamp, GitHub, Shopify, Airbnb, Twitch, SoundCloud, Hulu, Zendesk, Square, Highrise. Those are just some of the big names, but there are literally hundreds.",
   position: 3,
   experience: "30",
-  content: content1
+  chapter: chapter1
+)
+
+text3 = Text.create(
+  title: "Bootstrap on Rails",
+  text: "Options can be passed via data attributes or JavaScript. For data attributes, append the option name to data-, as in data-backdrop=",
+  position: 5,
+  experience: "30",
+  chapter: chapter1
 )
 
 ex2 = Exercise.create(
@@ -283,7 +287,7 @@ ex2 = Exercise.create(
   nivel: "hard",
   position: 2,
   experience: "50",
-  content: content1
+  chapter: chapter1
 )
 
 q1 = Question.create(
@@ -322,9 +326,6 @@ Alternative.create(
   question: q2 
 )
 
-content2 = Content.create(
-  chapter:chapter2
-)
 
 video1 = Video.create(
   link: "https://www.youtube.com/embed/EzDDOW_DuAc",
@@ -332,7 +333,7 @@ video1 = Video.create(
   position: 1,
   experience: "70",
   description: "Models in ruby on rails?",
-  content: content2
+  chapter: chapter2
 )
 
 text1 = Text.create(
@@ -340,7 +341,7 @@ text1 = Text.create(
   text: "Object Relational Mapping, commonly referred to as its abbreviation ORM, is a technique that connects the rich objects of an application to tables in a relational database management system. Using ORM",
   position: 3,
   experience: "35",
-  content: content2
+  chapter: chapter2
 )
 
 text2 = Text.create(
@@ -348,7 +349,7 @@ text2 = Text.create(
   text: "Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database.",
   position: 4,
   experience: "30",
-  content: content2
+  chapter: chapter2
 )
 
 ex2 = Exercise.create(
@@ -356,7 +357,7 @@ ex2 = Exercise.create(
   nivel: "hard",
   position: 2,
   experience: "50",
-  content: content2
+  chapter: chapter2
 )
 
 q1 = Question.create(

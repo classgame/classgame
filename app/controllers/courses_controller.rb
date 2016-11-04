@@ -25,6 +25,31 @@ class CoursesController < ApplicationController
       end
     end
   end
+  
+  def contents
+    if params[:text]
+      @text = Text.find(params[:text][:id])
+      @previous = @text.previous if @text.previous
+      @next = @text.next if @text.next
+      respond_to do |format|
+        format.js
+      end
+    end
+
+    if params[:video]
+      @video = Video.find(params[:video][:id])
+      respond_to do |format|
+        format.js
+      end
+    end
+
+    if params[:exercise]
+      @exercise = Exercise.find(params[:exercise][:id])
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
 
   def chapters
     @chapters = @course.chapters

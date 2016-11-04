@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :addresses
   resources :performaces
 
+  get 'contents' => 'courses#contents', as: :contents
+
   get 'welcome' => "welcomes#index"
   
   get '/account/:id', to: 'users#edit', as: :account
