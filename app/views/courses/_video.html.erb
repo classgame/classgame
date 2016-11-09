@@ -1,7 +1,0 @@
-<h3 class="title_video"><%=@video.title%></h3>
-<%= simple_form_for @video, url:attempts_create_path, action:"create", method:"POST" do |video|%>
-	<input type="hidden" name="video[id]" value="<%=@video.id%>">
-	<iframe width="100%" height="600" src="<%=video.object.link%>" frameborder="0" allowfullscreen></iframe>
-	<br>
-	<%= video.submit "Próximo", class: "btn btn-success center-block"%>
-<%end%>

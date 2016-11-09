@@ -267,7 +267,7 @@ text1 = Text.create(
 )
 
 text2 = Text.create(
-  title: "Imagine what you could build if you learned Ruby on Rails…",
+  title: "Motivation to learn ruby on rails",
   text: "You’ve probably already used many of the applications that were built with Ruby on Rails: Basecamp, GitHub, Shopify, Airbnb, Twitch, SoundCloud, Hulu, Zendesk, Square, Highrise. Those are just some of the big names, but there are literally hundreds.",
   position: 3,
   experience: "30",

@@ -1,7 +1,7 @@
-<h2 class="survey-title">
-  <%= @exercise.title %>
+<h2>
+  <%= "#{content.title} #{content.experience} XP" %>
 </h2>
-<%= simple_form_for @exercise, url:attempts_create_path, action:"create", method:"POST" do |exercise| %>
+<%= simple_form_for content, url:performance_path, method:"POST" do |exercise| %>
   <ol class="questions">
     <% exercise.object.questions.each do |question| %>
       <li>
@@ -16,6 +16,6 @@
       </li>
     <% end %>
   </ol>
-  <%= exercise.submit "Próximo", class:"btn btn-success" %>
+  <%= exercise.submit "Próximo", class:"btn btn-default" %>
 <% end %>
 

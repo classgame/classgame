@@ -16,8 +16,6 @@ class ChaptersController < ApplicationController
   def edit
   end
 
-  
-
   def create
     @chapter = Chapter.new(chapter_params)
 
