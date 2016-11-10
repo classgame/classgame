@@ -24,7 +24,7 @@ class ContentsController < ApplicationController
 		redirect_to chapter_contents_management_path(@chapter)
 	end
 
-	def performance
+	def collect_score_content
 		@attempt = Attempt.new
 		performace = current_user.performace
     if params[:question]
