@@ -2,14 +2,11 @@
 	<%= render "menu_contents" %>
 	
 	<div class="col-lg-10">
-		<%= render partial: @partial_content, locals: {content: @content} %>
+		<%= render partial: @partial_content, locals: { content: @content } %>
 	</div>	
 </div>
 
 
 <script>
-	$("#menu-toggle").click(function(e) {
-		e.preventDefault();
-		$("#wrapper").toggleClass("toggled");
-	});
+	
 </script>

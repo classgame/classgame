@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-
+	
 	def start
 		@chapter = Chapter.find(params[:chapter_id])
 		@@contents = @chapter.all_contents
@@ -9,7 +9,11 @@ class ContentsController < ApplicationController
 	end
 	
 	def contents_management
-		render_content
+		if @@contents[@@current_content]
+			render_contents
+		else
+			done_contents
+		end
 	end
 
 	def click_content
@@ -24,12 +28,16 @@ class ContentsController < ApplicationController
 		redirect_to chapter_contents_management_path(@chapter)
 	end
 
+	def done_contents
+		redirect_to @@contents.first.chapter.course, notice: "Parabéns você concluiu o chapter #{@@contents.first.chapter.title}!"
+	end
+
 	def collect_score_content
 		@attempt = Attempt.new
 		performace = current_user.performace
     if params[:question]
       @attempt.final_experience_question( Alternative.where(id: content_params), current_user )
-    	session[:current_points] += @attempt.experience 
+    	session[:current_points] += @attempt.experience
     elsif params[:text]
       text = Text.find(params[:text][:id])
       performace.update_attributes( total_experience: performace.total_experience + text.experience )
@@ -46,7 +54,7 @@ class ContentsController < ApplicationController
 	end
 	
 	private
-		def render_content
+		def render_contents
 			@partial_content = "contents/#{@@contents[@@current_content].class.table_name}"
 			@content = @@contents[@@current_content]
 			render :contents_management

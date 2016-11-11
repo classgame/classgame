@@ -1,7 +1,7 @@
 <div class="col-lg-2">
 	<div id="sidebar-wrapper">
 		<ul class="sidebar-nav">
-			<li><p>Pontuação atual: <%="#{session[:current_points]}XP"%></p></li>
+			<li> <p> Pontuação atual: <%= "#{session[:current_points]}XP" %> </p> </li>
 			<% @content.chapter.all_contents.each do |content|%>
 			<li><%= link_to content.title, click_content_path(content.position) %></li>
 			<%end%>
