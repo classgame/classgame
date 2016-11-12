@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103161537) do
+ActiveRecord::Schema.define(version: 20161112144645) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address",      limit: 255
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 20161103161537) do
   end
 
   add_index "chapters", ["course_id"], name: "index_chapters_on_course_id", using: :btree
+
+  create_table "contents", force: :cascade do |t|
+    t.string   "description", limit: 255
+    t.integer  "experience",  limit: 4
+    t.integer  "position",    limit: 4
+    t.string   "title",       limit: 255
+    t.string   "nivel",       limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "image",             limit: 255
