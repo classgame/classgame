@@ -8,7 +8,7 @@ class CreateContents < ActiveRecord::Migration
       t.string  :nivel
       t.string  :type
       t.string  :link
-      t.string  :text
+      t.text  :text
 
       t.timestamps null: false
     end

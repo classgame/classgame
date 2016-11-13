@@ -2,7 +2,7 @@ class ContentsController < ApplicationController
 	
 	def start
 		@chapter = Chapter.find(params[:chapter_id])
-		@@contents = @chapter.all_contents
+		@@contents = @chapter.contents
 		@@current_content = 0
 		redirect_to chapter_contents_management_path(@chapter)
 		session[:current_points] = 0
@@ -33,11 +33,9 @@ class ContentsController < ApplicationController
 	end
 
 	def collect_score_content
-		@attempt = Attempt.new
 		performace = current_user.performace
     if params[:question]
-      @attempt.final_experience_question( Alternative.where(id: content_params), current_user )
-    	session[:current_points] += @attempt.experience
+    	session[:current_points] += 10
     elsif params[:text]
       text = Text.find(params[:text][:id])
       performace.update_attributes( total_experience: performace.total_experience + text.experience )
@@ -48,14 +46,12 @@ class ContentsController < ApplicationController
     	session[:current_points] += video.experience
     end  
 
-    if @attempt.save
-      next_content
-    end
-	end
+    next_content
+  end
 	
 	private
 		def render_contents
-			@partial_content = "contents/#{@@contents[@@current_content].class.table_name}"
+			@partial_content = "contents/#{@@contents[@@current_content].type.downcase}"
 			@content = @@contents[@@current_content]
 			render :contents_management
 		end  

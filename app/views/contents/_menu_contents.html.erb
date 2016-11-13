@@ -2,7 +2,7 @@
 	<div id="sidebar-wrapper">
 		<ul class="sidebar-nav">
 			<li> <p> Pontuação atual: <%= "#{session[:current_points]}XP" %> </p> </li>
-			<%= render partial: "content", collection: @content.chapter.all_contents, as: :content %>
+			<%= render partial: "content", collection: @content.chapter.contents, as: :content %>
 		</ul>
 	</div>
 </div>

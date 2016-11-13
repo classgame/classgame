@@ -238,160 +238,169 @@ registries = Registry.create!(
 chapter1 = Chapter.create(
   title: "Best Practices with ruby on rails",
   description: "what do you know about routes?",
-  experience: "40",
-  course:rails
-)
-
-chapter2 = Chapter.create(
-  title: "Models Taste Like Chicken",
-  description: "We'll learn about ActiveRecord models, validations, and relationships.",
-  experience: "40",
+  experience: 40,
   course:rails
 )
 
 video1 = Video.create(
-  link: "https://www.youtube.com/embed/tduWe7LNQVs",
-  title: "First steps with ruby",
+  description: "First steps with ruby",
+  experience: 30,
   position: 1,
-  experience: "30",
-  description: "Do you know about the facilities when you program with ruby?",
+  title: "Objects and Classes",
+  nivel: "Medium",
+  link: "https://www.youtube.com/embed/tduWe7LNQVs",
   chapter: chapter1
 )
 
 text1 = Text.create(
-  title: "Introduction in Ruby on Rails",
-  text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
+  experience: 30,
   position: 4,
-  experience: "30",
+  title: "Introduction in Ruby on Rails",
+  nivel: "Easy",
+  text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
   chapter: chapter1
 )
 
 text2 = Text.create(
-  title: "Motivation to learn ruby on rails",
-  text: "You’ve probably already used many of the applications that were built with Ruby on Rails: Basecamp, GitHub, Shopify, Airbnb, Twitch, SoundCloud, Hulu, Zendesk, Square, Highrise. Those are just some of the big names, but there are literally hundreds.",
+  experience: 30,
   position: 3,
-  experience: "30",
+  title: "Motivation to learn ruby on rails",
+  nivel: "Easy",
+  text: "You’ve probably already used many of the applications that were built with Ruby on Rails: Basecamp, GitHub, Shopify, Airbnb, Twitch, SoundCloud, Hulu, Zendesk, Square, Highrise. Those are just some of the big names, but there are literally hundreds.",
   chapter: chapter1
 )
 
 text3 = Text.create(
-  title: "Bootstrap on Rails",
-  text: "Options can be passed via data attributes or JavaScript. For data attributes, append the option name to data-, as in data-backdrop=",
+  experience: 30,
   position: 5,
-  experience: "30",
+  title: "Bootstrap on Rails",
+  nivel: "Hard",
+  text: "Options can be passed via data attributes or JavaScript. For data attributes, append the option name to data-, as in data-backdrop=",
   chapter: chapter1
 )
 
-ex2 = Exercise.create(
-  title: "Questionario de Ruby",
-  nivel: "hard",
+ex1 = Exercise.create(
+  experience: 50,
   position: 2,
-  experience: "50",
+  title: "Basic about Ruby on Rails",
   chapter: chapter1
 )
 
 q1 = Question.create(
-  description: "What is your course? ADS?",
-  experience: "50",
-  exercise: ex2
+  description: "Basic concepts for rails",
+  experience: 50,
+  title: "What is your course? ADS?",
+  nivel: "Easy",
+  exercise: ex1
 )
 
 Alternative.create(
-  description: "Yes,i'm the best",
+  title: "Yes,i'm the best",
   correct: true,
   question: q1
 )
 
 Alternative.create(
-  description: "No, i'm a shit",
+  title: "No, i'm a shit",
   correct: false,
   question: q1
 )
 
 q2 = Question.create(
-  description: "What is command to print information on ruby?",
-  experience: "50",
-  exercise: ex2
+  experience: 60,
+  title: "What is command to print information on ruby?",
+  nivel: "Medium",
+  exercise: ex1
 )
 
 Alternative.create(
-  description: "print, puts",
+  title: "print, puts",
   correct: true,
   question: q2 
 )
 
 Alternative.create(
-  description: "each",
+  title: "each",
   correct: false,
   question: q2 
 )
 
+chapter2 = Chapter.create(
+  title: "Models Taste Like Chicken",
+  description: "We'll learn about ActiveRecord models, validations, and relationships.",
+  experience: 40,
+  course:rails
+)
 
 video1 = Video.create(
-  link: "https://www.youtube.com/embed/EzDDOW_DuAc",
-  title: "Understanding Model in Ruby on Rails",
-  position: 1,
-  experience: "70",
   description: "Models in ruby on rails?",
+  experience: 70,
+  position: 1,
+  title: "Understanding Model in Ruby on Rails",
+  nivel: "Medium",
+  link: "https://www.youtube.com/embed/EzDDOW_DuAc",
   chapter: chapter2
 )
 
 text1 = Text.create(
-  title: "Object Relational Mapping",
-  text: "Object Relational Mapping, commonly referred to as its abbreviation ORM, is a technique that connects the rich objects of an application to tables in a relational database management system. Using ORM",
+  experience: 35,
   position: 3,
-  experience: "35",
+  title: "Object Relational Mapping",
+  nivel: "Easy",
+  text: "Object Relational Mapping, commonly referred to as its abbreviation ORM, is a technique that connects the rich objects of an application to tables in a relational database management system. Using ORM",
   chapter: chapter2
 )
 
 text2 = Text.create(
-  title: "What is Active Record?",
-  text: "Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database.",
+  experience: 30,
   position: 4,
-  experience: "30",
+  title: "What is Active Record?",
+  nivel: "Hard",
+  text: "Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database.",
   chapter: chapter2
 )
 
 ex2 = Exercise.create(
-  title: "Models",
-  nivel: "hard",
+  experience: 50,
   position: 2,
-  experience: "50",
+  title: "Models",
   chapter: chapter2
 )
 
 q1 = Question.create(
   description: "What is Active Record?",
-  experience: "50",
+  experience: 50,
+  nivel: "Medium",
   exercise: ex2
 )
 
 Alternative.create(
-  description: "Active Record is the M in MVC",
+  title: "Active Record is the M in MVC",
   correct: true,
   question: q1
 )
 
 Alternative.create(
-  description: "Active Record is the controller of application",
+  title: "Active Record is the controller of application",
   correct: false,
   question: q1
 )
 
 q2 = Question.create(
   description: "How can validate data in rails models",
-  experience: "50",
+  experience: 50,
+  nivel: "Medium",
   exercise: ex2
 )
 
 Alternative.create(
-  description: "validates :name, presence: true",
+  title: "validates :name, presence: true",
   correct: true,
   question: q2 
 )
 
 Alternative.create(
-  description: "validates if name, presence: true",
+  title: "validates if name, presence: true",
   correct: false,
   question: q2 
 )

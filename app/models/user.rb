@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :registries
   has_many :courses, through: :registries
 
-  has_many :attempts
+  has_many :histories
 
   before_save :normalize_name, on: [:create, :update]
 

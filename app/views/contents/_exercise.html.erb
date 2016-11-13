@@ -5,9 +5,9 @@
   <ol class="questions">
     <% exercise.object.questions.each do |question| %>
       <li>
-        <p class="question"> <%= question.description %></p>
+        <p class="question"> <%= question.title %></p>
         <ul>
-        <%= collection_radio_buttons 'question[alternative_attributes]', question.id, question.alternatives, :id, :description do |b|%>
+        <%= collection_radio_buttons 'question[alternative_attributes]', question.id, question.alternatives, :id, :title do |b|%>
           <li class="radio">
             <%= b.label { b.radio_button + b.text }  %>
           </li>

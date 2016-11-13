@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :histories
+  resources :exercises
   root to: 'welcomes#index'
   devise_for :users
   #resources :attempts
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
   get 'start/:chapter_id' => 'contents#start', as: :start_contents
   get 'chapter/:chapter_id' => 'contents#contents_management', as: :chapter_contents_management
   get 'click_content/:content_position' => 'contents#click_content', as: :click_content
+  
   post 'contents' => 'contents#collect_score_content', as: :collect_score_content
   
   get 'welcome' => "welcomes#index"

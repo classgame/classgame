@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112144645) do
+ActiveRecord::Schema.define(version: 20161113041430) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address",      limit: 255
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20161112144645) do
   end
 
   create_table "alternatives", force: :cascade do |t|
-    t.string   "description", limit: 255
+    t.string   "title",       limit: 255
     t.boolean  "correct"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -32,16 +32,6 @@ ActiveRecord::Schema.define(version: 20161112144645) do
   end
 
   add_index "alternatives", ["question_id"], name: "index_alternatives_on_question_id", using: :btree
-
-  create_table "attempts", force: :cascade do |t|
-    t.integer  "experience", limit: 4
-    t.boolean  "approved"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "user_id",    limit: 4
-  end
-
-  add_index "attempts", ["user_id"], name: "index_attempts_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -70,10 +60,13 @@ ActiveRecord::Schema.define(version: 20161112144645) do
     t.string   "nivel",       limit: 255
     t.string   "type",        limit: 255
     t.string   "link",        limit: 255
-    t.string   "text",        limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.text     "text",        limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "chapter_id",  limit: 4
   end
+
+  add_index "contents", ["chapter_id"], name: "index_contents_on_chapter_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "image",             limit: 255
@@ -92,13 +85,18 @@ ActiveRecord::Schema.define(version: 20161112144645) do
 
   add_index "courses", ["category_id"], name: "index_courses_on_category_id", using: :btree
 
-  create_table "exercises", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "chapter_id", limit: 4
+  create_table "histories", force: :cascade do |t|
+    t.boolean  "done",                 default: true
+    t.integer  "experience", limit: 4
+    t.integer  "quantity",   limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "user_id",    limit: 4
+    t.integer  "content_id", limit: 4
   end
 
-  add_index "exercises", ["chapter_id"], name: "index_exercises_on_chapter_id", using: :btree
+  add_index "histories", ["content_id"], name: "index_histories_on_content_id", using: :btree
+  add_index "histories", ["user_id"], name: "index_histories_on_user_id", using: :btree
 
   create_table "performaces", force: :cascade do |t|
     t.integer  "nivel",            limit: 4
@@ -112,6 +110,8 @@ ActiveRecord::Schema.define(version: 20161112144645) do
   create_table "questions", force: :cascade do |t|
     t.string   "description", limit: 255
     t.integer  "experience",  limit: 4
+    t.string   "title",       limit: 255
+    t.string   "nivel",       limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "exercise_id", limit: 4
@@ -131,15 +131,6 @@ ActiveRecord::Schema.define(version: 20161112144645) do
 
   add_index "registries", ["course_id"], name: "index_registries_on_course_id", using: :btree
   add_index "registries", ["user_id"], name: "index_registries_on_user_id", using: :btree
-
-  create_table "texts", force: :cascade do |t|
-    t.string   "text",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "chapter_id", limit: 4
-  end
-
-  add_index "texts", ["chapter_id"], name: "index_texts_on_chapter_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255, default: "", null: false
@@ -164,15 +155,6 @@ ActiveRecord::Schema.define(version: 20161112144645) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["performace_id"], name: "index_users_on_performace_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "videos", force: :cascade do |t|
-    t.string   "link",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "chapter_id", limit: 4
-  end
-
-  add_index "videos", ["chapter_id"], name: "index_videos_on_chapter_id", using: :btree
 
   add_foreign_key "courses", "categories"
   add_foreign_key "registries", "courses"
