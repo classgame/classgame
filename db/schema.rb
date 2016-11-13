@@ -68,6 +68,9 @@ ActiveRecord::Schema.define(version: 20161112144645) do
     t.integer  "position",    limit: 4
     t.string   "title",       limit: 255
     t.string   "nivel",       limit: 255
+    t.string   "type",        limit: 255
+    t.string   "link",        limit: 255
+    t.string   "text",        limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
@@ -90,12 +93,8 @@ ActiveRecord::Schema.define(version: 20161112144645) do
   add_index "courses", ["category_id"], name: "index_courses_on_category_id", using: :btree
 
   create_table "exercises", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.string   "nivel",      limit: 255
-    t.integer  "experience", limit: 4
-    t.integer  "position",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "chapter_id", limit: 4
   end
 
@@ -134,14 +133,10 @@ ActiveRecord::Schema.define(version: 20161112144645) do
   add_index "registries", ["user_id"], name: "index_registries_on_user_id", using: :btree
 
   create_table "texts", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "text",        limit: 255
-    t.string   "description", limit: 255
-    t.integer  "experience",  limit: 4
-    t.integer  "position",    limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "chapter_id",  limit: 4
+    t.string   "text",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "chapter_id", limit: 4
   end
 
   add_index "texts", ["chapter_id"], name: "index_texts_on_chapter_id", using: :btree
@@ -171,14 +166,10 @@ ActiveRecord::Schema.define(version: 20161112144645) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "videos", force: :cascade do |t|
-    t.string   "link",        limit: 255
-    t.string   "title",       limit: 255
-    t.string   "description", limit: 255
-    t.integer  "experience",  limit: 4
-    t.integer  "position",    limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "chapter_id",  limit: 4
+    t.string   "link",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "chapter_id", limit: 4
   end
 
   add_index "videos", ["chapter_id"], name: "index_videos_on_chapter_id", using: :btree

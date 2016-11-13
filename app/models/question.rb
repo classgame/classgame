@@ -1,5 +1,5 @@
-class Question < ActiveRecord::Base
-  belongs_to :exercise
+class Question < Content
+  
   has_many :alternatives
 
   accepts_nested_attributes_for :alternatives
@@ -12,5 +12,4 @@ class Question < ActiveRecord::Base
     return alternatives.incorrect
   end
 
-#retornar pontos feitos apenas isso para attempt
 end

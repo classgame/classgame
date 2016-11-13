@@ -1,7 +1,0 @@
-<h3><%=@text.title%></h3>
-<br>
-<%= simple_form_for @text, url:attempts_create_path, action:"create", method:"POST" do |text|%>
-	<input type="hidden" name="text[id]" value="<%=@text.id%>">
-	<p><%= text.object.text %></p>
-	<%= text.submit "Próximo", class: "btn btn-success"%>
-<%end%>

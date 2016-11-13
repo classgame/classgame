@@ -1,2 +1,0 @@
-module AttemptsHelper
-end

@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :users
   resources :alternatives
   resources :questions
-  resources :exercises
   resources :chapters
   resources :categories
   resources :courses do

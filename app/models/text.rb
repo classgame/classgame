@@ -1,4 +1,4 @@
-class Text < ActiveRecord::Base
+class Text < Content
 
   belongs_to :chapter
 
