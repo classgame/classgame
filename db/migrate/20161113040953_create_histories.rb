@@ -2,8 +2,8 @@ class CreateHistories < ActiveRecord::Migration
   def change
     create_table :histories do |t|
       t.boolean :done, default: true
-      t.integer :experience
-      t.integer :quantity
+      t.integer :experience, default: 0
+      t.integer :quantity, default: 1
 
       t.timestamps null: false
     end

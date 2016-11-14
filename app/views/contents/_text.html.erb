@@ -1,7 +1,7 @@
 <h3><%= "#{content.title} #{content.experience} XP" %></h3>
 <br>
 <%= simple_form_for content, url:collect_score_content_path, method:"POST" do |text|%>
-	<input type="hidden" name="text[id]" value="<%=text.object.id%>">
+	<input type="hidden" name="contents[content_id]" value="<%=text.object.id%>">
 	<p><%= text.object.text %></p>
 	<%= text.submit "Próximo", class: "btn btn-default"%>
 <%end%>

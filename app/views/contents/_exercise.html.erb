@@ -2,12 +2,13 @@
   <%= "#{content.title} #{content.experience} XP" %>
 </h2>
 <%= simple_form_for content, url:collect_score_content_path, method:"POST" do |exercise| %>
+  <input type="hidden" name="contents[content_id]" value="<%= content.id %>">
   <ol class="questions">
     <% exercise.object.questions.each do |question| %>
       <li>
         <p class="question"> <%= question.title %></p>
         <ul>
-        <%= collection_radio_buttons 'question[alternative_attributes]', question.id, question.alternatives, :id, :title do |b|%>
+        <%= collection_radio_buttons 'contents[answers_attributes]', question.id, question.alternatives, :id, :title do |b|%>
           <li class="radio">
             <%= b.label { b.radio_button + b.text }  %>
           </li>
@@ -16,6 +17,6 @@
       </li>
     <% end %>
   </ol>
-  <%= exercise.submit "Próximo", class:"btn btn-default" %>
+  <%= exercise.submit "Próximo", class: "btn btn-default" %>
 <% end %>
 

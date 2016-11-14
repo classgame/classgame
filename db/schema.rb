@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113041430) do
+ActiveRecord::Schema.define(version: 20161113235049) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address",      limit: 255
@@ -32,6 +32,20 @@ ActiveRecord::Schema.define(version: 20161113041430) do
   end
 
   add_index "alternatives", ["question_id"], name: "index_alternatives_on_question_id", using: :btree
+
+  create_table "answers", force: :cascade do |t|
+    t.boolean  "correct",                  default: false
+    t.integer  "experience",     limit: 4, default: 0
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "question_id",    limit: 4
+    t.integer  "history_id",     limit: 4
+    t.integer  "alternative_id", limit: 4
+  end
+
+  add_index "answers", ["alternative_id"], name: "index_answers_on_alternative_id", using: :btree
+  add_index "answers", ["history_id"], name: "index_answers_on_history_id", using: :btree
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -87,8 +101,8 @@ ActiveRecord::Schema.define(version: 20161113041430) do
 
   create_table "histories", force: :cascade do |t|
     t.boolean  "done",                 default: true
-    t.integer  "experience", limit: 4
-    t.integer  "quantity",   limit: 4
+    t.integer  "experience", limit: 4, default: 0
+    t.integer  "quantity",   limit: 4, default: 1
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "user_id",    limit: 4

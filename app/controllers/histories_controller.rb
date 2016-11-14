@@ -24,7 +24,7 @@ class HistoriesController < ApplicationController
   # POST /histories
   # POST /histories.json
   def create
-    @history = History.new(history_params)
+    @history = current_user.histories.new(history_params)
 
     respond_to do |format|
       if @history.save

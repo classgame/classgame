@@ -33,20 +33,16 @@ class ContentsController < ApplicationController
 	end
 
 	def collect_score_content
-		performace = current_user.performace
-    if params[:question]
-    	session[:current_points] += 10
-    elsif params[:text]
-      text = Text.find(params[:text][:id])
-      performace.update_attributes( total_experience: performace.total_experience + text.experience )
-    	session[:current_points] += text.experience
-    else
-      video = Video.find(params[:video][:id])
-      performace.update_attributes( total_experience: performace.total_experience + video.experience )
-    	session[:current_points] += video.experience
-    end  
+	    if params[:question]
 
-    next_content
+	    elsif params[:text]
+	      text = Text.find(params[:text][:id])
+
+	    else
+	      video = Video.find(params[:video][:id])
+
+	    end  
+		next_content
   end
 	
 	private
@@ -57,10 +53,15 @@ class ContentsController < ApplicationController
 		end  
 
 		def content_params
-      if params[:question]
-        params[:question][:alternative_attributes] = params[:question][:alternative_attributes].map {|attrs| attrs.last } 
-      end
-      #params.require(:attempt).permit(:experience, :ending_time, :approved, :done)
-      #params.require(:question)
+    	params[:contents][:answers_attributes] = 
+    		params[:contents][:answers_attributes] ? 
+    			params[:contents][:answers_attributes].map{|t| {question_id:t.first, alternative_id:t.last}} 
+    				: nil
+    	
+    	params.require(:contents).permit(:content_id, 
+    																		answers_attributes:[
+    																	 		:question_id, 
+    																			:alternative_id
+    																		])
     end
 end
