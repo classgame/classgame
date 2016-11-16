@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  root to: 'welcomes#index'
+  get 'welcome', to: "welcomes#index"
+  post 'sessions/:chapter_id' => 'contents_sessions#create', as: :contents_sessions
+  
   resources :histories
   resources :exercises
-  root to: 'welcomes#index'
   devise_for :users
-  #resources :attempts
   resources :texts
   resources :videos
   resources :users
@@ -13,24 +15,23 @@ Rails.application.routes.draw do
   resources :categories
   resources :courses do
     member do
-      get 'registration'
-      get 'chapters'
+      get :registration
+      get :chapters
     end
   end
-  scope 'user' do
+  scope :user do
     resources :registries
   end
   resources :users
   resources :addresses
   resources :performaces
-
-  get 'start/:chapter_id' => 'contents#start', as: :start_contents
-  get 'chapter/:chapter_id' => 'contents#contents_management', as: :chapter_contents_management
-  get 'click_content/:content_position' => 'contents#click_content', as: :click_content
-  
-  post 'contents' => 'contents#collect_score_content', as: :collect_score_content
-  
-  get 'welcome' => "welcomes#index"
-  
-  get '/account/:id', to: 'users#edit', as: :account
+  resources :contents do
+    collection do 
+      get :management
+      get :next
+    end
+    member do
+      put :click
+    end
+  end
 end

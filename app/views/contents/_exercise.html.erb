@@ -1,7 +1,7 @@
 <h2>
   <%= "#{content.title} #{content.experience} XP" %>
 </h2>
-<%= simple_form_for content, url:collect_score_content_path, method:"POST" do |exercise| %>
+<%= simple_form_for content, url:histories_path, method:"POST" do |exercise| %>
   <input type="hidden" name="contents[content_id]" value="<%= content.id %>">
   <ol class="questions">
     <% exercise.object.questions.each do |question| %>

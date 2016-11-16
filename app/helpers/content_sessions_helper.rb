@@ -1,0 +1,2 @@
+module ContentSessionsHelper
+end

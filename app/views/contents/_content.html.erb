@@ -1,1 +1,1 @@
-<li><%= link_to content.title, click_content_path(content.position) %></li>
+<li><%= link_to content.title, click_content_path(content.id, position:content.position), method:"PUT"%></li>

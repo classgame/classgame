@@ -1,10 +1,6 @@
 <div class="row">
-	<%= render "menu_contents" %>
+	<%= render partial: "menu_contents", locals: { content: @content, experience: @experience } %>
 	<div class="col-lg-10">
 		<%= render partial: @partial_content, locals: { content: @content } %>
 	</div>	
 </div>
-
-<script>
-	
-</script>
