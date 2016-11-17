@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'welcomes#index'
   get 'welcome', to: "welcomes#index"
   post 'sessions/:chapter_id' => 'contents_sessions#create', as: :contents_sessions
+  get 'sessions' => 'contents_sessions#destroy', as: :contents_sessions_detroy
   
   resources :histories
   resources :exercises

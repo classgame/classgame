@@ -6,13 +6,17 @@ class ApplicationController < ActionController::Base
   							:current_experience,
   							:current_partial
   
-	#[1,3,5,4] contents id array
 	def contents
 		@contents = session[:contents]
 	end
-  
-  def current_content
-  	@content = Content.find(contents[session[:current_content]])
+
+	def require_content
+     redirect_to '/categories', notice: "Você já concluiu esse capitulo" unless contents
+   end
+
+	def current_content
+  	id_current_content = contents.select{|c| c["position"] == session[:current_content]}.first["id"]
+  	@content = Content.find(id_current_content)
   end
 
 	def current_experience

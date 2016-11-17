@@ -2,12 +2,17 @@
 
 <h1>Listing Histories</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Correct</th>
+      <th>Done</th>
       <th>Experience</th>
       <th>Quantity</th>
+      <th>User</th>
+      <th>Content</th>
+      <th>Content Type</th>
+      <th>Chapter</th>
+      <th>Course</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +20,14 @@
   <tbody>
     <% @histories.each do |history| %>
       <tr>
-        <td><%= history.correct %></td>
+        <td><%= history.done %></td>
         <td><%= history.experience %></td>
         <td><%= history.quantity %></td>
+        <td><%= history.user.name %></td>
+        <td><%= history.content.title %></td>
+        <td><%= history.content.type %></td>
+        <td><%= history.content.chapter.title %></td>
+        <td><%= history.content.chapter.course.title %></td>
         <td><%= link_to 'Show', history %></td>
         <td><%= link_to 'Edit', edit_history_path(history) %></td>
         <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>

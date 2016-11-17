@@ -1,7 +1,7 @@
 class HistoriesController < ApplicationController
-  before_action :set_history, only: [:show, :edit, :update, :destroy]
+  before_action :require_content, only: [:create]
+  
   def index
-    binding.pry
     @histories = History.all
   end
 
