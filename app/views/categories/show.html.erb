@@ -1,17 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
 
-<h1><%=@category.title%></h1>
-  <p>Escolha entre nossos cursos de <%=@category.title%></p>
-  <div class="row list_itens_center">
-  <% @category.courses.each do |course|%> 
-    <div class="col-lg-4">
-      <%= image_tag course.image, class:"image_radius"%>
-      <h2><%= course.title%></h2>
-      <p><%= course.description%></p>
-      <p><%= link_to "Veja Mais", course, class:"btn btn-default"%></p>
+  <h1><%=@category.title%></h1>
+    <p>Escolha entre nossos cursos de <%= @category.title %></p>
+    <div class="row list_itens_center">
+    <% @category.courses.each do |course|%> 
+      <div class="col-lg-4">
+        <%= image_tag course.image, class:"image_radius"%>
+        <h2><%= course.title%></h2>
+        <p><%= course.description%></p>
+        <p><%= link_to "Veja Mais", course, class:"btn btn-default"%></p>
+      </div>
+    <%end%>  
     </div>
-  <%end%>  
-  </div>
 
-<p><%= link_to 'Back', categories_path %></p>
+  <p><%= link_to 'Back', categories_path %></p>
+</div>

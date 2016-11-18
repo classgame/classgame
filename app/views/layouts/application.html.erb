@@ -38,13 +38,11 @@
   </head>
   <body>
     <%= render file: 'layouts/_main_menu.html.erb' %>
-    <div class="out">
-      <div class="container">
-        <%= yield %>
-        <footer>
-          <p>&copy; Company Gamification 2016</p>
-        </footer>
-      </div>  
-    </div>
+    <%= yield %>
+    <div class="container">
+      <footer>
+        <p>&copy; Company Gamification 2016</p>
+      </footer>
+    </div>  
   </body>
-  </html>
+</html>
