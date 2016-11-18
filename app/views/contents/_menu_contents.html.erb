@@ -1,8 +1,6 @@
-<div class="col-lg-2">
-	<div id="sidebar-wrapper">
-		<ul class="sidebar-nav">
-			<li> <p> Pontuação atual: <%= experience %> </p> </li>
-			<%= render partial: "content", collection: content.chapter.contents, as: :content %>
-		</ul>
-	</div>
+<div id="sidebar-wrapper">
+	<ul class="sidebar-nav">
+		<li> <p> Pontuação atual: <%= experience %> </p> </li>
+		<%= render partial: "content", collection: content.chapter.contents, as: :content %>
+	</ul>
 </div>

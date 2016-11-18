@@ -2,125 +2,150 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
- 	overflow-x: hidden;
- 	height: auto;
- }
- /* Toggle Styles */
- ul p{
- 	color: white;
- }
- #wrapper {
- 	padding-left: 0;
- 	-webkit-transition: all 0.5s ease;
- 	-moz-transition: all 0.5s ease;
- 	-o-transition: all 0.5s ease;
- 	transition: all 0.5s ease;
- }
+	overflow-x: hidden;
+	height: auto;
+}
 
- #wrapper.toggled {
- 	padding-left: 250px;
- }
+.main{
+	transition: all 0.5s ease;
+}
 
- #sidebar-wrapper {
- 	z-index: 1000;
- 	overflow-y: auto;
- 	position:fixed;
- 	left:0;
- 	height: 100%;
- 	background: black !important;
- 	-webkit-transition: all 0.5s ease;
- 	-moz-transition: all 0.5s ease;
- 	-o-transition: all 0.5s ease;
- 	transition: all 0.5s ease;
- }
+.main h3{
+	text-align:center;
+	padding:10px 10px 10px 10px;
+	margin:0;
+	color:black;
+	font-family: "helvetica";
+	border-bottom:1px solid #D6D8DA;
+}
 
- #wrapper.toggled #sidebar-wrapper {
- 	width: 250px;
- }
+input[type="submit"]{
+	margin:10px auto 10px auto;
+}
 
- #page-content-wrapper {
- 	width: 100%;
- 	position: absolute;
- 	padding: 15px;
- }
+.player-container{
+	position:relative;
+	background:black;
+	max-width:100%;
+	padding:0 1%;
+}
 
- #wrapper.toggled #page-content-wrapper {
- 	position: absolute;
- 	margin-right: -250px;
- }
+.player-container iframe{
+	background:black;
+	max-width:100%;
+	margin-left:auto;
+}
 
- /* Sidebar Styles */
+/* Toggle Styles */
+ul p{
+	color: black;
+	border-bottom: 1px solid #D6D8DA;
+	padding: 10px 0 10px 0;
+	font-size:16px;
+}
 
- .sidebar-nav {
- 	position: absolute;
- 	top: 0;
- 	width: 250px;
- 	margin: 0;
- 	padding: 0;
- 	list-style: none;
- }
+#wrapper {
+	padding-left: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
 
- .sidebar-nav li {
- 	text-indent: 20px;
- 	line-height: 40px;
- }
+#sidebar-wrapper {
+	z-index: 1000;
+	position:fixed;
+	left:0;
+	overflow-y: auto;
+	height: 100%;
+	background: white !important;
+}
 
- .sidebar-nav li a {
- 	display: block;
- 	text-decoration: none;
- 	color: #999999;
- }
+/* Sidebar Styles */
+.sidebar-nav {
+	position: absolute;
+	top: 0;
+	width: 250px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 
- .sidebar-nav li a:hover {
- 	text-decoration: none;
- 	color: #fff;
- 	background: rgba(255,255,255,0.2);
- }
+.sidebar-nav li {
+	text-indent: 20px;
+	line-height: 40px;
+}
 
- .sidebar-nav li a:active,
- .sidebar-nav li a:focus {
- 	text-decoration: none;
- }
+.sidebar-nav li a {
+	display: block;
+	text-decoration: none;
+	color: black;
+	font-size:15px;
+	white-space: normal !important;
+	margin-top:5px;
+	margin-bottom:5px;
+}
 
- .sidebar-nav > .sidebar-brand {
- 	height: 65px;
- 	font-size: 18px;
- 	line-height: 60px;
- }
+.sidebar-nav li a:hover {
+	text-decoration: none;
+	background: #F6F7F7 !important;
+}
 
- .sidebar-nav > .sidebar-brand a {
- 	color: #999999;
- }
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+	text-decoration: none;
+}
 
- .sidebar-nav > .sidebar-brand a:hover {
- 	color: #fff;
- 	background: none;
- }
+/* Sidebar Mobile Styles */
+#sidebar-wrapper-mobile{
+	overflow-y: auto;
+	display:block;
+	width: 100%;
+	background-color:black;
+	list-style: none;
+	font-family: "Helvetica"
+}
 
- @media(min-width:768px) {
- 	#wrapper {
- 		padding-left: 250px;
- 	}
+.sidebar-nav-mobile {
+	margin: 0;
+	padding: 0;
+}
 
- 	#wrapper.toggled {
- 		padding-left: 0;
- 	}
+.sidebar-nav-mobile li {
+	text-align:center;
+	line-height: 40px;
+}
 
- 	#sidebar-wrapper {
- 		width: 250px;
- 	}
+.sidebar-nav-mobile li a {
+	display: block;
+	text-decoration: none;
+	color: #999999;
+}
 
- 	#wrapper.toggled #sidebar-wrapper {
- 		width: 0;
- 	}
+.sidebar-nav-mobile li a:hover {
+	text-decoration: none;
+	color: #fff;
+	background: rgba(255,255,255,0.2);
+}
 
- 	#page-content-wrapper {
- 		padding: 20px;
- 		position: relative;
- 	}
+.sidebar-nav-mobile li a:active,
+.sidebar-nav-mobile li a:focus {
+	text-decoration: none;
+}
 
- 	#wrapper.toggled #page-content-wrapper {
- 		position: relative;
- 		margin-right: 0;
- 	}
- }
+@media(min-width:768px) {
+	#sidebar-wrapper{
+		width:250px;
+	}
+	.main{
+		margin:0px 0px 0px 250px;
+	}
+
+	#sidebar-wrapper-mobile{
+		display:none;
+	}	
+	.player-container{
+		padding:0 5%;
+	}
+}
+

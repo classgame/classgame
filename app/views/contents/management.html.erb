@@ -1,6 +1,11 @@
-<div class="row">
-	<%= render partial: "menu_contents", locals: { content: @content, experience: @experience } %>
-	<div class="col-lg-10">
+<%= render partial: "menu_contents", locals: { content: @content, experience: @experience } %>
+<div class="main">
 		<%= render partial: @partial_content, locals: { content: @content } %>
-	</div>	
+</div>
+
+<div id="sidebar-wrapper-mobile">
+	<ul class="sidebar-nav-mobile">
+		<li> <p> Pontuação atual: <%= @experience %> </p> </li>
+		<%= render partial: "content", collection: @content.chapter.contents, as: :content %>
+	</ul>
 </div>
