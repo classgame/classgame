@@ -25,7 +25,8 @@
   	player = new YT.Player('player', {
       controls:0,
       videoId: "<%= content.link.split(/\//).last %>",
-  		events: {
+  		playerVars: { 'showinfo':0, 'rel':'0' },
+      events: {
   			'onReady': onPlayerReady
   		}
   	});
