@@ -83,18 +83,19 @@ ActiveRecord::Schema.define(version: 20161113235049) do
   add_index "contents", ["chapter_id"], name: "index_contents_on_chapter_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
-    t.string   "image",             limit: 255
-    t.string   "image_cover",       limit: 255
-    t.string   "trailer",           limit: 255
-    t.string   "title",             limit: 255
-    t.string   "description",       limit: 255
-    t.string   "nivel",             limit: 255
-    t.integer  "workload",          limit: 4
+    t.string   "image",               limit: 255
+    t.string   "image_cover",         limit: 255
+    t.string   "trailer",             limit: 255
+    t.string   "title",               limit: 255
+    t.string   "description",         limit: 255
+    t.string   "nivel",               limit: 255
+    t.integer  "workload",            limit: 4
     t.boolean  "active"
     t.boolean  "completed_edition"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.integer  "category_id",       limit: 4
+    t.integer  "progress_percentage", limit: 4,   default: 0
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "category_id",         limit: 4
   end
 
   add_index "courses", ["category_id"], name: "index_courses_on_category_id", using: :btree
@@ -112,13 +113,13 @@ ActiveRecord::Schema.define(version: 20161113235049) do
   add_index "histories", ["content_id"], name: "index_histories_on_content_id", using: :btree
   add_index "histories", ["user_id"], name: "index_histories_on_user_id", using: :btree
 
-  create_table "performaces", force: :cascade do |t|
-    t.integer  "nivel",            limit: 4
-    t.integer  "total_experience", limit: 4
-    t.integer  "amount_exercises", limit: 4
-    t.integer  "amount_courses",   limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+  create_table "performances", force: :cascade do |t|
+    t.integer  "nivel",            limit: 4, default: 0
+    t.integer  "total_experience", limit: 4, default: 0
+    t.integer  "amount_exercises", limit: 4, default: 0
+    t.integer  "amount_courses",   limit: 4, default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "questions", force: :cascade do |t|
@@ -162,17 +163,17 @@ ActiveRecord::Schema.define(version: 20161113235049) do
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
     t.integer  "address_id",             limit: 4
-    t.integer  "performace_id",          limit: 4
+    t.integer  "performance_id",         limit: 4
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["performace_id"], name: "index_users_on_performace_id", using: :btree
+  add_index "users", ["performance_id"], name: "index_users_on_performance_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "courses", "categories"
   add_foreign_key "registries", "courses"
   add_foreign_key "registries", "users"
   add_foreign_key "users", "addresses"
-  add_foreign_key "users", "performaces"
+  add_foreign_key "users", "performances"
 end

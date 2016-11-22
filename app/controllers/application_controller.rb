@@ -2,16 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
-  helper_method :current_content, 
-  							:current_experience,
-  							:current_partial
+  helper_method :contents
   
 	def contents
 		@contents = session[:contents]
 	end
 
 	def require_content
-     redirect_to '/categories', notice: "Você já concluiu esse capitulo" unless contents
+     redirect_to '/categories', notice: "Você já concluiu esse capítulo" unless contents
    end
 
 	def current_content

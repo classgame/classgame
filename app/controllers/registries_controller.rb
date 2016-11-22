@@ -2,8 +2,15 @@ class RegistriesController < ApplicationController
   before_action :set_registry, only: [:show, :edit, :update, :destroy]
 
   def index
-    @registries = current_user.registries
-    @users = User.includes(:performace).order("performaces.nivel desc").limit(10)
+    @users = User.includes(:performance).order("performances.total_experience desc").limit(10)
+    
+    @courses = current_user.courses.each do |course|
+      chapters = course.chapters.pluck(:id)
+      contents_completed = current_user.contents.where(chapter:chapters).distinct.count
+      contents = Content.where(chapter:chapters).count
+      progress_percentage = contents_completed.to_f / contents.to_f * 100
+      course.progress_percentage = progress_percentage
+    end
   end
   
   def show

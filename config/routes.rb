@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :addresses
-  resources :performaces
+  resources :performances
   resources :contents do
     collection do 
       get :management

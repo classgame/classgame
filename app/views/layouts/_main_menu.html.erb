@@ -12,14 +12,14 @@
         <li><%= link_to "Conta", edit_user_path(current_user) %></li>
         <li><%= link_to "Categorias", categories_path  %></li>
         <li><%= link_to "Dashboard", registries_path %></li>
-        <li><%= link_to "Nível: #{current_user.performace.nivel} | XP: #{current_user.performace.total_experience}", performace_path(current_user) %></li>
+        <li><%= link_to "XP: #{ current_user.performance ? current_user.performance.total_experience : 0 }", performance_path(current_user) %></li>
         <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <li><%= current_user.email  %></li>
       </ul>
       <%else%>
       <ul class="nav navbar-nav">
         <li><%= link_to "Log in", user_session_path  %></li>
-        <li><%= link_to "Sign up",destroy_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
       </ul>  
       <%end%>
     </div>

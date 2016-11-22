@@ -40,32 +40,32 @@ rick_address = Address.create(
 )
 
 
-valter_performace = Performace.create!(
-  nivel: 8,
-  total_experience: 6060,
-  amount_courses: 2,
-  amount_exercises: 96
-)
-
-henrich_performace = Performace.create!(
-  nivel: 10,
-  total_experience: 8060,
-  amount_courses: 3,
-  amount_exercises: 126
-)
-
-paulo_performace = Performace.create!(
-  nivel: 9,
+valter_performance = Performance.create!(
+  nivel: 0,
   total_experience: 0,
   amount_courses: 0,
   amount_exercises: 0
 )
 
-rick_performace = Performace.create!(
-  nivel: 2,
-  total_experience: 2022,
-  amount_courses: 1,
-  amount_exercises: 48
+henrich_performance = Performance.create!(
+  nivel: 0,
+  total_experience: 0,
+  amount_courses: 0,
+  amount_exercises: 0
+)
+
+paulo_performance = Performance.create!(
+  nivel: 0,
+  total_experience: 0,
+  amount_courses: 0,
+  amount_exercises: 0
+)
+
+rick_performance = Performance.create!(
+  nivel: 0,
+  total_experience: 0,
+  amount_courses: 0,
+  amount_exercises: 0
 )
 
 valter = User.create!(
@@ -74,7 +74,7 @@ valter = User.create!(
   email:"valter@gmail.com", 
   password:"123456",
 
-  performace:valter_performace,
+  performance:valter_performance,
   address:valter_address
 )
 
@@ -84,7 +84,7 @@ henrich = User.create!(
   email:"henrich@gmail.com",
   password:"123456",
 
-  performace:henrich_performace,
+  performance:henrich_performance,
   address:henrich_address
 )
 
@@ -94,7 +94,7 @@ paulo = User.create!(
   email:"paulo@gmail.com",
   password:"123456",
 
-  performace:paulo_performace,
+  performance:paulo_performance,
   address:paulo_address
 )
 
@@ -105,7 +105,7 @@ rick = User.create!(
   email:"rick@gmail.com",
   password:"123456",
 
-  performace:rick_performace,
+  performance:rick_performance,
   address:rick_address
 );
 

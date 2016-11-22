@@ -7,7 +7,13 @@
 }
 .progress-bar{
   border-radius:40px;
+  background-color: #0083f7;
 }
+
+.done{
+  background-color: #17c43a;
+}
+
 .dashboard_list_itens .image_radius{
 	float:left;
 	margin-right:10px;
@@ -16,5 +22,10 @@
 .dashboard_list_itens .col-xs-12{
 	margin-bottom:30px;
 }
+
+.panel-primary>.panel-heading{
+	background-color: #0083f7;
+}
+
 
 

@@ -23,6 +23,11 @@ input[type="submit"]{
 	margin:10px auto 10px auto;
 }
 
+li span{
+	color:green;
+	font_size:16px;
+}
+
 .player-container{
 	position:relative;
 	background:black;
@@ -72,12 +77,16 @@ ul p{
 }
 
 .sidebar-nav li {
-	text-indent: 20px;
+	text-indent: 10px;
 	line-height: 40px;
 }
 
+.sidebar-nav li .done{
+	background: green;
+}
+
 .sidebar-nav li a {
-	display: block;
+	display: inline;
 	text-decoration: none;
 	color: black;
 	font-size:15px;

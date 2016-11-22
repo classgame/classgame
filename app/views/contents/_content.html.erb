@@ -1,1 +1,8 @@
-<li><%= link_to content.title, click_content_path(content.id, position:content.position), method:"PUT"%></li>
+<li>
+	<% if content.users.include? current_user %>
+		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+		<%= link_to content.title, click_content_path(content.id, position:content.position), method:"PUT"%>
+	<% else %>
+		<%= link_to content.title, click_content_path(content.id, position:content.position), method:"PUT"%>
+	<% end %>	
+</li>

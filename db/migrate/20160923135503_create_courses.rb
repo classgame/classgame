@@ -1,15 +1,16 @@
 class CreateCourses < ActiveRecord::Migration
   def change
     create_table :courses do |t|
-      t.string :image
-      t.string :image_cover
-      t.string :trailer
-      t.string :title
-      t.string :description
-      t.string :nivel
+      t.string  :image
+      t.string  :image_cover
+      t.string  :trailer
+      t.string  :title
+      t.string  :description
+      t.string  :nivel
       t.integer :workload 
       t.boolean :active
       t.boolean :completed_edition
+      t.integer :progress_percentage, default: 0
       
       t.timestamps null:false
     end
