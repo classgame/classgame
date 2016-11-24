@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   devise :registerable, :recoverable, :rememberable, :database_authenticatable,
   :trackable, :validatable
 
+  attr_accessor :age
+
   has_many   :registries
   has_many   :courses,  through: :registries
   has_many   :contents, through: :histories  

@@ -368,7 +368,7 @@ ex2 = Exercise.create(
 )
 
 q1 = Question.create(
-  description: "What is Active Record?",
+  title: "What is Active Record?",
   experience: 50,
   nivel: "Medium",
   exercise: ex2
@@ -387,7 +387,7 @@ Alternative.create(
 )
 
 q2 = Question.create(
-  description: "How can validate data in rails models",
+  title: "How can validate data in rails models",
   experience: 50,
   nivel: "Medium",
   exercise: ex2

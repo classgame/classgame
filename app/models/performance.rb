@@ -1,5 +1,6 @@
 class Performance < ActiveRecord::Base
 	has_one :user
+	
 	after_find :collect_all_scores
 
 	def collect_all_scores
