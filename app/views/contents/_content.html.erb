@@ -1,8 +1,9 @@
 <li>
 	<% if content.users.include? current_user %>
-		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-		<%= link_to content.title, click_content_path(content.id, position:content.position), method:"PUT"%>
+		<span class="glyphicon glyphicon-ok icon_ok_<%=content.position%>" id="icon_ok_<%=content.position%>" aria-hidden="true"></span>
+		<%= link_to content.title, click_content_path(content.id, position:content.position), method:"PUT", class: "content_item"%>
 	<% else %>
-		<%= link_to content.title, click_content_path(content.id, position:content.position), method:"PUT"%>
+		<span class="glyphicon glyphicon-ok" id="icon_ok_<%=content.position%>" aria-hidden="true" style="display:none"></span>
+		<%= link_to content.title, click_content_path(content.id, position:content.position), method:"PUT", class: "content_item"%>
 	<% end %>	
 </li>
