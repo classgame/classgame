@@ -2,8 +2,6 @@ class User < ActiveRecord::Base
   devise :registerable, :recoverable, :rememberable, :database_authenticatable,
   :trackable, :validatable
 
-  attr_accessor :age
-
   has_many   :registries
   has_many   :courses,  through: :registries
   has_many   :contents, through: :histories  
@@ -16,6 +14,8 @@ class User < ActiveRecord::Base
 
   before_save :normalize_name, on: [:create, :update]
   
+  scope :search, -> (query) { where("name like ?", "%#{query}%") }
+
   private
   def normalize_name
     self.name = name.downcase.titleize

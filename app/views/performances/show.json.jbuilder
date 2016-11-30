@@ -1,1 +1,1 @@
-json.partial! "performaces/performace", performace: @performace
+json.partial! "performances/performance", performance: @performance

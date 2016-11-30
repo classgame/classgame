@@ -10,9 +10,9 @@
  <%= video.submit "Próximo", class: "btn btn-default center-block"%>
 <%end%>
 
-<%content_for :js do%>
+<% content_for :js do %>
   <%= javascript_include_tag "notify.js" %>
-<%end%>
+<% end %>
 
 <script type="text/javascript">
 	// 2. This code loads the IFrame Player API code asynchronously.
@@ -27,7 +27,7 @@
   var player;
   function onYouTubeIframeAPIReady() {
   	player = new YT.Player('player', {
-      controls  :0,
+      controls  : 0,
       videoId   : "<%= content.link.split(/\//).last %>",
   		playerVars: { 'showinfo':0, 'rel':'0' },
       events    : {
