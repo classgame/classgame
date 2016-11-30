@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :performance, allow_destroy: true
 
   before_save :normalize_name, on: [:create, :update]
-  
-  scope :search, -> (query) { where("name like ?", "%#{query}%") }
 
   private
   def normalize_name

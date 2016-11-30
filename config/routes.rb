@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root to: 'welcomes#index'
   get 'welcome', to: "welcomes#index"
   post 'sessions/:chapter_id' => 'contents_sessions#create', as: :contents_sessions

@@ -404,3 +404,4 @@ Alternative.create(
   correct: false,
   question: q2 
 )
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
