@@ -13,7 +13,7 @@ ActiveAdmin.register_page "Dashboard" do
   section "Cursos Recentes" do 
     table_for Course.order("created_at desc").limit(5) do
       column :title do |course|
-        link_to course.title, [:admin, course]
+        link_to course.title, admin_courses_path
       end
       column :created_at
     end

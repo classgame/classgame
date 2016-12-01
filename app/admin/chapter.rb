@@ -12,6 +12,17 @@ ActiveAdmin.register Chapter do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+    permit_params :course_id, :title, :description
+	
+	index do
+    selectable_column
+    id_column
+    column :title
+    column :content, as: :test do |chapter|
+    	chapter.contents.map{ |content| content.title }
+    end
+    column :created_at
+    actions
+  end
 
 end

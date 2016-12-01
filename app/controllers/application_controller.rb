@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 	end
 
 	def require_content
-     redirect_to '/categories', notice: "Você já concluiu esse capítulo" unless contents
-   end
+ 		redirect_to '/categories', notice: "Você já concluiu esse capítulo" unless contents
+  end
 
 	def current_content
   	id_current_content = contents.select{|c| c["position"] == session[:current_content]}.first["id"]

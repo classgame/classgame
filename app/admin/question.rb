@@ -19,6 +19,7 @@ ActiveAdmin.register Question do
 		column :description
 		column :experience
 		column :created_at
+		column :chapter
 		column :exercise
 		actions
 	end

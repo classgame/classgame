@@ -3,7 +3,7 @@ class Question < ActiveRecord::Base
   has_many :alternatives
   has_many :answer
 
-  accepts_nested_attributes_for :alternatives
+  accepts_nested_attributes_for :alternatives, allow_destroy: true
 
   def correct_alternatives
     return alternatives.correct

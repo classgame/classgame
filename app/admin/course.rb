@@ -12,5 +12,14 @@ ActiveAdmin.register Course do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+	index do 
+		id_column
+		column :title
+		column :description
+		column :nivel
+		column :active
+		column :created_at
+		actions
+	end
 
 end

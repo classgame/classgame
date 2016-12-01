@@ -1,6 +1,6 @@
-<h3>
-  <%= "#{content.title} #{content.experience} XP" %>
-</h3>
+<h3> <%= "#{content.title} #{content.experience} XP" %> </h3>
+<p class="description"><%= content.description %></p>
+
 <%= simple_form_for content, url:histories_path, method:"POST" do |exercise| %>
   <input type="hidden" name="contents[content_id]" value="<%= content.id %>">
   <ol class="questions">

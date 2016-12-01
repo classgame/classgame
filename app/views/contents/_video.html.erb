@@ -4,10 +4,11 @@
     <div class="embed-responsive embed-responsive-16by9"> 
       <div id="player"></div>
     </div> 
- </div>  
+  </div>  
 
-<h3 class="title_video"><%= "#{content.title} #{content.experience} XP" %></h3>
- <%= video.submit "Próximo", class: "btn btn-default center-block"%>
+  <h3 class="title_video"><%= "#{content.title} #{content.experience} XP" %></h3>
+  <p class="description"><%= content.description %></p>
+  <%= video.submit "Próximo", class: "btn btn-default center-block"%>
 <%end%>
 
 <% content_for :js do %>
