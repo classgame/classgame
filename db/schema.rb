@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130145120) do
+ActiveRecord::Schema.define(version: 20161202144621) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -88,6 +88,14 @@ ActiveRecord::Schema.define(version: 20161130145120) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "categories_courses", id: false, force: :cascade do |t|
+    t.integer "category_id", limit: 4
+    t.integer "course_id",   limit: 4
+  end
+
+  add_index "categories_courses", ["category_id"], name: "index_categories_courses_on_category_id", using: :btree
+  add_index "categories_courses", ["course_id"], name: "index_categories_courses_on_course_id", using: :btree
+
   create_table "chapters", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.string   "description", limit: 255
@@ -128,10 +136,7 @@ ActiveRecord::Schema.define(version: 20161130145120) do
     t.integer  "progress_percentage", limit: 4,   default: 0
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
-    t.integer  "category_id",         limit: 4
   end
-
-  add_index "courses", ["category_id"], name: "index_courses_on_category_id", using: :btree
 
   create_table "histories", force: :cascade do |t|
     t.boolean  "done",                 default: true
@@ -204,7 +209,6 @@ ActiveRecord::Schema.define(version: 20161130145120) do
   add_index "users", ["performance_id"], name: "index_users_on_performance_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "courses", "categories"
   add_foreign_key "registries", "courses"
   add_foreign_key "registries", "users"
   add_foreign_key "users", "addresses"

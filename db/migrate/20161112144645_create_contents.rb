@@ -5,7 +5,6 @@ class CreateContents < ActiveRecord::Migration
       t.integer :experience
       t.integer :position
       t.string  :title
-      t.string  :nivel
       t.string  :type
       t.string  :link
       t.text    :text

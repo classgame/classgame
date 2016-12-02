@@ -4,7 +4,6 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :description
       t.integer :experience
       t.string :title
-      t.string :nivel
 
       t.timestamps null: false
     end

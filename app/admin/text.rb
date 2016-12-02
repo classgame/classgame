@@ -12,6 +12,6 @@ ActiveAdmin.register Text do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-	permit_params :chapter_id, :description, :experience, :position, :title, :nivel, :link, :text
+	permit_params :chapter_id, :description, :experience, :position, :title, :link, :text
 
 end

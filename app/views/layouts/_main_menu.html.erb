@@ -8,22 +8,22 @@
     <a class="navbar-brand" href="/welcome">ClassGames</a>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <%if user_signed_in?%>  
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Conta", edit_user_path(current_user) %></li>
-        <li><%= link_to "Categorias", categories_path  %></li>
-        <li><%= link_to "Dashboard", registries_path %></li>
-        <li><%= link_to "XP: #{ current_user.performance ? current_user.performance.total_experience : 0 }", 
-                                                                      performance_path(current_user), 
-                                                                      id:"current_experience"
-                                                                      %></li>
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-        <li><%= current_user.email  %></li>
-      </ul>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Conta", edit_user_path(current_user) %></li>
+          <li><%= link_to "Categorias", categories_path  %></li>
+          <li><%= link_to "Dashboard", registries_path %></li>
+          <li><%= link_to "XP: #{ current_user.performance ? current_user.performance.total_experience : 0 }", 
+                                                                        performance_path(current_user), 
+                                                                        id:"current_experience"
+                                                                        %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <li><%= current_user.email  %></li>
+        </ul>
       <%else%>
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Log in", user_session_path  %></li>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-      </ul>  
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Log in", user_session_path  %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        </ul>  
       <%end%>
     </div>
   </div>

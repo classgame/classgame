@@ -137,7 +137,7 @@ redes = Course.create!(
     workload:6,
     active:true,
     completed_edition:false,
-    category: tech
+    #category: tech
 )
 
 rails = Course.create!(
@@ -150,7 +150,7 @@ rails = Course.create!(
     workload:7,
     active:true,
   completed_edition:false,
-    category:tech
+    #category:tech
 )
 
 empreen = Course.create!(
@@ -163,7 +163,7 @@ empreen = Course.create!(
     workload:6, 
     active:true, 
     completed_edition:false, 
-    category:buss
+    #category:buss
 )
 
 zombie = Course.create!(
@@ -176,7 +176,7 @@ zombie = Course.create!(
     workload:10,
     active:true,
     completed_edition:false,
-    category:sobre
+    #category:sobre
 )
 
 registries = Registry.create!(

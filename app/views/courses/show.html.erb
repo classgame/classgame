@@ -1,7 +1,10 @@
 <div class="container">
   <p id="notice"><%=notice%></p>
-  <p> <%= link_to @course.category.title, @course.category %> </p>
-
+  <p style="display:inline">
+    <% @course.categories.each do |c|%>
+      <%= link_to c.title, c %>
+    <% end %>
+  </p>   
   <div class="relative">
   	<h1 class="course_banner_title"><%= @course.title %></h1>
   	<p class="description_course"> <%= @course.description%> </p>

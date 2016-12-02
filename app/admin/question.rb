@@ -16,7 +16,6 @@ ActiveAdmin.register Question do
 		selectable_column
 		id_column
 		column :title
-		column :description
 		column :experience
 		column :created_at
 		column :chapter

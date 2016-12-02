@@ -14,11 +14,9 @@ ActiveAdmin.register Exercise do
 # end
 	permit_params :chapter_id, :description, :position, :title, :nivel, questions_attributes:[
 																																														:id,
-																																														:_destroy,
-																																														:description, 
+																																														:_destroy, 
 																																														:experience, 
 																																														:title, 
-																																														:nivel,
 																																													 	alternatives_attributes:[
 																																													 													:id,
 																																													 													:_destroy,
@@ -31,6 +29,7 @@ ActiveAdmin.register Exercise do
     id_column
     column :chapter
     column :title
+    column :position
     column :created_at
     actions
   end
@@ -41,14 +40,11 @@ ActiveAdmin.register Exercise do
       f.input :description
       f.input :position
       f.input :title
-      f.input :nivel
       f.inputs do
       	f.has_many :questions, allow_destroy: true do |q|
       		q.input :id, as: :hidden 
-      		q.input :description
       		q.input :experience
       		q.input :title
-      		q.input :nivel
       		q.has_many :alternatives, allow_destroy: true do |a|
       			a.input :id, as: :hidden 
       			a.input :title
