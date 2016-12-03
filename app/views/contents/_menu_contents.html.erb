@@ -1,7 +1,9 @@
 <div id="sidebar-wrapper">
-	<ul class="sidebar-nav">
-		<li> <p id="points"> Pontuação Atual: <%= experience %>XP </p> </li>
-		<%=render partial: "content", collection: content.chapter.contents, as: :content%>
-	</ul>
+	<div class="sidebar-body">
+		<ul class="sidebar-nav">
+			<li> <p id="chapter-description"> <%= content.chapter.title %> </p> </li>
+			<%=render partial: "content", collection: content.chapter.contents, as: :content%>
+		</ul>
+	</div>
 </div>
 

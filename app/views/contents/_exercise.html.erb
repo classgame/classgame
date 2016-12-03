@@ -1,22 +1,23 @@
-<h3> <%= "#{content.title} #{content.experience} XP" %> </h3>
+<h3> <%= content.title %> </h3>
 <p class="description"><%= content.description %></p>
 
 <%= simple_form_for content, url:histories_path, method:"POST" do |exercise| %>
-  <input type="hidden" name="contents[content_id]" value="<%= content.id %>">
-  <ol class="questions">
-    <% exercise.object.questions.each do |question| %>
-      <li>
-        <p class="question"> <%= question.title %></p>
-        <ul>
-        <%= collection_radio_buttons 'contents[answers_attributes]', question.id, question.alternatives, :id, :title do |b|%>
-          <li class="radio">
-            <%= b.label { b.radio_button + b.text }  %>
-          </li>
-        <% end %>
-        </ul>
-      </li>
-    <% end %>
-  </ol>
-  <%= exercise.submit "Próximo", class: "btn btn-default" %>
+  <div class="content_exercise">
+    <input type="hidden" name="contents[content_id]" value="<%= content.id %>">
+    <ol class="questions">
+      <% exercise.object.questions.each do |question| %>
+        <li>
+          <p class="question"> <%= "#{question.title} #{question.experience}XP" %></p>
+          <ul>
+          <%= collection_radio_buttons 'contents[answers_attributes]', question.id, question.alternatives, :id, :title do |b|%>
+            <li class="radio">
+              <%= b.label { b.radio_button + b.text }  %>
+            </li>
+          <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ol>
+    <%= exercise.submit "Próximo", class: "btn btn-default" %>
+  </div>
 <% end %>
-

@@ -41,28 +41,24 @@ rick_address = Address.create(
 
 
 valter_performance = Performance.create!(
-  nivel: 0,
   total_experience: 0,
   amount_courses: 0,
   amount_exercises: 0
 )
 
 henrich_performance = Performance.create!(
-  nivel: 0,
   total_experience: 0,
   amount_courses: 0,
   amount_exercises: 0
 )
 
 paulo_performance = Performance.create!(
-  nivel: 0,
   total_experience: 0,
   amount_courses: 0,
   amount_exercises: 0
 )
 
 rick_performance = Performance.create!(
-  nivel: 0,
   total_experience: 0,
   amount_courses: 0,
   amount_exercises: 0
@@ -130,53 +126,41 @@ sobre = Category.create!(
 redes = Course.create!(
   title:"Redes",
   image:"http://www.linkcomp.com.br/wp-content/uploads/2014/12/Redes-e-Internet1.jpg",
-  image_cover:"http://www.brunapaineis.com.br/wp-content/uploads/2014/06/fundo_slide_vermelho.png",
   trailer:"https://www.youtube.com/embed/Ww9gJDzaf8g",
   description:"Uma rede de computadores é formada por um conjunto de máquinas eletrônicas com processadores capazes de trocar informações e partilhar recursos, interligados por um sub-sistema de comunicação, ou seja, é quando há pelo menos dois ou mais computadores" ,
-  nivel:"Hard",
-    workload:6,
     active:true,
     completed_edition:false,
-    #category: tech
+    #categories: tech
 )
 
 rails = Course.create!(
   title:"Ruby on Rails",
   image:"https://pbs.twimg.com/profile_images/691206086955790336/CDMbA57p.png",
-  image_cover:"http://www.brunapaineis.com.br/wp-content/uploads/2014/06/fundo_slide_vermelho.png",
   trailer:"https://www.youtube.com/embed/US_P3mGdIu8",
     description:"Ruby on Rails é um framework livre que promete aumentar velocidade e facilidade no desenvolvimento de sites orientados a banco de dados (database-driven web sites), uma vez que é possível criar aplicações com base em estruturas pré-definidas." ,
-  nivel:"Medium",
-    workload:7,
     active:true,
   completed_edition:false,
-    #category:tech
+    #categories:tech
 )
 
 empreen = Course.create!(
   title:"Abrir uma empressa", 
   image:"https://s-media-cache-ak0.pinimg.com/564x/9a/98/61/9a986184bf2d68d2f5045c9a85fcb629.jpg" ,
-  image_cover:"http://www.brunapaineis.com.br/wp-content/uploads/2014/06/fundo_slide_vermelho.png",
   trailer:"https://www.youtube.com/embed/HYQJTIkMMAg" , 
   description:"é o processo de iniciativa de implementar novos negócios ou mudanças em empresas já existentes. É um termo muito usado no âmbito empresarial e muitas vezes está relacionado",
-  nivel:"Hard",
-    workload:6, 
     active:true, 
     completed_edition:false, 
-    #category:buss
+    #categories:buss
 )
 
 zombie = Course.create!(
   title:"Como fazer um machado caseiro", 
   image:"http://cdn.filtromag.com.br/imagens/filtro/ferramenta-sobrevivencia-survco.jpg ", 
-  image_cover:"http://www.brunapaineis.com.br/wp-content/uploads/2014/06/fundo_slide_vermelho.png",
   trailer:"https://www.youtube.com/embed/BN-34JfUrHY", 
   description:"A capacidade humana de construir coisas modernas é impressionante. Mas ver este cara criar um machado de pedra primitivo usando apenas tocos de pau, pedras e fogo é impressionante e estranhamente satisfatório", 
-  nivel:"Hard",
-    workload:10,
     active:true,
     completed_edition:false,
-    #category:sobre
+    #categories:sobre
 )
 
 registries = Registry.create!(
@@ -238,7 +222,6 @@ registries = Registry.create!(
 chapter1 = Chapter.create(
   title: "Best Practices with ruby on rails",
   description: "what do you know about routes?",
-  experience: 40,
   course:rails
 )
 
@@ -247,7 +230,6 @@ video1 = Video.create(
   experience: 30,
   position: 1,
   title: "Objects and Classes",
-  nivel: "Medium",
   link: "https://www.youtube.com/embed/tduWe7LNQVs",
   chapter: chapter1
 )
@@ -256,7 +238,6 @@ text1 = Text.create(
   experience: 30,
   position: 4,
   title: "Introduction in Ruby on Rails",
-  nivel: "Easy",
   text: "Learning to build a modern web application is daunting. Ruby on Rails makes it much easier and more fun. It includes everything you need to build fantastic applications, and you can learn it with the support of our large, friendly community.",
   chapter: chapter1
 )
@@ -265,7 +246,6 @@ text2 = Text.create(
   experience: 30,
   position: 3,
   title: "Motivation to learn ruby on rails",
-  nivel: "Easy",
   text: "You’ve probably already used many of the applications that were built with Ruby on Rails: Basecamp, GitHub, Shopify, Airbnb, Twitch, SoundCloud, Hulu, Zendesk, Square, Highrise. Those are just some of the big names, but there are literally hundreds.",
   chapter: chapter1
 )
@@ -274,7 +254,6 @@ text3 = Text.create(
   experience: 30,
   position: 5,
   title: "Bootstrap on Rails",
-  nivel: "Hard",
   text: "Options can be passed via data attributes or JavaScript. For data attributes, append the option name to data-, as in data-backdrop=",
   chapter: chapter1
 )
@@ -290,7 +269,6 @@ q1 = Question.create(
   description: "Basic concepts for rails",
   experience: 50,
   title: "What is your course? ADS?",
-  nivel: "Easy",
   exercise: ex1
 )
 
@@ -309,7 +287,6 @@ Alternative.create(
 q2 = Question.create(
   experience: 60,
   title: "What is command to print information on ruby?",
-  nivel: "Medium",
   exercise: ex1
 )
 
@@ -328,7 +305,6 @@ Alternative.create(
 chapter2 = Chapter.create(
   title: "Models Taste Like Chicken",
   description: "We'll learn about ActiveRecord models, validations, and relationships.",
-  experience: 40,
   course:rails
 )
 
@@ -337,7 +313,6 @@ video1 = Video.create(
   experience: 70,
   position: 1,
   title: "Understanding Model in Ruby on Rails",
-  nivel: "Medium",
   link: "https://www.youtube.com/embed/EzDDOW_DuAc",
   chapter: chapter2
 )
@@ -346,7 +321,6 @@ text1 = Text.create(
   experience: 35,
   position: 3,
   title: "Object Relational Mapping",
-  nivel: "Easy",
   text: "Object Relational Mapping, commonly referred to as its abbreviation ORM, is a technique that connects the rich objects of an application to tables in a relational database management system. Using ORM",
   chapter: chapter2
 )
@@ -355,7 +329,6 @@ text2 = Text.create(
   experience: 30,
   position: 4,
   title: "What is Active Record?",
-  nivel: "Hard",
   text: "Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database.",
   chapter: chapter2
 )
@@ -370,7 +343,6 @@ ex2 = Exercise.create(
 q1 = Question.create(
   title: "What is Active Record?",
   experience: 50,
-  nivel: "Medium",
   exercise: ex2
 )
 
@@ -389,7 +361,6 @@ Alternative.create(
 q2 = Question.create(
   title: "How can validate data in rails models",
   experience: 50,
-  nivel: "Medium",
   exercise: ex2
 )
 

@@ -1,5 +1,4 @@
 <div class="container">
-  <p id="notice"><%=notice%></p>
   <p style="display:inline">
     <% @course.categories.each do |c|%>
       <%= link_to c.title, c %>
@@ -28,3 +27,12 @@
     <% end %>
 </div>
 
+<% content_for :js do %>
+  <%= javascript_include_tag "notify.js" %>
+<% end %>
+
+<script type="text/javascript">
+  if ("<%= notice %>".length > 0) {
+    $.notify("<%= notice %>", "success");
+  }
+</script>

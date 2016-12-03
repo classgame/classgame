@@ -26,7 +26,6 @@ class ContentsController < ApplicationController
 
 	private
 		def render_contents
-			@content = Chapter.find(session[:chapter_id]).contents
 			respond_to do |format|
 				format.html { render :management, locals: { 
 																								   partial: "contents/#{current_content.type.downcase}", 
@@ -34,7 +33,6 @@ class ContentsController < ApplicationController
 																									 experience: current_experience
 																									} 
 																								 }
-				format.json { render json: @content }
 			end
 		end  
 end

@@ -6,8 +6,38 @@ body {
 	height: auto;
 }
 
+/*Styles lateral bar*/
+.content_item small{
+	font-size: 87%;
+	display:inline-block;
+	margin-left:24px;
+	line-height: 20px;
+}
+
+#chapter-description{
+	line-height:20px;
+	font-weight: bold;
+	margin-bottom:20px;
+}
+
+.content_item{
+	border-bottom: 1px solid #efefef;
+	padding:10px 0;
+}
+
+.content_item .glyphicon-ok{
+	position:absolute;
+	top:14px;
+	left:0px;
+}
+
 .main{
 	transition: all 0.5s ease;
+}
+
+.edit_text,
+.content_exercise{
+	margin-left:10px;
 }
 
 .notice{
@@ -71,6 +101,7 @@ ul p{
 #sidebar-wrapper {
 	z-index: 1000;
 	position:fixed;
+	border-right: 1px solid #D6D8DA;
 	left:0;
 	overflow-y: auto;
 	height: 100%;
@@ -82,14 +113,14 @@ ul p{
 	position: absolute;
 	top: 0;
 	width: 250px;
+	padding:20px 30px 30px 30px;
 	margin: 0;
-	padding: 0;
 	list-style: none;
 }
 
 .sidebar-nav li {
-	text-indent: 10px;
 	line-height: 40px;
+	position:relative;
 }
 
 .sidebar-nav li .done{
@@ -97,18 +128,16 @@ ul p{
 }
 
 .sidebar-nav li a {
-	display: inline;
 	text-decoration: none;
 	color: black;
 	font-size:15px;
 	white-space: normal !important;
 	margin-top:5px;
-	margin-bottom:5px;
 }
 
 .sidebar-nav li a:hover {
-	text-decoration: none;
-	background: #F6F7F7 !important;
+	color:#158CBA;
+	background: white !important;
 }
 
 .sidebar-nav li a:active,

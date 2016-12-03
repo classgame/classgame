@@ -1,6 +1,5 @@
 class HistoriesController < ApplicationController
   before_action :require_content, only: [:create]
-  
   def index
     @histories = History.all
   end

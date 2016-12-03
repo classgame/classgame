@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def require_content
- 		redirect_to '/categories', notice: "Você já concluiu esse capítulo" unless contents
+ 		redirect_to categories_path, notice: "Você já concluiu esse capítulo" unless contents
   end
 
 	def current_content

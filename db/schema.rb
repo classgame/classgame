@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 20161202144621) do
   create_table "chapters", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.string   "description", limit: 255
-    t.integer  "experience",  limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "course_id",   limit: 4
@@ -112,7 +111,6 @@ ActiveRecord::Schema.define(version: 20161202144621) do
     t.integer  "experience",  limit: 4
     t.integer  "position",    limit: 4
     t.string   "title",       limit: 255
-    t.string   "nivel",       limit: 255
     t.string   "type",        limit: 255
     t.string   "link",        limit: 255
     t.text     "text",        limit: 65535
@@ -125,17 +123,14 @@ ActiveRecord::Schema.define(version: 20161202144621) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "image",               limit: 255
-    t.string   "image_cover",         limit: 255
     t.string   "trailer",             limit: 255
     t.string   "title",               limit: 255
     t.string   "description",         limit: 255
-    t.string   "nivel",               limit: 255
-    t.integer  "workload",            limit: 4
-    t.boolean  "active"
-    t.boolean  "completed_edition"
+    t.boolean  "active",                          default: true
+    t.boolean  "completed_edition",               default: true
     t.integer  "progress_percentage", limit: 4,   default: 0
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   create_table "histories", force: :cascade do |t|
@@ -164,7 +159,6 @@ ActiveRecord::Schema.define(version: 20161202144621) do
     t.string   "description", limit: 255
     t.integer  "experience",  limit: 4
     t.string   "title",       limit: 255
-    t.string   "nivel",       limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "exercise_id", limit: 4
