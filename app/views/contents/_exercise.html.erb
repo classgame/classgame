@@ -1,5 +1,5 @@
-<h3> <%= content.title %> </h3>
-<p class="description"><%= content.description %></p>
+<h3> <%= content.title %> <span class="label label-success"><%= "#{content.questions.map(&:experience).reduce(:+)} XP" %></span></h3>
+<p class="description"><%= content.description %></p> 
 
 <%= simple_form_for content, url:histories_path, method:"POST" do |exercise| %>
   <div class="content_exercise">
@@ -7,7 +7,7 @@
     <ol class="questions">
       <% exercise.object.questions.each do |question| %>
         <li>
-          <p class="question"> <%= "#{question.title} #{question.experience}XP" %></p>
+          <p class="question"> <%= "#{question.title}" %></p>
           <ul>
           <%= collection_radio_buttons 'contents[answers_attributes]', question.id, question.alternatives, :id, :title do |b|%>
             <li class="radio">
@@ -18,6 +18,16 @@
         </li>
       <% end %>
     </ol>
-    <%= exercise.submit "Próximo", class: "btn btn-default" %>
+    <div id="footer-exercise">
+      <%= exercise.submit "Próximo", class: "btn btn-default prox" %>
+    </div>
   </div>
 <% end %>
+
+<% content_for :js do %>
+  <%= javascript_include_tag "notify.js" %>
+<% end %>
+
+<script type="text/javascript">
+  $.notify("<%= notice %>", "success");
+</script>

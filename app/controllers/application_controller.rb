@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :contents
   
 	def contents
-		@contents = session[:contents]
+		@contents = Content.order(:position).find(session[:contents])
 	end
 
 	def require_content
@@ -28,5 +29,11 @@ class ApplicationController < ActionController::Base
 	def set_current_experience(experience)
 		session[:current_experience] += experience
 	end  
+
+	protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :cpf, :avatar])
+  end
 
 end

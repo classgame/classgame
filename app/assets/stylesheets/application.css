@@ -9,6 +9,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ //= require active_admin/editor/wysiwyg
  *= require_tree .
  *= require_self
  */

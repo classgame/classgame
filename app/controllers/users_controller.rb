@@ -58,6 +58,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name,
                                  :password,
                                  :email,
+                                 :avatar,
                                  address_attributes:[
                                    :id,
                                    :address,

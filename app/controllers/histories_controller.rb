@@ -18,7 +18,8 @@ class HistoriesController < ApplicationController
     @history = current_user.histories.new(history_params)
     if @history.save
       set_current_experience(@history.experience)
-      redirect_to next_contents_path
+      redirect_to next_contents_path, 
+        notice: @history.content.type == "Video"? nil : "Você ganhou #{@history.experience} pontos de experiência!" 
     end
   end
 

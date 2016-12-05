@@ -230,7 +230,7 @@ video1 = Video.create(
   experience: 30,
   position: 1,
   title: "Objects and Classes",
-  link: "https://www.youtube.com/embed/tduWe7LNQVs",
+  link: "https://www.youtube.com/watch?v=tduWe7LNQVs",
   chapter: chapter1
 )
 
@@ -246,7 +246,7 @@ text2 = Text.create(
   experience: 30,
   position: 3,
   title: "Motivation to learn ruby on rails",
-  text: "You’ve probably already used many of the applications that were built with Ruby on Rails: Basecamp, GitHub, Shopify, Airbnb, Twitch, SoundCloud, Hulu, Zendesk, Square, Highrise. Those are just some of the big names, but there are literally hundreds.",
+  text: "<h2>1. What is Rails?</h2><p>Rails is a&nbsp;<a target=\"_blank\" href=\"http://skillcrush.com/2013/04/05/frameworks/\">web application framework</a>&nbsp;designed to work with the&nbsp;<a target=\"_blank\" href=\"http://skillcrush.com/2014/06/23/developers-love-ruby/\">Ruby programming language</a>. Sound like mumbo jumbo?! I know!</p><p>Here’s the BIG idea: there is a programming language called Ruby. It’s super fun to write. In fact, the guy who first created it said that his major motivation when writing the language was to design a programming language that would make programmers happy. Nice, right?</p><p>Let me give you an example.</p><p>If I want to print something to the screen in PHP I need to write:</p><p><code>echo “Hello World”;</code></p><p>Notice the semi-colon? And what does echo even mean?!!</p><p>On the other hand if I wanted to do the same thing in Ruby alls I would write is:</p><p><code>puts “Hello World”</code></p><p>No semi-colon, and puts may be a little… juvenile, but it makes more intuitive sense to me than echo.</p><p>Seriously, when you spend hours and hours a day writing code, it’s the little things that make a HUGE difference.</p><p>So, anyways, the only problem with Ruby was that it’s not designed for use on the Web. Like…you couldn’t really use it to make websites, per se. That is until… Rails!</p><p>I am not sure if Rails was the first web framework for Ruby but it’s DEFINITELY the most popular.</p><p>What Rails does is provide all this fancy scaffolding and stuff to make it possible to write a Ruby application and have it be a website. This sounds really abstract when you say it here, but it’s basically like this: if I were to write</p><p><code>puts “Hello World”</code></p><p>in an HTML document, you would just see the whole thing (just like you do there!). What I actually want is for you to ONLY see</p><p><code>Hello World</code></p><p>To put it in the simplest way imaginable, Rails makes that possible. But it also does SO SO SO SO much more.</p>",
   chapter: chapter1
 )
 
@@ -254,7 +254,7 @@ text3 = Text.create(
   experience: 30,
   position: 5,
   title: "Bootstrap on Rails",
-  text: "Options can be passed via data attributes or JavaScript. For data attributes, append the option name to data-, as in data-backdrop=",
+  text: "<h2>Installing the Gem</h2><h2></h2>The&nbsp;<a target=\"_blank\" href=\"http://rubygems.org/gems/twitter-bootstrap-rails\">Twitter Bootstrap Rails gem</a>&nbsp;can provide the Bootstrap stylesheets in two ways.<br>The plain CSS way is how Bootstrap is provided on&nbsp;<a target=\"_blank\" href=\"http://twbs.github.io/bootstrap/\">the official website</a>.<br>The&nbsp;<a target=\"_blank\" href=\"http://lesscss.org/\">Less</a>&nbsp;way provides more customization options, like changing theme colors, and provides useful Less mixins for your code, but requires the Less gem and the Ruby Racer Javascript runtime (not available on Microsoft Windows).<br><h2>Installing the Less stylesheets</h2>To use Less stylesheets, you'll need the&nbsp;<a target=\"_blank\" href=\"http://rubygems.org/gems/less-rails\">less-rails gem</a>, and one of&nbsp;<a target=\"_blank\" href=\"https://github.com/cowboyd/commonjs.rb#supported-runtimes\">JavaScript runtimes supported by CommonJS</a>.<br>Include these lines in the Gemfile to install the gems from&nbsp;<a target=\"_blank\" href=\"http://rubygems.org/\">RubyGems.org</a>:<br><br>gem <span>\"therubyracer\"<br></span>gem \"less-rails\" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS<br>gem <span>\"twitter-bootstrap-rails\"<br><br></span>or you can install from latest build;<br>gem 'twitter-bootstrap-rails', :git =&gt; <span>'git://github.com/seyhunak/twitter-bootstrap-rails.git'<br></span>Then run&nbsp;<code>bundle install</code>&nbsp;from the command line:<br><br><code>bundle install<br><br></code>Then run the bootstrap generator to add Bootstrap includes into your assets:<br><br><code>rails generate bootstrap:install less<br><br></code>If you need to skip coffeescript replacement into app generators, use:<br><br><code>rails generate bootstrap:install --no-coffeescript</code><h3><a target=\"_blank\" href=\"https://github.com/seyhunak/twitter-bootstrap-rails#installing-the-less-stylesheets\"></a></h3>",
   chapter: chapter1
 )
 
@@ -313,7 +313,16 @@ video1 = Video.create(
   experience: 70,
   position: 1,
   title: "Understanding Model in Ruby on Rails",
-  link: "https://www.youtube.com/embed/EzDDOW_DuAc",
+  link: "https://www.youtube.com/watch?v=EzDDOW_DuAc",
+  chapter: chapter2
+)
+
+video1 = Video.create(
+  description: "Ruby on Rails para iniciantes - Aula 28 - Validações e Criando Métodos no Model",
+  experience: 53,
+  position: 6,
+  title: "Ruby on Rails para iniciantes - Aula 28 - Validações e Criando Métodos no Model",
+  link: "https://www.youtube.com/watch?v=jV_T16y99aU",
   chapter: chapter2
 )
 

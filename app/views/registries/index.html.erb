@@ -54,7 +54,8 @@
             <tr>
               <th scope="row"><%= i %></th>
               <td>
-                <img "img-circle" width="20px" height="20px" src="<%=user.image%>" alt="" />
+                <%= image_tag user.avatar.url(:medium), class:"image-user" %>
+                <!-- <img "img-circle" width="20px" height="20px" src="<%=user.image%>" alt="" /> -->
                 <p><%= user.name %></p>
               </td>
               <td><%= user.performance.total_experience %></td>

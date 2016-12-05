@@ -9,6 +9,9 @@ Rails.application.configure do
   config.assets.cache_store = :null_store  # Disables the Asset cache
   config.sass.cache = false
 
+  #configurations to paperclip
+  Paperclip.options[:command_path] = "/usr/bin/convert"
+
   # Do not eager load code on boot.
   config.eager_load = false
 

@@ -1,14 +1,15 @@
 <%= simple_form_for content, url:histories_path, method:"POST" do |video|%>
-	<input type="hidden" name="contents[content_id]" value="<%=content.id%>">
-  <div class="player-container">
+  <h3> <%= content.title %> <span class="label label-success"><%= "#{content.experience} XP" %></span></h3>
+  <p class="description"><%= content.description %></p>
+  <input type="hidden" name="contents[content_id]" value="<%=content.id%>">
+  <div class="content-video">
     <div class="embed-responsive embed-responsive-16by9"> 
       <div id="player"></div>
     </div> 
+    <div id="footer-video">
+      <%= video.submit "Próximo", class: "btn btn-default prox"%>
+    </div>
   </div>  
-
-  <h3 class="title_video"><%= "#{content.title} #{content.experience} XP" %></h3>
-  <p class="description"><%= content.description %></p>
-  <%= video.submit "Próximo", class: "btn btn-default center-block"%>
 <%end%>
 
 <% content_for :js do %>
@@ -16,7 +17,8 @@
 <% end %>
 
 <script type="text/javascript">
-	// 2. This code loads the IFrame Player API code asynchronously.
+	$.notify("<%= notice %>", "success");
+  // 2. This code loads the IFrame Player API code asynchronously.
 	var tag = document.createElement('script');
 
 	tag.src = "https://www.youtube.com/iframe_api";
@@ -29,7 +31,7 @@
   function onYouTubeIframeAPIReady() {
   	player = new YT.Player('player', {
       controls  : 0,
-      videoId   : "<%= content.link.split(/\//).last %>",
+      videoId   : "<%= content.link.split(/=/).last %>",
   		playerVars: { 'showinfo':0, 'rel':'0' },
       events    : {
   			'onReady'      : onPlayerReady,
@@ -46,9 +48,7 @@
   function onPlayerStateChange(event){
     if( event.data == YT.PlayerState.ENDED ){
       $.notify("Você ganhou " + "<%= content.experience %>" + " pontos de experiência!", "success");
-      $('#points').html("Pontuação Atual: " + "<%= experience += content.experience %>" + "XP" );
-      $('#icon_ok_<%=content.position%>').css('display','inline-block');
-      $('#current_experience').html('XP: ' + '<%= current_user.performance.total_experience += content.experience %>');
+      $('#current_experience').html('XP: ' + '<%= current_user.performance.total_experience + content.experience %>');
     }
   }
 </script>

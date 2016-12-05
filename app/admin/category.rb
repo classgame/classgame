@@ -14,4 +14,24 @@ ActiveAdmin.register Category do
 # end
 	permit_params :title, :image, :description
 
+	index do 
+		id_column
+		column :title
+		column :description
+		column :created_at 
+		column :picture_file_name
+		actions
+	end
+
+	permit_params :title, :description, :picture
+ 	
+ 	form do |f|
+ 		inputs "Nova Categoria" do
+	 		f.input :title
+	 		f.input :description
+	 		f.input :picture, as: :file
+	 		f.actions
+	 	end
+ 	end
+
 end

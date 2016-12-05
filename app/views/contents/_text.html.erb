@@ -1,8 +1,19 @@
-<h3><%= "#{content.title} #{content.experience} XP" %></h3>
+<h3> <%= content.title %> <span class="label label-success"><%= "#{content.experience} XP" %></span></h3>
 <p class="description"><%= content.description %></p>
-<br>
 <%= simple_form_for content, url:histories_path, method:"POST" do |text|%>
 	<input type="hidden" name="contents[content_id]" value="<%=text.object.id%>">
-	<p><%= text.object.text %></p>
-	<%= text.submit "Próximo", class: "btn btn-default"%>
+	<div class="content-text">
+		<p><%= text.object.text.html_safe %></p>
+		<div id="footer-text">
+			<%= text.submit "Próximo", class: "btn btn-default prox"%>
+		</div>
+	</div>
 <%end%>
+
+<% content_for :js do %>
+  <%= javascript_include_tag "notify.js" %>
+<% end %>
+
+<script type="text/javascript">
+  $.notify("<%= notice %>", "success");
+</script>

@@ -17,16 +17,17 @@ ActiveAdmin.register Course do
 		column :title
 		column :description
 		column :created_at 
+		column :picture_file_name
 		actions
 	end
 
-	permit_params :image, :trailer, :title, :description, category_ids:[]
+	permit_params :image, :trailer, :title, :description, :picture, category_ids:[]
  	
  	form do |f|
  		inputs "Novo Couse" do
-	 		f.input :image
 	 		f.input :trailer
 	 		f.input :title
+	 		f.input :picture, as: :file
 	 		f.input :description
 	 		f.input :categories
 	 		f.actions

@@ -2,10 +2,10 @@ class ContentsSessionsController < ApplicationController
 	
 	def create
 		if params[:chapter_id]
-			session[:contents]           = Chapter.find(params[:chapter_id]).contents
-			session[:chapter_id]         = params[:chapter_id]
+			session[:contents]           = Chapter.find(params[:chapter_id]).contents.pluck(:id)
 			session[:current_content]    = 1
 			session[:current_experience] = 0
+			session[:chapter_id]         = params[:chapter_id]
 			redirect_to management_contents_path
 		end
 	end

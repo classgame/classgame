@@ -16,7 +16,7 @@
 	<h1>Nosso Time</h1>	
 	<% @user.each do |u| %>
 		<div class="col-lg-4">
-		<%= image_tag u.image, id:"image-adm" %> <br>
+		<%= image_tag u.avatar.url(:medium), id:"image-adm" %> <br>
 		<p id="name_adm"><%=u.name%></p>
 		</div>
 	<% end %>

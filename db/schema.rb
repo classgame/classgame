@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202144621) do
+ActiveRecord::Schema.define(version: 20161205194628) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -81,11 +81,15 @@ ActiveRecord::Schema.define(version: 20161202144621) do
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "image",       limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "title",                limit: 255
+    t.string   "image",                limit: 255
+    t.string   "description",          limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "picture_file_name",    limit: 255
+    t.string   "picture_content_type", limit: 255
+    t.integer  "picture_file_size",    limit: 4
+    t.datetime "picture_updated_at"
   end
 
   create_table "categories_courses", id: false, force: :cascade do |t|
@@ -122,15 +126,19 @@ ActiveRecord::Schema.define(version: 20161202144621) do
   add_index "contents", ["chapter_id"], name: "index_contents_on_chapter_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
-    t.string   "image",               limit: 255
-    t.string   "trailer",             limit: 255
-    t.string   "title",               limit: 255
-    t.string   "description",         limit: 255
-    t.boolean  "active",                          default: true
-    t.boolean  "completed_edition",               default: true
-    t.integer  "progress_percentage", limit: 4,   default: 0
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.string   "image",                limit: 255
+    t.string   "trailer",              limit: 255
+    t.string   "title",                limit: 255
+    t.string   "description",          limit: 255
+    t.boolean  "active",                           default: true
+    t.boolean  "completed_edition",                default: true
+    t.integer  "progress_percentage",  limit: 4,   default: 0
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "picture_file_name",    limit: 255
+    t.string   "picture_content_type", limit: 255
+    t.integer  "picture_file_size",    limit: 4
+    t.datetime "picture_updated_at"
   end
 
   create_table "histories", force: :cascade do |t|
@@ -196,6 +204,10 @@ ActiveRecord::Schema.define(version: 20161202144621) do
     t.string   "last_sign_in_ip",        limit: 255
     t.integer  "address_id",             limit: 4
     t.integer  "performance_id",         limit: 4
+    t.string   "avatar_file_name",       limit: 255
+    t.string   "avatar_content_type",    limit: 255
+    t.integer  "avatar_file_size",       limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree

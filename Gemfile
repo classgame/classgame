@@ -13,6 +13,9 @@ gem 'pry-byebug'
 gem "therubyracer"
 gem "twitter-bootstrap-rails"
 
+#paperclip
+gem "paperclip", "~> 5.0.0"
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -25,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #activeadmin 
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_admin_editor', github: "ejholmes/active_admin_editor", ref: "86f964be3071cd938c3cd17ad00df94ece3a50c0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,7 +1,7 @@
 <div id="sidebar-wrapper">
 	<div class="sidebar-body">
 		<ul class="sidebar-nav">
-			<li> <p id="chapter-description"> <%= content.chapter.title %> </p> </li>
+			<p id="chapter-description"> <%= link_to content.chapter.course.title, course_path(content.chapter.course) %> </p>
 			<%=render partial: "content", collection: content.chapter.contents, as: :content%>
 		</ul>
 	</div>
