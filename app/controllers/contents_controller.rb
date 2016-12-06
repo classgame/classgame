@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController	
 	before_action :require_content
-	
+	binding.pry	
 	def management
 		render_contents
 	end

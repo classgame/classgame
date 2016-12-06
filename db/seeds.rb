@@ -69,6 +69,7 @@ valter = User.create!(
   image: "https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/13232963_867235543399591_3714952430996557228_n.jpg?oh=6b81f021303b6d088eb0e725ce188fcd&oe=58A13888", 
   email:"valter@gmail.com", 
   password:"123456",
+  avatar_file_name: "valter.jpg",
 
   performance:valter_performance,
   address:valter_address
@@ -79,6 +80,7 @@ henrich = User.create!(
   image:"http://rogalabs.com/assets/img/team/team-06_jones.jpg",
   email:"henrich@gmail.com",
   password:"123456",
+  avatar_file_name: "henrich.jpg",
 
   performance:henrich_performance,
   address:henrich_address
@@ -89,6 +91,7 @@ paulo = User.create!(
   image:"https://scontent.ffor2-1.fna.fbcdn.net/v/t1.0-9/13900192_808402369296146_4162341773477618642_n.jpg?oh=a841a90c3d64c55fa9bc4666eaebcb08&oe=589C4E9E",
   email:"paulo@gmail.com",
   password:"123456",
+  avatar_file_name: "paulo.jpg",
 
   performance:paulo_performance,
   address:paulo_address
@@ -100,6 +103,7 @@ rick = User.create!(
   image:"http://vignette2.wikia.nocookie.net/walkingdead/images/d/d5/TWD_-_Rick_Grimes._LDOE.png/revision/latest?cb=20160505153116",
   email:"rick@gmail.com",
   password:"123456",
+  avatar_file_name: "the-walking-dead-3.jpg",
 
   performance:rick_performance,
   address:rick_address
@@ -108,19 +112,23 @@ rick = User.create!(
 tech = Category.create!(
   title:"Tecnologia",
   description:"Tecnologia (do grego é um termo que envolve o conhecimento técnico e científico e a aplicação deste conhecimento através de sua transformação no uso de ferramentas",
-  image:"http://images.hngn.com/data/images/full/134342/mr-robot.jpg"
+  image:"http://images.hngn.com/data/images/full/134342/mr-robot.jpg",
+  picture_file_name: "tecnologia.jpg"
+
 )
 
 buss = Category.create!(
   title:"Bussiness",
   description:"Em economia, negócio, é referido como um comércio ou empresa, que é administrado por pessoa(s) para captar recursos financeiros para gerar bens e serviços, e por consequência proporciona a circulação de capital de giro", 
-  image:"http://1.bp.blogspot.com/-fm6wll52rbs/VYyL03-LdII/AAAAAAAAM2I/62z80RPLkdE/s1600/Pense-Fora-da-Caixa-Canal-Gera%25C3%25A7%25C3%25A3o-de-Valor-600.jpg"
+  image:"http://1.bp.blogspot.com/-fm6wll52rbs/VYyL03-LdII/AAAAAAAAM2I/62z80RPLkdE/s1600/Pense-Fora-da-Caixa-Canal-Gera%25C3%25A7%25C3%25A3o-de-Valor-600.jpg",
+  picture_file_name: "bussinessgv2.jpg"
 )
 
 sobre = Category.create!(
   title:"Sobrevivência",
   description:"As Técnicas de sobrevivência compõem um conjunto de práticas emergenciais que, compreendidas, treinadas e aplicadas em situações extremas, permitem ao indivíduo prolongar sua vida", 
-  image:"https://s-media-cache-ak0.pinimg.com/236x/62/6c/a2/626ca29c1070775209885584f484e33a.jpg"
+  image:"https://s-media-cache-ak0.pinimg.com/236x/62/6c/a2/626ca29c1070775209885584f484e33a.jpg",
+  picture_file_name: "sobrevivencia.jpg"
 )
 
 redes = Course.create!(
@@ -130,17 +138,19 @@ redes = Course.create!(
   description:"Uma rede de computadores é formada por um conjunto de máquinas eletrônicas com processadores capazes de trocar informações e partilhar recursos, interligados por um sub-sistema de comunicação, ou seja, é quando há pelo menos dois ou mais computadores" ,
     active:true,
     completed_edition:false,
-    #categories: tech
+    picture_file_name:"Redes.jpg",
+    category_ids:(tech.id)
 )
 
 rails = Course.create!(
   title:"Ruby on Rails",
   image:"https://pbs.twimg.com/profile_images/691206086955790336/CDMbA57p.png",
   trailer:"https://www.youtube.com/embed/US_P3mGdIu8",
-    description:"Ruby on Rails é um framework livre que promete aumentar velocidade e facilidade no desenvolvimento de sites orientados a banco de dados (database-driven web sites), uma vez que é possível criar aplicações com base em estruturas pré-definidas." ,
-    active:true,
+  description:"Ruby on Rails é um framework livre que promete aumentar velocidade e facilidade no desenvolvimento de sites orientados a banco de dados (database-driven web sites), uma vez que é possível criar aplicações com base em estruturas pré-definidas." ,
+  active:true,
   completed_edition:false,
-    #categories:tech
+  picture_file_name:"maxresdefault.jpg",
+  category_ids:(tech.id)
 )
 
 empreen = Course.create!(
@@ -150,7 +160,8 @@ empreen = Course.create!(
   description:"é o processo de iniciativa de implementar novos negócios ou mudanças em empresas já existentes. É um termo muito usado no âmbito empresarial e muitas vezes está relacionado",
     active:true, 
     completed_edition:false, 
-    #categories:buss
+    picture_file_name:"empreendedorismo.jpg",
+    category_ids:(buss.id)
 )
 
 zombie = Course.create!(
@@ -160,7 +171,8 @@ zombie = Course.create!(
   description:"A capacidade humana de construir coisas modernas é impressionante. Mas ver este cara criar um machado de pedra primitivo usando apenas tocos de pau, pedras e fogo é impressionante e estranhamente satisfatório", 
     active:true,
     completed_edition:false,
-    #categories:sobre
+    picture_file_name:"sobrevivencia.jpg",
+    category_ids:(sobre.id)
 )
 
 registries = Registry.create!(
@@ -320,7 +332,7 @@ video1 = Video.create(
 video1 = Video.create(
   description: "Ruby on Rails para iniciantes - Aula 28 - Validações e Criando Métodos no Model",
   experience: 53,
-  position: 6,
+  position: 5,
   title: "Ruby on Rails para iniciantes - Aula 28 - Validações e Criando Métodos no Model",
   link: "https://www.youtube.com/watch?v=jV_T16y99aU",
   chapter: chapter2

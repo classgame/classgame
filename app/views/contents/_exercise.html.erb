@@ -10,7 +10,7 @@
           <p class="question"> <%= "#{question.title}" %></p>
           <ul>
           <%= collection_radio_buttons 'contents[answers_attributes]', question.id, question.alternatives, :id, :title do |b|%>
-            <li class="radio">
+            <li class="radio answer">
               <%= b.label { b.radio_button + b.text }  %>
             </li>
           <% end %>

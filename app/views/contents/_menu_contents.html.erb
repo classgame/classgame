@@ -1,8 +1,21 @@
+<% course = content.chapter.course %>
 <div id="sidebar-wrapper">
 	<div class="sidebar-body">
 		<ul class="sidebar-nav">
 			<p id="chapter-description"> <%= link_to content.chapter.course.title, course_path(content.chapter.course) %> </p>
-			<%=render partial: "content", collection: content.chapter.contents, as: :content%>
+			<div class="progress progress-background">
+      	<div class="progress-bar progress-bar active <%=get_color_of_progress(current_user, course)%>" 
+                                                                         role="progressbar"aria-valuenow="40" 
+      																																	 aria-valuemin="0" 
+      																																	 aria-valuemax="100" 
+      																																	 style="width:<%= get_progress_percentage(
+      																																	 																					current_user, 
+      																																	 																					course
+      																																	 																				 ) || 0 %>% ">
+
+        </div>
+      </div>
+			<%= render partial: "content", collection: content.chapter.contents, as: :content %>
 		</ul>
 	</div>
 </div>

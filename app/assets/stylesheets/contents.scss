@@ -53,9 +53,16 @@ p.question{
 }
 
 .radio{
-	background:#ebeded;
 	padding:10px;
 	border-radius:3px;
+}
+
+.answer{
+	background:#ebeded;
+}
+
+.answer-correct{
+	background:#c6e8cb;
 }
 
 .label-success{

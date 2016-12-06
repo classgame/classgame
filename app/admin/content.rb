@@ -14,4 +14,13 @@ ActiveAdmin.register Content do
 # end
 
 	permit_params :description, :experience, :position, :title, :link, :text, :chapter_id
+
+	index do
+		id_column
+		column :description
+		column :experience
+		column :position
+		column :title
+		actions
+	end
 end

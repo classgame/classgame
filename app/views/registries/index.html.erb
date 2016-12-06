@@ -9,24 +9,21 @@
           <figure>
             <%= image_tag course.image, class: "image_radius" %>
             <figcaption>
+              <h2 class=""><%= course.title%></h2>
               <% if course.progress_percentage == 100 %>
-                <div class="progress ">
+                <div class="progress progress-background">
                   <div class="progress-bar progress-bar active done" role="progressbar"aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:<%= course.progress_percentage%>%">
-                    <%= course.progress_percentage || 0 %>%
                   </div>
                 </div>
               <% else %>
-                <div class="progress ">
+                <div class="progress progress-background">
                   <div class="progress-bar progress-bar active" role="progressbar"aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:<%= course.progress_percentage%>%">
-                    <%= course.progress_percentage || 0 %>%
                   </div>
                 </div>
               <% end %>  
-              <h2 class=""><%= course.title%></h2>
             </figcaption>
+            <%= link_to "Continue", course, class: " btn btn-default" %>
           </figure>
-          
-          <%= link_to "Continue", course, class: " btn btn-default" %>
         </div>
       <% end %>
 

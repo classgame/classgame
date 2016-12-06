@@ -14,8 +14,32 @@
  *= require_self
  */
 *{
-	font-family:'Open Sans',sans-serif;
+	font-family:'Helvetica','Open Sans',sans-serif;
 }
+
+/*progress bar styles*/
+.progress-bar{
+  height: 10px;
+  border-radius:4px;
+  font-size:1px;
+  background-color: #0083f7;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.done{
+  background-color: #59bc69;
+}
+
+div.progress{
+  max-width: 250px;
+  margin: 0 auto;
+  height:10px;
+  width:100%;
+  border-radius:4px;
+  margin-bottom: 10px;
+}
+/*progress bar styles fim*/
 
 .navbar-default .navbar-nav li a{
 	color:white;
