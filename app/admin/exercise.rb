@@ -18,12 +18,12 @@ ActiveAdmin.register Exercise do
 																																														:experience, 
 																																														:title, 
 																																													 	alternatives_attributes:[
-																																													 													:id,
-																																													 													:_destroy,
-																																													 													:title,
-																																													 													:correct
-																																													 												 ]
-																																													 ]
+																																													 													 :id,
+																																													 													 :_destroy,
+																																													 													 :title,
+																																													 													 :correct
+																																													 												  ]
+																																													  ]
 	index do
     selectable_column
     id_column

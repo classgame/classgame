@@ -4,7 +4,7 @@ class History < ActiveRecord::Base
 	has_many :answers
 
 	accepts_nested_attributes_for :answers, 
-		reject_if: -> (attributes) { attributes[:question_id].blank? || attributes[:alternative_id].blank? }
+		reject_if: Proc.new {|attributes| attributes[:question_id].blank? || attributes[:alternative_id].blank? }
 
 	before_create :collect_experience_exercise, if: :exercise
 	before_create :collect_experience_text, if: :text
