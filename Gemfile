@@ -74,3 +74,11 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
 end
+
+#heroku
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+ruby "2.2.2"
