@@ -1,15 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p style="display:inline">
+    <% @course.categories.each do |c|%>
+      <%= link_to c.title, c %>
+    <% end %>
+  </p>   
+  <div class="relative">
+  	<h1 class="course_banner_title"><%= @course.title %></h1>
+  	<p class="description_course"> <%= @course.description%> </p>
+  	<%if user_registered(@course)%>
+  		<%= link_to 'Continue', chapters_course_path, class:"btn btn-success btn_course" %> 
+  	<%else%>
+  		<%= link_to 'Cadastre-se', registration_course_url, class:"btn btn-success btn_course" %>
+  	<%end%>
+  	<!-- <iframe class="trailer_course" width="500" height="280" src="<%=@course.trailer%>" frameborder="0" allowfullscreen></iframe> -->
+  </div>
 
-<p>
-  <%= link_to @course.category.title, @course.category %>
-</p>
+  <%- model_class = Chapter -%>
+  <div class="page-header">
+    <h1>Visão Geral</h1>
+  </div>
+    <% @chapters.each do |chapter| %>
+      <div class="bs-callout bs-callout-primary">
+        <h4>Módulo <%= chapter.id %> - <%= chapter.title %></h4>
+        <p><%= chapter.description %></td></p>
+      </div>
+    <% end %>
+</div>
 
-<h1 class="course_banner_title"><%= @course.title %></h1>
+<% content_for :js do %>
+  <%= javascript_include_tag "notify.js" %>
+<% end %>
 
-<p>
-  <%= @course.description %>
-</p>
-
-<iframe width="560" height="315" src="<%=@course.trailer%>" frameborder="0" allowfullscreen></iframe>
-<br>
-<%= link_to 'Cadastrar-se', registrations_path(@course), class:"btn btn-success" %> 
+<script type="text/javascript">
+  if ("<%= notice %>".length > 0) {
+    $.notify("<%= notice %>", "success");
+  }
+</script>

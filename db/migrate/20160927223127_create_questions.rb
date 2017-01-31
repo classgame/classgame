@@ -2,7 +2,8 @@ class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
       t.string :description
-      t.string :experience
+      t.integer :experience
+      t.string :title
 
       t.timestamps null: false
     end

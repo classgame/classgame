@@ -1,12 +1,37 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :chapters]
   before_action :authenticate_user!, :except => [:show]
 
   def index
     @courses = Course.all
   end
 
+  def registration
+    time = Time.new 
+    course = Course.find(params[:id]) 
+    respond_to do |format|
+      if current_user.courses.find_by_id(course.id)
+        format.html { redirect_to registries_path, notice: "Usuario ja cadastrado no curso!" }
+        format.json { render :show, status: :created, location: @registry }          
+      else
+        @registry = Registry.new(active:true,finished_course:false,limit_date:time+20.days,user:current_user,course:course)  
+        if @registry.save
+          format.html { redirect_to registries_path, notice: "Inscrição feita com sucesso!" }
+          format.json { render :show, status: :created, location: @registry }
+        else
+          format.html { render :index }
+          format.json { render json: @registry.errors, status: :unprocessable_entity }  
+        end
+      end
+    end
+  end
+  
+  def chapters
+    @chapters = @course.chapters
+  end
+
   def show
+    @chapters = @course.chapters
   end
 
   def new

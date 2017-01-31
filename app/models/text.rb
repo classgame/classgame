@@ -1,5 +1,5 @@
-class Text < ActiveRecord::Base
+class Text < Content
 
-  belongs_to :content
+  belongs_to :chapter
 
 end

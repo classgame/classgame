@@ -1,1 +1,1 @@
-json.extract! @exercise, :id, :title, :nivel, :experience, :created_at, :updated_at
+json.partial! "exercises/exercise", exercise: @exercise

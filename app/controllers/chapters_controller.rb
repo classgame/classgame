@@ -2,7 +2,8 @@ class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
 
   def index
-    @chapters = Chapter.all
+    @course = Course.find(params[:id])
+    @chapters = @course.chapters
   end
 
   def show
@@ -55,14 +56,6 @@ class ChaptersController < ApplicationController
     end
 
     def chapter_params
-      params.require(:chapter)
-        .permit(:title,
-                :description,
-                :experience,
-                exercise: [ :title,
-                            :nivel,
-                            :experience,
-                            :content_id ]
-               )
+      params.require(:chapter).permit(:title, :description, :experience, :course_id, :text_id)
     end
 end

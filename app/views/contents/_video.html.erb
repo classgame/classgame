@@ -1,0 +1,54 @@
+<%= simple_form_for content, url:histories_path, method:"POST" do |video|%>
+  <h3> <%= content.title %> <span class="label label-success"><%= "#{content.experience} XP" %></span></h3>
+  <p class="description"><%= content.description %></p>
+  <input type="hidden" name="contents[content_id]" value="<%=content.id%>">
+  <div class="content-video">
+    <div class="embed-responsive embed-responsive-16by9"> 
+      <div id="player"></div>
+    </div> 
+    <div id="footer-video">
+      <%= video.submit "Próximo", class: "btn btn-default prox"%>
+    </div>
+  </div>  
+<%end%>
+
+<% content_for :js do %>
+  <%= javascript_include_tag "notify.js" %>
+<% end %>
+
+<script type="text/javascript">
+	$.notify("<%= notice %>", "success");
+  // 2. This code loads the IFrame Player API code asynchronously.
+	var tag = document.createElement('script');
+
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+  	player = new YT.Player('player', {
+      controls  : 0,
+      videoId   : "<%= content.link.split(/=/).last %>",
+  		playerVars: { 'showinfo':0, 'rel':'0' },
+      events    : {
+  			'onReady'      : onPlayerReady,
+        'onStateChange': onPlayerStateChange
+  		}
+  	});
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+  	//event.target.playVideo();
+  }
+
+  function onPlayerStateChange(event){
+    if( event.data == YT.PlayerState.ENDED ){
+      $.notify("Você ganhou " + "<%= content.experience %>" + " pontos de experiência!", "success");
+      $('#current_experience').html('XP: ' + '<%= current_user.performance.total_experience + content.experience %>');
+    }
+  }
+</script>

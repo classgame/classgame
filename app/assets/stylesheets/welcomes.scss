@@ -30,3 +30,36 @@ body{
 	line-height: 1.42857143;
 	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+.alert{
+  margin:0;
+} 
+.list_itens_center{
+  width:100%;
+}
+.list_itens_center p{
+  font-size:14px;
+  line-height:26px;
+}
+.list_itens_center h2{
+  font-weight:bold;
+  text-transform:uppercase;
+}
+h1{
+  font-weight:bold;
+  text-transform:uppercase;
+  line-height:1.1;
+}
+.image_radius{
+  border-radius:50%;
+  margin:0;
+  padding:0;
+  width:140px;
+  height:140px;
+  object-fit: cover;
+    object-position: center;
+}
+
+.list_itens_center .col-lg-4{
+  text-align:center;
+}

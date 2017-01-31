@@ -1,0 +1,10 @@
+<div class="container">
+	<%- model_class = Chapter -%>
+	<% @chapters.each do |chapter| %>
+		<div class="bs-callout bs-callout-primary">
+			<h4>Módulo <%= chapter.id %> - <%= chapter.title %></h4>
+			<%= chapter.description %>
+			<%= link_to "Iniciar", contents_sessions_path(chapter.id), method: "POST"%>
+		</div>
+	<% end %>
+</div>

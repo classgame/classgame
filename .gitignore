@@ -9,6 +9,8 @@
 # Corrections? Improvements? Create a GitHub issue:
 # http://github.com/RailsApps/rails-composer/issues
 #----------------------------------------------------------------------------
+#debug
+.byebug_history
 
 # bundler state
 /.bundle

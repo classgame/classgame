@@ -1,6 +1,11 @@
 class Course < ActiveRecord::Base
-  belongs_to :category 
+  has_and_belongs_to_many :categories
   has_many :registries
   has_many :users, through: :registries
+  has_many :chapters
+  
+  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
+  accepts_nested_attributes_for :categories
 end

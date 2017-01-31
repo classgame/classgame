@@ -2,20 +2,33 @@ class User < ActiveRecord::Base
   devise :registerable, :recoverable, :rememberable, :database_authenticatable,
   :trackable, :validatable
 
-  has_many :registries
-  has_many :courses, through: :registries
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
-  before_save :normalize_name, on: [:create, :update]
-
+  has_many   :registries
+  has_many   :courses,  through: :registries
+  has_many   :contents, through: :histories  
+  has_many   :histories
+  belongs_to :performance
   belongs_to :address
-  belongs_to :performace
 
   accepts_nested_attributes_for :address, allow_destroy: true
-  accepts_nested_attributes_for :performace, allow_destroy: true
+  accepts_nested_attributes_for :performance, allow_destroy: true
 
+  before_save :normalize_name, on: [:create, :update]
+  before_create :create_performance, :create_address
+  
   private
-  def normalize_name
-    self.name = name.downcase.titleize
-  end
+    def create_performance
+      self.performance = Performance.create
+    end
+
+    def create_address
+      self.address = Address.create
+    end
+    
+    def normalize_name
+      self.name = name.downcase.titleize
+    end
 
 end

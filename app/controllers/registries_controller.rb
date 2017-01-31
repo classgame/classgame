@@ -2,30 +2,17 @@ class RegistriesController < ApplicationController
   before_action :set_registry, only: [:show, :edit, :update, :destroy]
 
   def index
-    @registries = current_user.registries
-    @users = User.includes(:performace).order("performaces.nivel desc").limit(10)
-  end
-  
-  def reg_user_course
-    time = Time.new 
-    course = Course.find(params[:id]) 
-    respond_to do |format|
-      if current_user.courses.find_by_id(course.id)
-        format.html { redirect_to registries_path, notice: "Usuario ja cadastrado no curso!" }
-        format.json { render :show, status: :created, location: @registry }          
-      else
-        @registry = Registry.new(active:true,finished_course:false,limit_date:time+600_000,user:current_user,course:course)  
-        if @registry.save
-          format.html { redirect_to registries_path, notice: "Inscrição feita com sucesso!" }
-          format.json { render :show, status: :created, location: @registry }
-        else
-          format.html { render :index }
-          format.json { render json: @registry.errors, status: :unprocessable_entity }  
-        end
-      end
+    @users = User.includes(:performance).order("performances.total_experience desc").limit(10)
+    
+    @courses = current_user.courses.each do |course|
+      chapters = course.chapters.pluck(:id)
+      contents_completed = current_user.contents.where(chapter:chapters).distinct.count
+      contents = Content.where(chapter:chapters).count
+      progress_percentage = contents_completed.to_f / contents.to_f * 100
+      course.progress_percentage = progress_percentage
     end
   end
-
+  
   def show
   end
 

@@ -1,0 +1,297 @@
+// Place all the styles related to the contents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+	overflow-x: hidden;
+	height: auto;
+}
+
+/*style content into form padding*/
+form[action="/histories"]{
+	padding:0 10px 10px;
+}
+
+/*btn prox*/
+.prox{
+	background:#59bc69;
+	color:white;
+	border:0;
+	transition:all 0.2s ease-in-out;
+}
+.prox:hover{
+	background:#45ac56;
+	color:white;
+	border:0;
+}
+
+/*Styles question exercise*/
+p.question{
+	font-size:16px !important; 
+}
+.questions li *{
+	font-size:14px;
+}
+
+.questions{
+	padding:0 10px; 
+}
+.questions ul{
+	padding: 0;
+}
+
+.content_exercise{
+	margin-left:auto;
+	margin-right:auto;
+	max-width:960px;
+	padding:10px;
+	box-shadow:0 1px 1px rgba(0,0,0,0.3);
+	margin-top:10px;
+}
+
+#footer-exercise{
+	border-top: 1px solid #ebeded;
+}
+
+.radio{
+	padding:10px;
+	border-radius:3px;
+}
+
+.answer{
+	background:#ebeded;
+}
+
+.answer-correct{
+	background:#c6e8cb;
+}
+
+.label-success{
+	background-color:white;
+	border: 1px solid #59bc69;
+	color: #59bc69;
+	font-size:50%;
+}
+
+/*Style video*/
+.content-video{
+	margin-left:auto;
+	margin-right:auto;
+	padding:10px;
+	max-width:960px;
+	box-shadow:0 1px 1px rgba(0,0,0,0.3);
+}
+
+#footer-video{
+	border-top: 1px solid #ebeded;
+	margin-top:10px;
+}
+
+/*Styles Texts*/
+.content-text{
+	margin-left:auto;
+	margin-right:auto;
+	padding:10px;
+	max-width:960px;
+	box-shadow:0 1px 1px rgba(0,0,0,0.3);	
+}
+
+#footer-text{
+	border-top: 1px solid #ebeded;
+}
+
+/*Styles lateral bar*/
+.content_item small{
+	font-size: 95%;
+	display:inline-block;
+	margin-left:24px;
+	line-height: 20px;
+}
+
+content_item small:hover{
+	text-decoration:underline !important;
+}
+
+/*chapter description style*/
+#chapter-description{
+	line-height:20px;
+	font-weight: bold;
+	margin-bottom:20px;
+	border-bottom:1px solid #efefef;
+}
+
+#chapter-description a:hover{
+	background:white !important;
+	color: #428bca;
+}
+
+
+#chapter-description a{
+	font-size:1.3em;
+}
+
+
+.content_item{
+	padding:10px 0;
+}
+
+.content_item .glyphicon-ok-circle{
+	position:absolute;
+	top:14px;
+	left:0px;
+	font-size:90%;
+}
+
+.main{
+	transition: all 0.5s ease;
+}
+
+
+
+.notice{
+	z-index:3000;
+}
+
+.main h3{
+	text-align:center;
+	padding:10px 10px 0px 10px;
+	margin:0;
+	font-size:30px;
+	color:black;
+	font-family: "helvetica";
+}
+
+.main .description{
+	text-align:center;
+	padding:10px 10px 0px 10px;
+	margin:0;
+	color:#777;
+	font-family: "helvetica";
+}
+
+input[type="submit"]{
+	margin:10px auto 10px auto;
+}
+
+li span{
+	color:green;
+	font_size:16px;
+}
+
+/* Toggle Styles */
+ul p{
+	color: black;
+	border-bottom: 1px solid #D6D8DA;
+	padding: 10px 0 10px 0;
+	font-size:16px;
+}
+
+#wrapper {
+	padding-left: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+#sidebar-wrapper {
+	z-index: 1000;
+	position:fixed;
+	border-right: 1px solid #D6D8DA;
+	left:0;
+	overflow-y: auto;
+	height: 100%;
+	background: white !important;
+}
+
+/* Sidebar Styles */
+.sidebar-nav {
+	position: absolute;
+	top: 0;
+	width: 250px;
+	padding:20px 30px 30px 30px;
+	margin: 0;
+	list-style: none;
+}
+
+.sidebar-nav li {
+	line-height: 40px;
+	position:relative;
+	border-bottom:1px solid #efefef;
+}
+
+.sidebar-nav li .done{
+	background: green;
+}
+
+.sidebar-nav li a {
+	text-decoration: none;
+	color: black;
+	font-size:15px;
+	white-space: normal !important;
+	margin-top:5px;
+}
+
+.sidebar-nav li a:hover {
+	color:#158CBA;
+	text-decoration:underline;
+	background: white !important;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+	text-decoration: none;
+}
+
+/* Sidebar Mobile Styles */
+#sidebar-wrapper-mobile{
+	overflow-y: auto;
+	display:block;
+	width: 100%;
+	background-color:black;
+	list-style: none;
+	font-family: "Helvetica"
+}
+
+.sidebar-nav-mobile {
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar-nav-mobile li {
+	text-align:center;
+	line-height: 40px;
+}
+
+.sidebar-nav-mobile li a {
+	display: block;
+	text-decoration: none;
+	color: #999999;
+}
+
+.sidebar-nav-mobile li a:hover {
+	text-decoration: none;
+	color: #fff;
+	background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav-mobile li a:active,
+.sidebar-nav-mobile li a:focus {
+	text-decoration: none;
+}
+
+@media(min-width:768px) {
+	#sidebar-wrapper{
+		width:250px;
+	}
+	.main{
+		margin:0px 0px 0px 250px;
+	}
+
+	#sidebar-wrapper-mobile{
+		display:none;
+	}	
+	.player-container{
+		padding:0 5%;
+	}
+}
+

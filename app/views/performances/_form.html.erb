@@ -1,0 +1,14 @@
+<%= simple_form_for(@performance) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :nivel %>
+    <%= f.input :total_experience %>
+    <%= f.input :amount_exercises %>
+    <%= f.input :amount_courses %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

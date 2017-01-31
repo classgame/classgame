@@ -1,6 +1,5 @@
-class Exercise < ActiveRecord::Base
+class Exercise < Content
+	has_many :questions
 
-  belongs_to :content
-  has_many :questions
-
+ 	accepts_nested_attributes_for :questions, allow_destroy: true
 end

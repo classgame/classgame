@@ -5,6 +5,7 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     @videos = Video.all
+    @video = Video.new
   end
 
   # GET /videos/1
@@ -30,6 +31,7 @@ class VideosController < ApplicationController
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
+        format.js   { }
       else
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nivel:</strong>
+  <%= @performance.nivel %>
+</p>
+
+<p>
+  <strong>Total experience:</strong>
+  <%= @performance.total_experience %>
+</p>
+
+<p>
+  <strong>Amount exercises:</strong>
+  <%= @performance.amount_exercises %>
+</p>
+
+<p>
+  <strong>Amount courses:</strong>
+  <%= @performance.amount_courses %>
+</p>
+
+<%= button_to('Back', users_path, :class => 'btn btn-large')  %>
