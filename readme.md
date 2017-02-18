@@ -14,6 +14,6 @@
   If you are working in a new local, configure your database.yml. Change the password column for the same password of your MySQL Database.
 
 Screen:
-
+![](https://zippy.gfycat.com/RewardingVagueJunco.webm)
 
 
