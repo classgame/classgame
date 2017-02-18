@@ -20,7 +20,7 @@ Courses:
 
 Content:
 
-tps://raw.githubusercontent.com/classgame/classgame/develop/real-images/conteudos.jpg)
+![](https://raw.githubusercontent.com/classgame/classgame/develop/real-images/conteudos.jpg)
 
 # Courses Plataform - ClassGame #
 -------------
