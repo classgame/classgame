@@ -13,11 +13,14 @@
 
   If you are working in a new local, configure your database.yml. Change the password column for the same password of your MySQL Database.
 
-Screen:
+## Screens: ##
+---
 
 Show Videos Course:
 
-![](https://media.giphy.com/media/oHIi0LMnvoube/giphy.gif)
+<p align="center">
+  <img src="https://media.giphy.com/media/oHIi0LMnvoube/giphy.gif" alt="classgame content"/>
+</p>
 
 Welcome:
 
@@ -33,6 +36,6 @@ Courses:
 
 Content:dssdsdsdsd
 
-![](https://raw.githubusercontent.com/classgame/classgame/develop/real-images/conteudos.jpg)
+tps://raw.githubusercontent.com/classgame/classgame/develop/real-images/conteudos.jpg)
 
 
