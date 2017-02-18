@@ -34,7 +34,7 @@ Courses:
 
 ![](https://raw.githubusercontent.com/classgame/classgame/develop/real-images/courses.jpg)
 
-Content:dssdsdsdsd
+Content:
 
 tps://raw.githubusercontent.com/classgame/classgame/develop/real-images/conteudos.jpg)
 
