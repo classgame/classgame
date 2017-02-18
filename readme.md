@@ -1,4 +1,4 @@
-# Courses Plataform - (Project Name) #
+# Courses Plataform - ClassGame #
 -------------
 ## Ruby Version: ##
 * 2.2.1
@@ -12,3 +12,8 @@
 * database.yml
 
   If you are working in a new local, configure your database.yml. Change the password column for the same password of your MySQL Database.
+
+Screen:
+
+
+
