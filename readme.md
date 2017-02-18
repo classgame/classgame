@@ -3,8 +3,8 @@
 
 ## Screens: ##
 ---
-Show Videos Course:
-dsd
+Show Content's Course:
+
 <p align="center">
   <img src="https://media.giphy.com/media/oHIi0LMnvoube/giphy.gif" alt="classgame content"/>
 </p>
