@@ -1,7 +1,10 @@
+# Courses Plataform - ClassGame #
+---
+
 ## Screens: ##
 ---
 Show Videos Course:
-
+dsd
 <p align="center">
   <img src="https://media.giphy.com/media/oHIi0LMnvoube/giphy.gif" alt="classgame content"/>
 </p>
@@ -22,8 +25,7 @@ Content:
 
 ![](https://raw.githubusercontent.com/classgame/classgame/develop/real-images/conteudos.jpg)
 
-# Courses Plataform - ClassGame #
--------------
+
 ## Ruby Version: ##
 * 2.2.1
 ## Rails Version ##
