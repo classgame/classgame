@@ -1,21 +1,5 @@
-# Courses Plataform - ClassGame #
--------------
-## Ruby Version: ##
-* 2.2.1
-## Rails Version ##
-* 4.2.3
-
--------------sdssdsds
-
-## Configuration ##
-
-* database.yml
-
-  If you are working in a new local, configure your database.yml. Change the password column for the same password of your MySQL Database.
-
 ## Screens: ##
 ---
-
 Show Videos Course:
 
 <p align="center">
@@ -37,5 +21,20 @@ Courses:
 Content:
 
 tps://raw.githubusercontent.com/classgame/classgame/develop/real-images/conteudos.jpg)
+
+# Courses Plataform - ClassGame #
+-------------
+## Ruby Version: ##
+* 2.2.1
+## Rails Version ##
+* 4.2.3
+
+-------------
+
+## Configuration ##
+
+* database.yml
+
+  If you are working in a new local, configure your database.yml. Change the password column for the same password of your MySQL Database.
 
 
