@@ -11,6 +11,29 @@ form[action="/histories"]{
 	padding:0 10px 10px;
 }
 
+/*navbar style*/
+.contents-navbar{
+  margin-left: 250px !important;
+  width:100% !important;
+  background:black !important;
+  .navbar-toggle{
+    margin: 10px !important;
+    float: none;
+    display: inline;
+    border:none;
+    &:hover{
+      background-color: transparent !important;
+    }
+    &:active{
+      background-color: transparent !important;
+    }
+  }
+  .navbar-brand{
+    float:none;
+  }
+}
+/*navbar style*/
+
 /*btn prox*/
 .prox{
 	background:#59bc69;
@@ -99,6 +122,8 @@ p.question{
 	border-top: 1px solid #ebeded;
 }
 
+/*Top navbar*/
+
 /*Styles lateral bar*/
 .content_item small{
 	font-size: 95%;
@@ -142,10 +167,9 @@ content_item small:hover{
 }
 
 .main{
+  margin:0px 0px 0px 250px;
 	transition: all 0.5s ease;
 }
-
-
 
 .notice{
 	z-index:3000;
@@ -177,7 +201,7 @@ li span{
 	font_size:16px;
 }
 
-/* Toggle Styles */
+/* Sidebar Styles */
 ul p{
 	color: black;
 	border-bottom: 1px solid #D6D8DA;
@@ -203,7 +227,10 @@ ul p{
 	background: white !important;
 }
 
-/* Sidebar Styles */
+#sidebar-wrapper{
+  width:250px;
+}
+
 .sidebar-nav {
 	position: absolute;
 	top: 0;
@@ -241,57 +268,4 @@ ul p{
 .sidebar-nav li a:focus {
 	text-decoration: none;
 }
-
-/* Sidebar Mobile Styles */
-#sidebar-wrapper-mobile{
-	overflow-y: auto;
-	display:block;
-	width: 100%;
-	background-color:black;
-	list-style: none;
-	font-family: "Helvetica"
-}
-
-.sidebar-nav-mobile {
-	margin: 0;
-	padding: 0;
-}
-
-.sidebar-nav-mobile li {
-	text-align:center;
-	line-height: 40px;
-}
-
-.sidebar-nav-mobile li a {
-	display: block;
-	text-decoration: none;
-	color: #999999;
-}
-
-.sidebar-nav-mobile li a:hover {
-	text-decoration: none;
-	color: #fff;
-	background: rgba(255,255,255,0.2);
-}
-
-.sidebar-nav-mobile li a:active,
-.sidebar-nav-mobile li a:focus {
-	text-decoration: none;
-}
-
-@media(min-width:768px) {
-	#sidebar-wrapper{
-		width:250px;
-	}
-	.main{
-		margin:0px 0px 0px 250px;
-	}
-
-	#sidebar-wrapper-mobile{
-		display:none;
-	}	
-	.player-container{
-		padding:0 5%;
-	}
-}
-
+/* Sidebar Styles */

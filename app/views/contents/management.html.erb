@@ -2,10 +2,3 @@
 <div class="main">
 		<%= render partial: partial, locals: { content: content, experience: experience } %>
 </div>
-
-<div id="sidebar-wrapper-mobile">
-	<ul class="sidebar-nav-mobile">
-		<li> <p id="points" > Pontuação atual: <%= experience %> </p> </li>
-		<%= render partial: "content", collection: content.chapter.contents, as: :content %>
-	</ul>
-</div>
