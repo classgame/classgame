@@ -1,8 +1,10 @@
 class @Contents
-  @menu_handler_click: ->
-    console.log($('.navbar-toggle'))
+  @menu_toggle_click: ->
     $('.navbar-toggle').click (e)->
       e.preventDefault()
-      $('#up-navbar').css("cssText", "margin-left: 0 !important")
+      $('#up-navbar').css("margin-left", "0")
       $('.main').css("margin",0)
       $('#sidebar-wrapper').css("width",0)
+
+  hide = ->
+    hide = true

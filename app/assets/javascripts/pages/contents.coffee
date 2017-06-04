@@ -12,4 +12,4 @@
 #	}); 
 #= require ./../helpers/contents_helper.coffee
 $(document).on 'turbolinks:load', ->
-  Contents.menu_handler_click()
+  Contents.menu_toggle_click()
