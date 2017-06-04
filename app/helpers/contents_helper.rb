@@ -13,5 +13,4 @@ module ContentsHelper
 
   def get_color_of_alternative(alternative)
   end    
-
 end
