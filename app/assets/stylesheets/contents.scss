@@ -10,6 +10,14 @@ body {
 form[action="/histories"]{
 	padding:0 10px 10px;
 }
+/*collapse sidebar*/
+.zero-margin{
+  margin: 0 !important;
+}
+.zero-width{
+  width: 0 !important;
+}
+/*end*/
 
 /*navbar style*/
 #up-navbar{
@@ -24,7 +32,7 @@ form[action="/histories"]{
     &:hover{
       background-color: transparent !important;
     }
-    &:active{
+    &:focus{
       background-color: transparent !important;
     }
   }

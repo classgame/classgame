@@ -13,3 +13,4 @@
 #= require ./../helpers/contents_helper.coffee
 $(document).on 'turbolinks:load', ->
   Contents.menu_toggle_click()
+  Contents.menu_toggle_on_load()
