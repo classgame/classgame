@@ -1,8 +1,8 @@
 class @Contents
   @menu_toggle_click: ->
-    $('.navbar-toggle').click (e)->
+    $('.navbar-toggle').click (event)->
       $item = $('body')
-      e.preventDefault()
+      event.preventDefault()
       $item.toggleClass 'collapse-sidebar'
 
       if $item.hasClass 'collapse-sidebar'  
