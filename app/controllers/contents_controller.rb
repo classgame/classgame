@@ -5,7 +5,6 @@ class ContentsController < ApplicationController
 	end
 
 	def click
-    sidebar_toggle params[:sidebar_toggle]
 		position = params[:position].to_i
 		set_current_content(position) 
 		redirect_to management_contents_path

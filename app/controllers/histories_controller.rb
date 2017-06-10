@@ -15,7 +15,6 @@ class HistoriesController < ApplicationController
   end
 
   def create
-    sidebar_toggle params[:sidebar_toggle]
     @history = current_user.histories.new(history_params)
     if @history.save
       set_current_experience(@history.experience)

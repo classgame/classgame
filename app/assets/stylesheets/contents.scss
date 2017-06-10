@@ -10,12 +10,20 @@ body {
 form[action="/histories"]{
 	padding:0 10px 10px;
 }
+
 /*collapse sidebar*/
-.zero-margin{
-  margin: 0 !important;
-}
-.zero-width{
-  width: 0 !important;
+.collapse-sidebar{
+  #up-navbar{
+    margin: 0 !important;
+  }
+
+  .main{
+    margin: 0 !important;
+  }
+
+  #sidebar-wrapper{
+    width: 0 !important;
+  }
 }
 /*end*/
 

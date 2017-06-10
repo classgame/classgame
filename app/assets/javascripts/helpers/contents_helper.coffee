@@ -1,35 +1,19 @@
 class @Contents
   @menu_toggle_click: ->
     $('.navbar-toggle').click (e)->
+      $item = $('body')
       e.preventDefault()
-      if menu_toggled()
-        set_not_toggled_elements()
+      $item.toggleClass 'collapse-sidebar'
+
+      if $item.hasClass 'collapse-sidebar'  
+        localStorage.setItem 'cllps', 'collapse-sidebar'
       else
-        set_toggled_elements()
-
-  menu_toggled = ->
-    $('#up-navbar').hasClass("zero-margin") and
-    $('.main').hasClass("zero-margin") and
-    $('#sidebar-wrapper').hasClass("zero-width")
-    
-
+        localStorage.removeItem 'cllps'
+  
   @menu_toggle_on_load: ->
-    if menu_toggled_data()
-      set_toggled_elements()
+    if typeof localStorage == 'undefined'
+      console.log 'Your browser does not support HTML5 localStorage. Try upgrading.'
     else
-      set_not_toggled_elements()
-
-  menu_toggled_data = ->
-    $('.navbar-toggle').data('status') == 1
-
-  set_toggled_elements = ->
-    $('#sidebar_toggle_status').val(1)
-    $('#up-navbar').addClass("zero-margin")
-    $('.main').addClass("zero-margin")
-    $('#sidebar-wrapper').addClass("zero-width")
-
-  set_not_toggled_elements = ->
-    $('#sidebar_toggle_status').val(0)
-    $('#up-navbar').removeClass("zero-margin")
-    $('.main').removeClass("zero-margin")
-    $('#sidebar-wrapper').removeClass("zero-width")
+      if localStorage['cllps'] == 'collapse-sidebar'
+        $('body').addClass 'collapse-sidebar'
+      return

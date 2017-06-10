@@ -3,7 +3,6 @@
 
 <%= simple_form_for content, url:histories_path, method:"POST" do |exercise| %>
   <div class="content_exercise">
-    <%= hidden_field :sidebar_toggle, :status, value: sidebar_toggle %>
     <input type="hidden" name="contents[content_id]" value="<%= content.id %>">
     <ol class="questions">
       <% exercise.object.questions.each do |question| %>

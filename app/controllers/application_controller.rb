@@ -3,13 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :contents, :sidebar_toggle
-
-  def sidebar_toggle params = {}
-    session[:sidebar_toggle] = params[:status] unless params.empty?
-    session[:sidebar_toggle] ||= 0  
-    session[:sidebar_toggle] 
-  end
+  helper_method :contents
 
 	def contents
 		@contents = Content.order(:position).find(session[:contents])
