@@ -1,8 +1,10 @@
+<% content_for :course_link do %>
+  <p id="chapter-description"> <%= link_to content.chapter.course.title, course_path(content.chapter.course) %> </p>
+<% end %>
 <% course = content.chapter.course %>
 <div id="sidebar-wrapper">
 	<div class="sidebar-body">
 		<ul class="sidebar-nav">
-			<p id="chapter-description"> <%= link_to content.chapter.course.title, course_path(content.chapter.course) %> </p>
 			<div class="progress progress-background">
       	<div class="progress-bar progress-bar active <%=get_color_of_progress(current_user, course)%>" 
                                                                          role="progressbar"aria-valuenow="40" 

@@ -38,6 +38,10 @@
     <%= yield :js %>
   </head>
   <body>
+    <div class="left-side">
+      <%= yield(:course_link) %>
+    </div>
+
     <div id="up-navbar" class="contents-navbar navbar navbar-default navbar-static-top">
       <div class="">
         <button type="button" class="navbar-toggle"> 

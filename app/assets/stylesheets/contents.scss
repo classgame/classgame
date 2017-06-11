@@ -14,11 +14,16 @@ form[action="/histories"]{
 /*collapse sidebar*/
 .collapse-sidebar{
   #up-navbar{
-    margin: 0 !important;
+    width:100% !important;
+    position: relative;
+  }
+
+  .left-side{
+    display: none;
   }
 
   .main{
-    margin: 0 !important;
+    margin-left: 0 !important;
   }
 
   #sidebar-wrapper{
@@ -26,11 +31,16 @@ form[action="/histories"]{
   }
 }
 /*end*/
-
+.left-side{
+  width:250px;
+  height:52px;
+}
 /*navbar style*/
 #up-navbar{
-  margin-left: 250px;
-  width:100% !important;
+  width:calc(100% - 250px) !important;
+  position: absolute;
+  top:0;
+  right:0;
   background:black !important;
   .navbar-toggle{
     margin: 10px !important;
@@ -156,8 +166,9 @@ content_item small:hover{
 #chapter-description{
 	line-height:20px;
 	font-weight: bold;
-	margin-bottom:20px;
-	border-bottom:1px solid #efefef;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
 }
 
 #chapter-description a:hover{
