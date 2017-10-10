@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.6'
+ruby '2.4.2'
+
+gem 'rails', '4.2.8'
 gem 'mysql2', '>= 0.3.13', '< 0.5'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -27,8 +29,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #activeadmin 
-gem 'activeadmin', github: 'activeadmin'
-gem 'active_admin_editor', github: "ejholmes/active_admin_editor", ref: "86f964be3071cd938c3cd17ad00df94ece3a50c0"
+gem 'activeadmin'
+gem 'active_admin_editor', github: "ejholmes/active_admin_editor"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -58,7 +60,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'thin'
-  gem 'annotate', '~> 2.6.6'
+  gem 'annotate'
   gem 'mina-multistage', require: false
   gem 'mina'
 
@@ -74,4 +76,3 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
 end
-
