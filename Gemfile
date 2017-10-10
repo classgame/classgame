@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.4.2'
 
-gem 'rails', '4.2.8'
-gem 'mysql2', '>= 0.3.13', '< 0.5'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'rails', '5.1.4'
+gem 'mysql2'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'pry-byebug'
@@ -16,7 +16,7 @@ gem "therubyracer"
 gem "twitter-bootstrap-rails"
 
 #paperclip
-gem "paperclip", "~> 5.0.0"
+gem "paperclip"
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -24,9 +24,8 @@ gem "paperclip", "~> 5.0.0"
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
 
 #activeadmin 
 gem 'activeadmin'
@@ -44,7 +43,7 @@ gem 'active_admin_editor', github: "ejholmes/active_admin_editor"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'mailcatcher'
-  gem "factory_girl_rails", "~> 4.0"
+  gem "factory_girl_rails"
   gem 'pry-rails'
   gem 'pry-rescue'
 end
@@ -54,9 +53,8 @@ group :development do
   gem 'spring'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
-  gem 'quiet_assets'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
   gem "better_errors"
   gem "binding_of_caller"
   gem 'thin'
