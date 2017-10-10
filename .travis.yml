@@ -1,0 +1,13 @@
+addons:
+  mysql: 5.7
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - bundle install
+dist: trusty
+language: ruby
+rvm:
+  - 2.2.1
+script:
+  - bundle exec rails db:create RAILS_ENV=test
+  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rspec
