@@ -13,4 +13,8 @@ module ContentsHelper
 
   def get_color_of_alternative(alternative)
   end    
+
+  def get_color_of_check(content, user)
+    content.users.include?(current_user) ? "color:#59bc69" : "color:#999999"
+  end
 end

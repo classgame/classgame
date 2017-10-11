@@ -1,4 +1,4 @@
 <%= render partial: "menu_contents", locals: { content: content, experience: experience } %>
 <div class="main">
-		<%= render partial: partial, locals: { content: content, experience: experience } %>
+		<%= render partial: content.content_partial, locals: { content: content, experience: experience } %>
 </div>

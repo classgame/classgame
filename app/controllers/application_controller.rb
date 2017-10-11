@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
 	def current_content
   	id_current_content = contents.select{|c| c["position"] == session[:current_content]}.first["id"]
-  	@content = Content.find(id_current_content)
+    @content = ContentPresenter.new(Content.find(id_current_content))
   end
 
 	def current_experience

@@ -27,7 +27,6 @@ class ContentsController < ApplicationController
 		def render_contents
 			respond_to do |format|
 				format.html { render :management, locals: { 
-																								   partial: "contents/#{current_content.type.downcase}", 
 																									 content: current_content, 
 																									 experience: current_experience
 																									} 
