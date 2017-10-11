@@ -1,8 +1,6 @@
 addons:
   mysql: 5.7
 before_script:
-  - gem install activeadmin -v '2.0.0.alpha'
-  - gem update bundler
   - cp config/database.yml.travis config/database.yml
   - bundle install
 dist: trusty
