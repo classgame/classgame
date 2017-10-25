@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Question < ActiveRecord::Base
   belongs_to :exercise
   has_many :alternatives
@@ -6,11 +7,10 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :alternatives, allow_destroy: true
 
   def correct_alternatives
-    return alternatives.correct
+    alternatives.correct
   end
 
   def incorrect_alternatives
-    return alternatives.incorrect
+    alternatives.incorrect
   end
-
 end
