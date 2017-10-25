@@ -51,11 +51,12 @@ class ChaptersController < ApplicationController
   end
 
   private
-    def set_chapter
-      @chapter = Chapter.find(params[:id])
-    end
 
-    def chapter_params
-      params.require(:chapter).permit(:title, :description, :experience, :course_id, :text_id)
-    end
+  def set_chapter
+    @chapter = Chapter.find(params[:id])
+  end
+
+  def chapter_params
+    params.require(:chapter).permit(:title, :description, :experience, :course_id, :text_id)
+  end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AlternativesController < ApplicationController
   before_action :set_alternative, only: [:show, :edit, :update, :destroy]
 
@@ -51,11 +52,11 @@ class AlternativesController < ApplicationController
 
   private
 
-    def set_alternative
-      @alternative = Alternative.find(params[:id])
-    end
+  def set_alternative
+    @alternative = Alternative.find(params[:id])
+  end
 
-    def alternative_params
-      params.require(:alternative).permit(:description, :correct)
-    end
+  def alternative_params
+    params.require(:alternative).permit(:description, :correct)
+  end
 end

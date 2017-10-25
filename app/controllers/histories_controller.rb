@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class HistoriesController < ApplicationController
   before_action :require_content, only: [:create]
   def index
@@ -16,11 +17,10 @@ class HistoriesController < ApplicationController
 
   def create
     @history = current_user.histories.new(history_params)
-    if @history.save
-      set_current_experience(@history.experience)
-      redirect_to next_contents_path, 
-        notice: @history.content.type == "Video"? nil : "Você ganhou #{@history.experience} pontos de experiência!" 
-    end
+    return unless @history.save
+    set_current_experience(@history.experience)
+    redirect_to next_contents_path,
+                notice: @history.content.type == 'Video' ? nil : "Você ganhou #{@history.experience} pontos de experiência!"
   end
 
   def update
@@ -44,16 +44,20 @@ class HistoriesController < ApplicationController
   end
 
   private
-    def history_params
-      params[:contents][:answers_attributes] = 
-        params[:contents][:answers_attributes] ? 
-          params[:contents][:answers_attributes].map{|t| {question_id:t.first, alternative_id:t.last}} 
-            : nil
-      
-      params.require(:contents).permit(:content_id, 
-                                        answers_attributes:[
-                                          :question_id, 
-                                          :alternative_id
-                                        ])
+
+  def history_params
+    if params[:contents][:answers_attributes].present?
+      params[:contents][:answers_attributes] = params[:contents][:answers_attributes].map do |t|
+        { question_id: t.first, alternative_id: t.last }
+      end
+    else
+      params[:contents][:answers_attributes] = nil
     end
+
+    params.require(:contents).permit(:content_id,
+                                     answers_attributes: [
+                                       :question_id,
+                                       :alternative_id
+                                     ])
+  end
 end

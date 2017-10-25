@@ -1,30 +1,25 @@
+# frozen_string_literal: true
 ActiveAdmin.register Exercise do
+  # See permitted parameters documentation:
+  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
+  #
+  # permit_params :list, :of, :attributes, :on, :model
+  #
+  # or
+  #
+  # permit_params do
+  #   permitted = [:permitted, :attributes]
+  #   permitted << :other if params[:action] == 'create' && current_user.admin?
+  #   permitted
+  # end
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
-	permit_params :chapter_id, :description, :position, :title, :nivel, questions_attributes:[
-																																														:id,
-																																														:_destroy, 
-																																														:experience, 
-																																														:title, 
-																																													 	alternatives_attributes:[
-																																													 													 :id,
-																																													 													 :_destroy,
-																																													 													 :title,
-																																													 													 :correct
-																																													 												  ]
-																																													  ]
-	index do
+  permit_params :chapter_id, :description, :position, :title, :nivel,
+                questions_attributes: [
+                  :id, :_destroy, :experience, :title,
+                  alternatives_attributes: [:id, :_destroy, :title, :correct]
+                ]
+
+  index do
     selectable_column
     id_column
     column :chapter
@@ -41,16 +36,16 @@ ActiveAdmin.register Exercise do
       f.input :position
       f.input :title
       f.inputs do
-      	f.has_many :questions, allow_destroy: true do |q|
-      		q.input :id, as: :hidden 
-      		q.input :experience
-      		q.input :title
-      		q.has_many :alternatives, allow_destroy: true do |a|
-      			a.input :id, as: :hidden 
-      			a.input :title
-      			a.input :correct
-      		end
-      	end
+        f.has_many :questions, allow_destroy: true do |q|
+          q.input :id, as: :hidden
+          q.input :experience
+          q.input :title
+          q.has_many :alternatives, allow_destroy: true do |a|
+            a.input :id, as: :hidden
+            a.input :title
+            a.input :correct
+          end
+        end
       end
     end
     actions

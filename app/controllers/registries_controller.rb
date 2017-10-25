@@ -1,18 +1,19 @@
+# frozen_string_literal: true
 class RegistriesController < ApplicationController
   before_action :set_registry, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.includes(:performance).order("performances.total_experience desc").limit(10)
-    
+    @users = User.includes(:performance).order('performances.total_experience desc').limit(10)
+
     @courses = current_user.courses.each do |course|
       chapters = course.chapters.pluck(:id)
-      contents_completed = current_user.contents.where(chapter:chapters).distinct.count
-      contents = Content.where(chapter:chapters).count
+      contents_completed = current_user.contents.where(chapter: chapters).distinct.count
+      contents = Content.where(chapter: chapters).count
       progress_percentage = contents_completed.to_f / contents.to_f * 100
       course.progress_percentage = progress_percentage
     end
   end
-  
+
   def show
   end
 
@@ -58,11 +59,12 @@ class RegistriesController < ApplicationController
   end
 
   private
-    def set_registry
-      @registry = Registry.find(params[:id])
-    end
 
-    def registry_params
-      params.require(:registry).permit(:active, :finished_course, :limit_date, :course_id)
-    end
+  def set_registry
+    @registry = Registry.find(params[:id])
+  end
+
+  def registry_params
+    params.require(:registry).permit(:active, :finished_course, :limit_date, :course_id)
+  end
 end
