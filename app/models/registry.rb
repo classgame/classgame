@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Registry < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
@@ -5,6 +6,6 @@ class Registry < ActiveRecord::Base
   after_create :amount_courses
 
   def amount_courses
-  	self.user.performance.update_attributes(amount_courses: self.user.performance.amount_courses + 1)
+  	user.performance.update_attributes(amount_courses: user.performance.amount_courses + 1)
   end
 end
