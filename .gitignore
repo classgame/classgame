@@ -45,8 +45,6 @@ log/*
 /public/system/*
 /spec/tmp/*
 /cache
-/capybara*
-/capybara-*.html
 /gems
 /specifications
 rerun.txt

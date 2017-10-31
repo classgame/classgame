@@ -12,7 +12,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   host: localhost
-  username: <%= ENV["USER_DATABASE"] %>
+  username: <%= ENV.fetch 'MYSQL_USER', 'root' %>
   password: <%= ENV["PASSWORD_DATABASE"] %>
   pool: 5
 
