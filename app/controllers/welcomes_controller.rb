@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 class WelcomesController < ApplicationController
-  before_action :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, except: :index
   def index
-  	@categories = Category.all
-  	@user = User.find(1,2,3)
+    @categories = Category.all
+    @user = User.find(1, 2, 3)
   end
 end

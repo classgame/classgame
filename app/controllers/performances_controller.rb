@@ -1,3 +1,4 @@
+params[:contents][:answers_attributes] =
 class PerformancesController < ApplicationController
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
 
@@ -62,13 +63,14 @@ class PerformancesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_performance
-      @performance = Performance.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def performance_params
-      params.require(:performance).permit(:nivel, :total_experience, :amount_exercises, :amount_courses)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_performance
+    @performance = Performance.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def performance_params
+    params.require(:performance).permit(:nivel, :total_experience, :amount_exercises, :amount_courses)
+  end
 end

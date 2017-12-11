@@ -31,7 +31,7 @@ class VideosController < ApplicationController
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
-        format.js   { }
+        format.js   {}
       else
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }
@@ -64,13 +64,14 @@ class VideosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_video
-      @video = Video.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def video_params
-      params.require(:video).permit(:link, :title, :description, :experience)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_video
+    @video = Video.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def video_params
+    params.require(:video).permit(:link, :title, :description, :experience)
+  end
 end

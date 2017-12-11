@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show]
@@ -51,11 +52,12 @@ class CategoriesController < ApplicationController
   end
 
   private
-    def set_category
-      @category = Category.find(params[:id])
-    end
 
-    def category_params
-      params.require(:category).permit(:title, :image, :description)
-    end
+  def set_category
+    @category = Category.find(params[:id])
+  end
+
+  def category_params
+    params.require(:category).permit(:title, :image, :description)
+  end
 end

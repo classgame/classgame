@@ -1,31 +1,32 @@
+# frozen_string_literal: true
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy, :chapters]
-  before_action :authenticate_user!, :except => [:show]
+  before_action :authenticate_user!, except: :show
 
   def index
     @courses = Course.all
   end
 
   def registration
-    time = Time.new 
-    course = Course.find(params[:id]) 
+    time = Time.new.utc
+    course = Course.find(params[:id])
     respond_to do |format|
-      if current_user.courses.find_by_id(course.id)
-        format.html { redirect_to registries_path, notice: "Usuario ja cadastrado no curso!" }
-        format.json { render :show, status: :created, location: @registry }          
+      if current_user.courses.find_by(id: course.id)
+        format.html { redirect_to registries_path, notice: 'Usuario ja cadastrado no curso!' }
+        format.json { render :show, status: :created, location: @registry }
       else
-        @registry = Registry.new(active:true,finished_course:false,limit_date:time+20.days,user:current_user,course:course)  
+        @registry = Registry.new(active: true, finished_course: false, limit_date: time + 20.days, user: current_user, course: course)
         if @registry.save
-          format.html { redirect_to registries_path, notice: "Inscrição feita com sucesso!" }
+          format.html { redirect_to registries_path, notice: 'Inscrição feita com sucesso!' }
           format.json { render :show, status: :created, location: @registry }
         else
           format.html { render :index }
-          format.json { render json: @registry.errors, status: :unprocessable_entity }  
+          format.json { render json: @registry.errors, status: :unprocessable_entity }
         end
       end
     end
   end
-  
+
   def chapters
     @chapters = @course.chapters
   end
@@ -77,11 +78,12 @@ class CoursesController < ApplicationController
   end
 
   private
-    def set_course
-      @course = Course.find(params[:id])
-    end
 
-    def course_params
-      params.require(:course).permit(:title, :description, :nivel, :workload, :active, :completed_edition, :category_id)
-    end
+  def set_course
+    @course = Course.find(params[:id])
+  end
+
+  def course_params
+    params.require(:course).permit(:title, :description, :nivel, :workload, :active, :completed_edition, :category_id)
+  end
 end
