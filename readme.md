@@ -27,9 +27,9 @@ Content:
 
 
 ## Ruby Version: ##
-* 2.2.1
+* 2.4.2
 ## Rails Version ##
-* 4.2.3
+* 4.2.10
 
 -------------
 
