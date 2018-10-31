@@ -39,4 +39,16 @@ Content:
 
   If you are working in a new local, configure your database.yml. Change the password column for the same password of your MySQL Database.
 
+## Development ##
 
+To start your development environment follow these steps:
+```
+# start dependencies, like mysql, with docker
+docker-compose up -d
+# install gems
+bundle install
+# setup database
+bundle exec rake db:setup
+# start rails server
+bundle exec rails server
+```
